@@ -23,7 +23,8 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 bg-mainbg bg-cover">
+      <title>Echoes - Register</title>
       <div className="bg-white shadow-md rounded-md px-6 py-8 w-80">
       <div className="flex items-center justify-center">
           <Link href="/">
