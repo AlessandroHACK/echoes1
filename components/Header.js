@@ -17,17 +17,24 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
+        <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Buscar"
+            />
+            
+          </Form>
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
             <Nav.Link href="/" style={{ color: 'white' }}>
-              Inicio
+              Artistas
             </Nav.Link>
-            <Nav.Link href="/" style={{ color: 'white' }}>
-              Ayuda
-            </Nav.Link>
+           
             <NavDropdown
               title="Categorías"
               id="navbarScrollingDropdown"
@@ -48,20 +55,7 @@ const Header = () => {
               Login
             </Nav.Link>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button
-              variant="outline-light"
-              className="text-white hover:text-black hover:bg-white"
-            >
-              Buscar
-            </Button>
-          </Form>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
