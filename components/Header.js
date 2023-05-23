@@ -25,7 +25,7 @@ const Header = () => {
             <Nav.Link href="/" style={{ color: 'white' }}>
               Inicio
             </Nav.Link>
-            <Nav.Link href="/" style={{ color: 'white' }}>
+            <Nav.Link href="/Ayuda" style={{ color: 'white' }}>
               Ayuda
             </Nav.Link>
             <NavDropdown
@@ -46,6 +46,9 @@ const Header = () => {
             </NavDropdown>
             <Nav.Link href="/Login" style={{ color: 'white' }}>
               Login
+            </Nav.Link>
+            <Nav.Link href="/" style={{ color: 'white' }}>
+              Carrito
             </Nav.Link>
           </Nav>
           <Form className="d-flex">
