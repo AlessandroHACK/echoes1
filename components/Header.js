@@ -33,7 +33,7 @@ const Header = () => {
               id="navbarScrollingDropdown"
               style={{ color: 'white' }}
             >
-              <NavDropdown.Item href="#action3" style={{ color: 'black' }}>
+              <NavDropdown.Item href="/Vinilos" style={{ color: 'blak' }}>
                 Vinilos
               </NavDropdown.Item>
               <NavDropdown.Item href="#action4" style={{ color: 'black' }}>
