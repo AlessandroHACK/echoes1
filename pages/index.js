@@ -6,10 +6,22 @@ import Carousel from "react-bootstrap/Carousel";
 import { auto } from "@popperjs/core";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import useSWR from 'swr'
+
+const fetcher = async() => {
+  const response = await fetch('http://localhost:3000/api/albums')
+  const data = await response.json()
+  return data
+}
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const{data, error} = useSWR('albums', fetcher, {refreshInterval: 1000})
+    if(error) return 'An error has ocurred'
+    if(!data) return 'Loading...'
+    console.log(data)
+    
   return (
     <div>
       <Layout pagina="Inicio">
