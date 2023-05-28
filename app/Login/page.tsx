@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,7 +25,7 @@ const Login = () => {
       <div className="bg-white shadow-md rounded-md px-6 py-8 w-80">
         <div className="flex items-center justify-center">
           <Link href="/">
-            <Image width={200} height={100} src="/img/Echoes-logo-b.png" />
+            <Image width={200} height={100} alt='Logo' src="/img/Echoes-logo-b.png" />
           </Link>
         </div>
         <h2 className="text-2xl font-bold mb-4 text-center">Iniciar sesión</h2>
