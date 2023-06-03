@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -6,8 +6,8 @@ import Accordion from "react-bootstrap/Accordion";
 
 const Ayuda = () => {
   return (
-    <div>
-      <h1 className="text-center color-black mt-5">En que puedo ayudarte? </h1>
+      <div className="">
+        <h1 className="text-center color-black mt-5">En que puedo ayudarte? </h1>
       <div className="flex justify-center items-center mt-5">
         <Form className="d-flex">
           <Form.Control
@@ -139,7 +139,7 @@ const Ayuda = () => {
           </Accordion.Item>
         </Accordion>
       </div>
-    </div>
+      </div>
   );
 };
 
