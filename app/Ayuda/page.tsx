@@ -6,52 +6,53 @@ import Accordion from "react-bootstrap/Accordion";
 
 const Ayuda = () => {
   return (
-      <div className="">
-        <h1 className="text-center color-black mt-5">En que puedo ayudarte? </h1>
+    <div className="p-4 md:w-1/2 mx-auto mt-5">
+      <h1 className="text-center text-black text-2xl md:text-3xl font-bold mt-5">
+        ¿En qué puedo ayudarte?
+      </h1>
       <div className="flex justify-center items-center mt-5">
-        <Form className="d-flex">
+        <Form className="flex">
           <Form.Control
             type="search"
             placeholder="Buscar"
-            className="me-2 form-control-lg"
+            className="w-full md:w-auto bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 mr-2 form-control-lg"
             aria-label="Search"
           />
           <Button
             variant="dark"
-            className="text-white bg-black hover:text-black hover:bg-white btn-lg"
+            className="text-white bg-black hover:text-black hover:bg-white btn-lg px-4 py-2"
           >
             Buscar
           </Button>
         </Form>
       </div>
 
-      <div className="options w-1/2 mx-auto mt-5 bg-white p-4 rounded-lg shadow-lg">
+      <div className="options mt-5 bg-white p-4 rounded-lg shadow-lg">
         <Accordion defaultActiveKey="0" flush>
           <Accordion.Item eventKey="0">
-            <Accordion.Header>Cancelar compra</Accordion.Header>
+            <Accordion.Header className="cursor-pointer">
+              Cancelar compra
+            </Accordion.Header>
             <Accordion.Body>
               <p className="text-gray-600 mt-3">
-                Si deseas cancelar una compra, por favor sigue los siguientes
-                pasos:
+                Si deseas cancelar una compra, por favor sigue los siguientes pasos:
               </p>
               <ol className="list-decimal text-left mt-3">
                 <li>Ingresa a tu cuenta de usuario.</li>
                 <li>Ve a la sección de "Mis pedidos".</li>
                 <li>
-                  Encuentra la compra que deseas cancelar y selecciona la opción
-                  de cancelación.
+                  Encuentra la compra que deseas cancelar y selecciona la opción de cancelación.
                 </li>
                 <li>
-                  Sigue las instrucciones adicionales proporcionadas para
-                  completar el proceso de cancelación.
+                  Sigue las instrucciones adicionales proporcionadas para completar el proceso de cancelación.
                 </li>
               </ol>
               <p className="text-gray-600 mt-3">
-                Si tienes alguna pregunta o necesitas asistencia adicional, no
-                dudes en contactarnos.
+                Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en contactarnos.
               </p>
             </Accordion.Body>
           </Accordion.Item>
+
           <Accordion.Item eventKey="1">
             <Accordion.Header>Devoluciones y rembolos</Accordion.Header>
             <Accordion.Body>
@@ -139,7 +140,7 @@ const Ayuda = () => {
           </Accordion.Item>
         </Accordion>
       </div>
-      </div>
+    </div>
   );
 };
 
