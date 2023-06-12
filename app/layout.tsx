@@ -1,9 +1,10 @@
+"use client"
 import './globals.css'
-import Script from 'next/script';
+import Footer from '../components/Footer';
 import Header from '../components/header'
-import Footer from '../components/footer';
 import UserProvider from '../providers/UserProvider';
 import SupabaseProvider from '../providers/SupabaseProvider';
+import Script from 'next/script';
 
 
 export default function RootLayout({
@@ -24,7 +25,7 @@ export default function RootLayout({
 
         </SupabaseProvider>
 
-
+<Script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></Script>
       </body>
 
     </html>
