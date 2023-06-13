@@ -2,17 +2,28 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { useRouter } from 'next/navigation';
 
 const Register = () => {
-
-  
+  const router = useRouter();
+  const supabaseClient = useSupabaseClient();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await supabaseClient.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: `${location.origin}/`,
+      },
+    })
+    router.refresh()
+
     // Aquí puedes realizar la lógica de registro o enviar los datos a un servidor
     console.log('Nombre:', name);
     console.log('Email:', email);

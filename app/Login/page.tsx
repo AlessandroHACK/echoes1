@@ -3,14 +3,37 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useUser } from "../../hooks/useUser";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const supabaseClient = useSupabaseClient();
+  const { user } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Aquí puedes realizar la lógica de autenticación o enviar los datos a un servidor
+    try {
+      const {
+        error: supabaseError
+      } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password,
+      })
+      if (supabaseError) {
+        console.log('PENDEJO');
+        return;
+      }
+      console.log('chingon')
+      router.refresh();
+    }
+    catch(error){
+      console.log(error);
+    }
     console.log("Email:", email);
     console.log("Password:", password);
     // Reiniciar los campos
@@ -19,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    
+
     <div className="min-h-screen flex items-center justify-center bg-mainbg bg-cover">
       <title>Echoes - Login</title>
       <div className="bg-white shadow-md rounded-md px-6 py-8 w-80">
