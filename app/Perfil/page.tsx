@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -21,8 +22,8 @@ const Perfil = () => {
         </div>
 
         <div className="opciones-perfil mt-5 flex flex-wrap justify-center mx-4">
-          <div className="p-4 border border-gray-300 rounded cursor-pointer hover:bg-white hover:text-black mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
-            <Link href="/pagina1">
+          <div className="p-4 border border-gray-300 rounded cursor-pointer hover:bg-gray-100 hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+            <Link href="/Confi">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
                   <Image
@@ -35,15 +36,17 @@ const Perfil = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold">Configurar Información</h3>
+                  <h3 className="text-xl font-semibold">
+                    Configurar Información
+                  </h3>
                   <p className="mt-2">Descripción de la tarjeta 1</p>
                 </div>
               </div>
             </Link>
           </div>
 
-          <div className="p-4 border border-gray-300 rounded cursor-pointer hover:bg-white hover:text-black mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
-            <Link href="/pagina2">
+          <div className="p-4 border border-gray-300 rounded cursor-pointer hover:bg-gray-100 hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+            <Link href="/Pedidos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
                   <Image
@@ -63,8 +66,8 @@ const Perfil = () => {
             </Link>
           </div>
 
-          <div className="p-4 border border-gray-300 rounded cursor-pointer hover:bg-white hover:text-black mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
-            <Link href="/pagina3">
+          <div className="p-4 border border-gray-300 rounded cursor-pointer hover:bg-gray-100 hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+            <Link href="/Pagos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
                   <Image
@@ -89,5 +92,4 @@ const Perfil = () => {
   );
 };
 
-export default Perfil
-
+export default Perfil;

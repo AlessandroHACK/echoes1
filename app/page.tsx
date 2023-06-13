@@ -15,10 +15,10 @@ export default function Home() {
         <Carousel>
           <Carousel.Item>
             <Image
-              width={900}
-              height={350}
+              width={800}
+              height={250}
               className="d-block w-100"
-              src="/img/sali1.png"
+              src="/img/a1.jpg"
               alt="First slide"
             />
             <Carousel.Caption>
@@ -28,10 +28,10 @@ export default function Home() {
           </Carousel.Item>
           <Carousel.Item>
             <Image
-              width={600}
-              height={0}
+              width={900}
+              height={350}
               className="d-block w-100"
-              src="/img/sali2.jpg"
+              src="/img/m1.jpg"
               alt="First slide"
             />
 
@@ -45,7 +45,7 @@ export default function Home() {
               width={900}
               height={350}
               className="d-block w-100"
-              src="/img/sali2.jpg"
+              src="/img/im2.jpg"
               alt="First slide"
             />
 
@@ -65,7 +65,7 @@ export default function Home() {
             <Card style={{ width: "18rem" }}>
               <Image
               alt="hola"
-                src="/img/disco1.jpg"
+                src="/img/im3.jpg"
                 width={287}
                 height={180}
               />
