@@ -4,16 +4,17 @@ import Image from "next/image";
 
 const Carousels = () => {
     return ( 
-        <div>
+        <div className="w-full h-400">
             <Carousel>
           <Carousel.Item>
+            <div className="relative rounded-md w-full h-full">
             <Image
-              width={900}
-              height={350}
-              className="d-block w-100"
+            className="object-cover"
               src="/img/sali1.png"
               alt="First slide"
+              fill
             />
+            </div>
             <Carousel.Caption>
               <h3>First slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -21,9 +22,7 @@ const Carousels = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Image
-              width={600}
-              height={0}
-              className="d-block w-100"
+              fill
               src="/img/sali2.jpg"
               alt="First slide"
             />
