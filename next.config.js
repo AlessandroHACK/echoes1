@@ -4,6 +4,11 @@ const nextConfig = {
   swcMinify: true,
   experimental:{ appDir: true,},
   reactStrictMode: false,
+  images: {
+    domains: [
+      'eydyfipzeydsfwpfjtjd.supabase.co'
+    ]
+  }
   
 }
 
