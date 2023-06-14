@@ -1,7 +1,7 @@
 export const PRODUCTS = [
-    { name: 'Drag an Drop', link: '#' },
-    { name: 'Drag an Drop', link: '#' },
-    { name: 'Drag an Drop', link: '#' },
+    { name: 'Vinilos', link: '#' },
+    { name: 'Tornamesas', link: '#' },
+    { name: 'Accesorios', link: '#' },
   ];
   
   export const RESOURCES = [
