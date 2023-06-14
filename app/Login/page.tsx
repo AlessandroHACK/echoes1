@@ -29,7 +29,7 @@ const Login = () => {
         return;
       }
       console.log('chingon')
-      router.refresh();
+      router.push('/');
     }
     catch(error){
       console.log(error);

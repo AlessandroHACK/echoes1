@@ -33,7 +33,6 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
         hover:bg-neutral-800/10
         transition
         p-4
-        h-200
         ">
             <div className="
             relative
