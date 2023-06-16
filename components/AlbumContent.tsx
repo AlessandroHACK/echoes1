@@ -25,11 +25,12 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
         xl:grid-cols-4
         2xl:grid-cols-6
         gap-4
+        mt-4
         ">
             {albums.map((item) => (
                 <AlbumItem
                 dataAlbum={item}
-                key={item.id_album}
+                key={item.id_producto}
                 onClick={() => {}}
                 />
             ))}

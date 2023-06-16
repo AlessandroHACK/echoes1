@@ -1,11 +1,9 @@
 "use client"
 import './globals.css'
-import Footer from '../components/Footer';
-import Header2 from '../components/header2'
-import UserProvider from '../providers/UserProvider';
-import SupabaseProvider from '../providers/SupabaseProvider';
-import Script from 'next/script';
-
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import UserProvider from '@/providers/UserProvider';
+import SupabaseProvider from '@/providers/SupabaseProvider';
 
 export default function RootLayout({
   children,
@@ -18,14 +16,13 @@ export default function RootLayout({
       <body>
         <SupabaseProvider>
           <UserProvider>
-            <Header2 />
+            <Header />
             {children}
             <Footer />
           </UserProvider>
 
         </SupabaseProvider>
 
-<Script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></Script>
       </body>
 
     </html>
