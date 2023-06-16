@@ -1,18 +1,27 @@
 "use client"
-import { useState } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import Loading from '../../components/loading';
 
 const Register = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     await supabaseClient.auth.signUp({
@@ -34,9 +43,16 @@ const Register = () => {
     setEmail('');
     setPassword('');
     setConfirmPassword('');
+
+   
   };
 
   return (
+    <div>
+    {isLoading ? (
+      <Loading />
+    ) : (
+
     <div className="min-h-screen flex items-center justify-center bg-gray-100 bg-mainbg bg-cover">
       <title>Echoes - Register</title>
       <div className="bg-white shadow-md rounded-md px-6 py-8 w-80">
@@ -100,6 +116,8 @@ const Register = () => {
         </div>
       </div>
     </div>
+     )}
+     </div>
   );
 };
 

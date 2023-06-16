@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Loading from '../../components/loading';
-import Link from 'next/link';
 
 const Pagos = () => {
   const [isLoading, setIsLoading] = useState(true);

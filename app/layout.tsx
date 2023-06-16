@@ -1,7 +1,7 @@
 "use client"
 import './globals.css'
 import Footer from '../components/Footer';
-import Header from '../components/header'
+import Header2 from '../components/header2'
 import UserProvider from '../providers/UserProvider';
 import SupabaseProvider from '../providers/SupabaseProvider';
 import Script from 'next/script';
@@ -18,7 +18,7 @@ export default function RootLayout({
       <body>
         <SupabaseProvider>
           <UserProvider>
-            <Header />
+            <Header2 />
             {children}
             <Footer />
           </UserProvider>

@@ -1,9 +1,20 @@
 "use client"
-import { useState } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
+import Loading from '../../components/loading';
+
 
 const Register = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -24,6 +35,10 @@ const Register = () => {
   };
 
   return (
+    <div>
+    {isLoading ? (
+      <Loading />
+    ) : (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 bg-mainbg bg-cover">
       <title>Echoes - Register</title>
       <div className="bg-white shadow-md rounded-md px-6 py-8 w-80">
@@ -87,6 +102,8 @@ const Register = () => {
         </div>
       </div>
     </div>
+     )}
+     </div>
   );
 };
 
