@@ -30,7 +30,7 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
             {albums.map((item) => (
                 <AlbumItem
                 dataAlbum={item}
-                key={item.id_album}
+                key={item.id_producto}
                 onClick={() => {}}
                 />
             ))}

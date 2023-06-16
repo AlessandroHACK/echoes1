@@ -7,9 +7,10 @@ const getAlbums = async (): Promise<Album[]> => {
         cookies: cookies
     });
 
-    const { data, error } = await supabase.from('albums').select(`
+    const { data, error } = await supabase.from('productos').select(`
   *, artistas(nombre)
-`);
+`)
+.eq('id_tipo','1');
     if (error) {
         console.log(error);
     }

@@ -16,7 +16,7 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
     const logoPath = useLoadAlbum(dataAlbum);
     return (
         <div
-            onClick={() => onClick(dataAlbum.id_album)}
+            onClick={() => onClick(dataAlbum.id_producto)}
             className="
         relative
         group
@@ -50,6 +50,7 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
                     fill
                     alt="Image"
                 />
+                
             </div>
             <div className="flex flex-col items-start w-full p-4 gap-y-1">
                 <p className="font-semibold w-full truncate text-red-700">
