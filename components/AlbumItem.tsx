@@ -1,7 +1,8 @@
 "use client"
 
-import useLoadAlbum from "../hooks/useLoadAlbum";
-import { Album } from "../types";
+import Link from "next/link";
+import useLoadAlbum from "@/hooks/useLoadAlbum";
+import { Album } from "@/types";
 import Image from "next/image";
 
 interface AlbumItemProps {
@@ -15,8 +16,8 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
 }) => {
     const logoPath = useLoadAlbum(dataAlbum);
     return (
-        <div
-            onClick={() => onClick(dataAlbum.id_producto)}
+        <Link href={`/Vinilos/${dataAlbum.id_producto}`}
+            
             className="
         relative
         group
@@ -57,7 +58,7 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
                     {dataAlbum.nombre}
                 </p>
             </div>
-        </div>
+        </Link>
     );
 }
 
