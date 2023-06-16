@@ -17,3 +17,11 @@ export interface Album{
     cantidad: string;
     id_artista: string;
 }
+
+export interface Artist{
+    id_artista: string;
+    nombre: string;
+    descripcion: string;
+    artista_path: string;
+    albums: Album[];
+}

@@ -65,7 +65,7 @@ const Header = () => {
             </Button>
             
           </Form>
-          <Nav.Link className='m-3' href="/Login" style={{ color: 'white' }}>
+          <Nav.Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
               Iniciar sesión
             </Nav.Link>
         </Navbar.Collapse>
