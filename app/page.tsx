@@ -13,7 +13,9 @@ export default async function Home() {
         
         <Carousels/>
         <h1 className="text-center color-black mt-5">Lo más reciente </h1>
+        <div className="p-3">
         <AlbumContent albums={albums}></AlbumContent>
+        </div>
     </div>
   );
 }

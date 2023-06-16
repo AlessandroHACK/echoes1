@@ -15,9 +15,5 @@ module.exports = {
     },
     
   },
-  theme: {
-    colors: {
-      primaryLight: '#e8d5c2',
-    },
-  },
+  
 }

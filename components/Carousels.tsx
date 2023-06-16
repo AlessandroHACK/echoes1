@@ -7,13 +7,15 @@ const Carousels = () => {
         <div>
             <Carousel>
           <Carousel.Item>
+            <div className="relative rounded-md w-full h-full">
             <Image
-              width={900}
-              height={350}
-              className="d-block w-100"
+            className="object-cover"
               src="/img/sali1.png"
               alt="First slide"
+              width={1920}
+              height={30}
             />
+            </div>
             <Carousel.Caption>
               <h3>First slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -21,11 +23,11 @@ const Carousels = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Image
-              width={600}
-              height={0}
-              className="d-block w-100"
+              
               src="/img/sali2.jpg"
               alt="First slide"
+              width={1920}
+              height={30}
             />
 
             <Carousel.Caption>
@@ -35,8 +37,8 @@ const Carousels = () => {
           </Carousel.Item>
           <Carousel.Item>
             <Image
-              width={900}
-              height={350}
+              width={1920}
+              height={300}
               className="d-block w-100"
               src="/img/sali2.jpg"
               alt="First slide"

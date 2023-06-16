@@ -45,12 +45,10 @@ const Header = () => {
                 Lo más vendido
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/Login" style={{ color: 'white' }}>
-              Login
-            </Nav.Link>
-            <Nav.Link href="/" style={{ color: 'white' }}>
+            <Nav.Link href="/Cart" style={{ color: 'white' }}>
               Carrito
             </Nav.Link>
+            
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -65,7 +63,11 @@ const Header = () => {
             >
               Buscar
             </Button>
+            
           </Form>
+          <Nav.Link className='m-3' href="/Login" style={{ color: 'white' }}>
+              Iniciar sesión
+            </Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

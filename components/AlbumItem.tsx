@@ -19,6 +19,7 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
             onClick={() => onClick(dataAlbum.id_album)}
             className="
         relative
+        group
         flex
         flex-col
         items-center
@@ -26,12 +27,12 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
         rounded-md
         overflow-hidden
         gap-x-4
-        bg-neutral-800/5
+        bg-red-800/5
+        text-red
         cursor-pointer
         hover:bg-neutral-800/10
         transition
         p-4
-        h-200
         ">
             <div className="
             relative
@@ -51,7 +52,7 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
                 />
             </div>
             <div className="flex flex-col items-start w-full p-4 gap-y-1">
-                <p className="font-semibold w-full truncate">
+                <p className="font-semibold w-full truncate text-red-700">
                     {dataAlbum.nombre}
                 </p>
             </div>
