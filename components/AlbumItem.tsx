@@ -46,8 +46,9 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
             transition
             ">
                 <Image
+                    priority
                     className="object-cover"
-                    src={logoPath || '/images/logoblanco.png'}
+                    src={logoPath}
                     fill
                     alt="Image"
                 />

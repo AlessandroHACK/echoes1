@@ -1,6 +1,6 @@
 "use client"
 
-import { Album } from "../types";
+import { Album } from "@/types";
 import AlbumItem from "./AlbumItem";
 
 interface AlbumContentProps {

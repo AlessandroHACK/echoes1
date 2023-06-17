@@ -4,7 +4,7 @@ import Carousels from "../../components/Carousels";
 import ArtistContent from "../../components/ArtistContent";
 
 const inter = Inter({ subsets: ["latin"] });
-export const revalidate = 0;
+export const revalidate = 10;
 
 export default async function Home() {
   const artists = await getArtists();

@@ -31,7 +31,7 @@ const Register = () => {
         emailRedirectTo: `${location.origin}/`,
       },
     })
-    router.refresh()
+    router.push('/')
 
     // Aquí puedes realizar la lógica de registro o enviar los datos a un servidor
     console.log('Nombre:', name);

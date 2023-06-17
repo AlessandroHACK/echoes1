@@ -1,9 +1,9 @@
-"use client"
 import './globals.css'
-import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import UserProvider from '@/providers/UserProvider';
 import SupabaseProvider from '@/providers/SupabaseProvider';
+import Header from '@/components/Header';
+
 
 export default function RootLayout({
   children,
