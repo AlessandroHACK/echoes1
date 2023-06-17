@@ -4,22 +4,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
 import React, { useState, useEffect } from 'react';
-import Loading from '../../components/loading';
 
 const Ayuda = () => {
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
 
   return (
     <div>
-      {isLoading ? (
-        <Loading />
-      ) : (
+
     <div className="p-4 md:w-1/2 mx-auto mt-5">
       <h1 className="text-center text-black text-2xl md:text-3xl font-bold mt-5">
         ¿En qué puedo ayudarte?
@@ -155,7 +146,6 @@ const Ayuda = () => {
         </Accordion>
       </div>
     </div>
-     )}
      </div>
   );
 };

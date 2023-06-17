@@ -2,21 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import Loading from "../../components/loading";
 const Perfil = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
 
   return (
     <div>
-      {isLoading ? (
-        <Loading />
-      ) : (
+
         <div>
           <div className="contenedor-perfil">
             <h1 className="text-4xl text-center font-bold text-black mt-5">
@@ -101,7 +91,6 @@ const Perfil = () => {
             </div>
           </div>
         </div>
-      )}
     </div>
   );
 };

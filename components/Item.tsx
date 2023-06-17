@@ -1,4 +1,7 @@
 'use client'
+
+import Link from "next/link";
+
 interface ItemProps {
     Links: { name: string; link: string }[];
     title: string;
@@ -10,12 +13,12 @@ interface ItemProps {
         <h1 className="mb-1 font-semibold">{title}</h1>
         {Links.map((link) => (
           <div key={link.name}>
-            <a
+            <Link
               className="text-gray-400 hover-text duration-300 text-sm cursor-pointer leading-6"
               href={link.link}
             >
               {link.name}
-            </a>
+            </Link>
           </div>
         ))}
       </div>

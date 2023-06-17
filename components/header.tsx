@@ -19,25 +19,25 @@ const Header = () => {
   const { session } = useSessionContext();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
-  
+
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
     setOpen(!open);
     router.refresh();
 
     if (error) {
-        console.log(error.message);
-    }else{
-        console.log('Sesión cerrada');
+      console.log(error.message);
+    } else {
+      console.log('Sesión cerrada');
     }
-}
+  }
 
   const [open, setOpen] = useState(false);
-  
+
   return (
     <div className="">
       {session ? (
-          <Navbar bg="black" expand="lg" variant="dark">
+        <Navbar bg="black" expand="lg" variant="dark">
           <Container fluid>
             <Link href="/">
               <Image
@@ -63,19 +63,23 @@ const Header = () => {
                 <NavDropdown
                   title="Categorías"
                   id="navbarScrollingDropdown"
-                  style={{ color: "white" }}
+                  style={{ color: 'white' }}
                 >
-                  <NavDropdown.Item style={{ color: "blak" }}>
-                  <Link href="/Vinilos">
-                    Vinilos
+                  <NavDropdown.Item>
+                    <Link href="/Vinilos">
+                      Vinilos
                     </Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action4" style={{ color: "black" }}>
-                    Tornamesa
+                  <NavDropdown.Item>
+                    <Link href="/Tornamesas">
+                      Tornamesas
+                    </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Divider style={{ backgroundColor: "black" }} />
-                  <NavDropdown.Item href="#action5" style={{ color: "black" }}>
-                    Lo más vendido
+                  <NavDropdown.Item>
+                    <Link href="/Accesorios">
+                      Accesorios
+                    </Link>
                   </NavDropdown.Item>
                 </NavDropdown>
 
@@ -134,73 +138,73 @@ const Header = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        
+
       ) : (
         <>
-        <Navbar bg="black" expand="lg" variant="dark">
-          <Container fluid>
-            <Link href="/">
-              <Image alt="Hola" width={200} height={100} src="/img/Echoes-logo-w.png" />
-            </Link>
-            <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-              <Nav
-                className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: '100px' }}
-                navbarScroll
-              >
-                <Link href="/" className='lg:self-center text-white py-2 lg:p-3'>
-                  Inicio
-                </Link>
-                <Link href="/Ayuda" className='lg:self-center text-white py-2 lg:p-3'>
-                  Ayuda
-                </Link>
-                <NavDropdown
-                  title="Categorías"
-                  id="navbarScrollingDropdown"
-                  style={{ color: 'white' }}
-                >
-                  <NavDropdown.Item style={{ color: 'blak' }}>
-                  <Link href="/Vinilos">
-                    Vinilos
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action4" style={{ color: 'black' }}>
-                    Tornamesa
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider style={{ backgroundColor: 'black' }} />
-                  <NavDropdown.Item  style={{ color: 'black' }}>
-                    <Link href="/action5">
-                    Lo más vendido
-                    </Link>
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <Link href="/Cart" className='lg:self-center text-white py-2 lg:p-3'>
-                  Carrito
-                </Link>
-
-              </Nav>
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button
-                  variant="outline-light"
-                  className="text-white hover:text-black hover:bg-white"
-                >
-                  Buscar
-                </Button>
-
-              </Form>
-              <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
-                Iniciar sesión
+          <Navbar bg="black" expand="lg" variant="dark">
+            <Container fluid>
+              <Link href="/">
+                <Image alt="Hola" width={200} height={100} src="/img/Echoes-logo-w.png" />
               </Link>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
+              <Navbar.Toggle aria-controls="navbarScroll" />
+              <Navbar.Collapse id="navbarScroll">
+                <Nav
+                  className="me-auto my-2 my-lg-0"
+                  style={{ maxHeight: '100px' }}
+                  navbarScroll
+                >
+                  <Link href="/" className='lg:self-center text-white py-2 lg:p-3'>
+                    Inicio
+                  </Link>
+                  <Link href="/Ayuda" className='lg:self-center text-white py-2 lg:p-3'>
+                    Ayuda
+                  </Link>
+                  <NavDropdown
+                    title="Categorías"
+                    id="navbarScrollingDropdown"
+                    style={{ color: 'white' }}
+                  >
+                    <NavDropdown.Item>
+                      <Link href="/Vinilos">
+                        Vinilos
+                      </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <Link href="/Tornamesas">
+                        Tornamesas
+                      </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider style={{ backgroundColor: "black" }} />
+                    <NavDropdown.Item>
+                      <Link href="/Accesorios">
+                        Accesorios
+                      </Link>
+                    </NavDropdown.Item>
+                  </NavDropdown>
+
+
+                </Nav>
+                <Form className="d-flex">
+                  <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                  />
+                  <Button
+                    variant="outline-light"
+                    className="text-white hover:text-black hover:bg-white"
+                  >
+                    Buscar
+                  </Button>
+
+                </Form>
+                <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
+                  Iniciar sesión
+                </Link>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
         </>
       )}
     </div>
