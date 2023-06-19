@@ -7,12 +7,10 @@ import Image from "next/image";
 
 interface AlbumItemProps {
     dataAlbum: Album;
-    onClick: (id_proyecto: string) => void
 };
 
 const AlbumItem: React.FC<AlbumItemProps> = ({
     dataAlbum,
-    onClick
 }) => {
     const logoPath = useLoadAlbum(dataAlbum);
     return (
@@ -48,7 +46,7 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
                 <Image
                     priority
                     className="object-cover"
-                    src={logoPath}
+                    src={logoPath || '/public/ímg/disco1.jpg'}
                     fill
                     alt="Image"
                 />

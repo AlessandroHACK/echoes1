@@ -7,6 +7,7 @@ type UserContextType = {
     accessToken: string | null;
     user: User | null;
     isLoading: boolean;
+    userDetails: UserDetails | null;
 }
 
 export const UserContext = createContext<UserContextType | undefined>(

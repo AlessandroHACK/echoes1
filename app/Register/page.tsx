@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
+import {toast} from "react-hot-toast"
 
 const Register = () => {
   const router = useRouter();
@@ -16,13 +17,21 @@ const Register = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await supabaseClient.auth.signUp({
+    if(password != confirmPassword){
+      toast.error('Las contraseñas no son iguales.')
+      return;
+    }
+    const {error} = await supabaseClient.auth.signUp({
       email,
       password,
       options: {
         emailRedirectTo: `${location.origin}/`,
       },
     })
+    if(error){
+      toast.error('Hubo un error en el registro, inténtalo de nuevo.')
+      return;
+    }
     router.push('/')
 
     // Aquí puedes realizar la lógica de registro o enviar los datos a un servidor

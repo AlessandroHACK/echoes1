@@ -8,6 +8,7 @@ import { useUser } from "../../hooks/useUser";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from 'react';
 import Loading from '../../components/loading';
+import {toast} from "react-hot-toast"
 
 
 const Login = () => {
@@ -28,10 +29,10 @@ const Login = () => {
         password,
       })
       if (supabaseError) {
-        console.log('PENDEJO');
+        toast.error(supabaseError.message)
         return;
       }
-      console.log('chingon')
+      toast.success('Sesión iniciada.')
       router.push('/');
     }
     catch(error){

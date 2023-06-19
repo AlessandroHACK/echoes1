@@ -31,7 +31,6 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
                 <AlbumItem
                 dataAlbum={item}
                 key={item.id_producto}
-                onClick={() => {}}
                 />
             ))}
 

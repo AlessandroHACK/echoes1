@@ -2,6 +2,7 @@ import './globals.css'
 import Footer from '@/components/Footer';
 import UserProvider from '@/providers/UserProvider';
 import SupabaseProvider from '@/providers/SupabaseProvider';
+import ToasterProvider from '@/providers/ToasterProvider'
 import Header from '@/components/Header';
 import Loading from './loading'
 import LoadingScreen from '@/components/loading';
@@ -17,16 +18,17 @@ export default function RootLayout({
     <html lang="en">
 
       <body>
-        <SupabaseProvider>
-          <UserProvider>
-            <Header />
-            <Suspense fallback={<LoadingScreen/>}>
-              {children}
-            </Suspense>
-            <Footer />
-          </UserProvider>
+        <ToasterProvider/>
+          <SupabaseProvider>
+            <UserProvider>
+              <Suspense fallback={<LoadingScreen />}>
+                <Header />
+                {children}
+                <Footer />
+              </Suspense>
+            </UserProvider>
 
-        </SupabaseProvider>
+          </SupabaseProvider>
 
       </body>
 

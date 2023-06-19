@@ -3,7 +3,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 const useLoadAlbum = (album: Album) => {
-    const supabaseClient = createClientComponentClient();
+    const supabaseClient = useSupabaseClient();
 
     const{data: imageData} = supabaseClient
     .storage

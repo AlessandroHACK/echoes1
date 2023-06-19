@@ -1,9 +1,9 @@
 export interface UserDetails {
-    id_usuario: string;
-    nombre: string;
-    direccion: string;
-    correo?: string;
-    usuario_path?: string;
+    id: string;
+    first_name: string;
+    last_name: string;
+    full_name?: string;
+    avatar_url?: string;
 
 };
 
