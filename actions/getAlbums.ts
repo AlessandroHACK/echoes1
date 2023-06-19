@@ -11,7 +11,7 @@ const getAlbums = async (): Promise<Album[]> => {
   *, artistas(nombre)
 `)
 .eq('id_tipo','1')
-.order('creado_en', {ascending: true});
+.order('nombre', {ascending: true});
     if (error) {
         console.log(error);
     }
