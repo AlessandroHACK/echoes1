@@ -8,12 +8,20 @@ export interface UserDetails {
 };
 
 export interface Album{
-    id_album: string;
+    id_producto: string;
     nombre: string;
     precio: string;
-    album_path: string;
+    imagen_path: string;
     lanzamiento: Date;
     tamano: string;
     cantidad: string;
     id_artista: string;
+}
+
+export interface Artist{
+    id_artista: string;
+    nombre: string;
+    descripcion: string;
+    artista_path: string;
+    productos: Album[];
 }

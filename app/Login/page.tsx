@@ -1,11 +1,14 @@
 "use client"
 
-import { useState } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useUser } from "../../hooks/useUser";
 import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from 'react';
+import Loading from '../../components/loading';
+
 
 const Login = () => {
   const supabaseClient = useSupabaseClient();
@@ -13,6 +16,13 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,6 +52,10 @@ const Login = () => {
   };
 
   return (
+    <div>
+    {isLoading ? (
+      <Loading />
+    ) : (
 
     <div className="min-h-screen flex items-center justify-center bg-mainbg bg-cover">
       <title>Echoes - Login</title>
@@ -107,6 +121,8 @@ const Login = () => {
           </p>
         </div>
       </div>
+    </div>
+    )}
     </div>
   );
 };

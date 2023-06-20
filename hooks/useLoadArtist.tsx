@@ -1,16 +1,16 @@
-import { Album } from "../types";
+import { Artist } from "../types";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-const useLoadAlbum = (album: Album) => {
+const useLoadArtist = (artist: Artist) => {
     const supabaseClient = useSupabaseClient();
-    if(!album){
+    if(!artist){
         return null;
     }
     const{data: imageData} = supabaseClient
     .storage
-    .from('albums')
-    .getPublicUrl(album.imagen_path);
+    .from('artistas')
+    .getPublicUrl(artist.artista_path);
 
     return imageData.publicUrl;
 };
-export default useLoadAlbum;
+export default useLoadArtist;
