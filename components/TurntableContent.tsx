@@ -30,7 +30,7 @@ const AlbumContent: React.FC<TurntableContentProps>= ({
             {turntables.map((item) => (
                 <TurntableItem
                 dataTurntable={item}
-                key={item.id_tornamesa}
+                key={item.id_producto}
                 />
             ))}
 

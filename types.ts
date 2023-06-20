@@ -28,6 +28,13 @@ export interface Turntable {
     id_marca: string;
 }
 
+export interface Product {
+    id_producto: string;
+    nombre: string;
+    precio: string;
+    id_tipo: string;
+    imagen_path: string;
+}
 
 export interface Artist {
     id_artista: string;

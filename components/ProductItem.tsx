@@ -1,20 +1,20 @@
 "use client"
 
 import Link from "next/link";
-import useLoadTurntable from "@/hooks/useLoadTurntable";
-import { Turntable } from "@/types";
+import useLoadProduct from "@/hooks/useLoadProduct";
+import { Product } from "@/types";
 import Image from "next/image";
 
 interface TurntableItemProps {
-    dataTurntable: Turntable;
+    dataProduct: Product;
 };
 
-const TurntableItem: React.FC<TurntableItemProps> = ({
-    dataTurntable,
+const AlbumItem: React.FC<TurntableItemProps> = ({
+    dataProduct,
 }) => {
-    const logoPath = useLoadTurntable(dataTurntable);
+    const logoPath = useLoadProduct(dataProduct);
     return (
-        <Link href={`/Vinilos/${dataTurntable.id_producto}`}
+        <Link href={`/Tornamesas/${dataProduct.id_producto}`}
             
             className="
         relative
@@ -54,11 +54,11 @@ const TurntableItem: React.FC<TurntableItemProps> = ({
             </div>
             <div className="flex flex-col items-start w-full p-4 gap-y-1">
                 <p className="font-semibold w-full truncate text-red-700">
-                    {dataTurntable.nombre}
+                    {dataProduct.nombre}
                 </p>
             </div>
         </Link>
     );
 }
 
-export default TurntableItem;
+export default AlbumItem;

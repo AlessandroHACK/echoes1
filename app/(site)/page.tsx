@@ -1,13 +1,13 @@
 import { Inter } from "next/font/google";
 
-import getAlbums from "@/actions/getAlbums";
+import getProducts from "@/actions/getProducts";
 import Carousels from "@/components/Carousels";
-import AlbumContent from "@/components/AlbumContent";
+import HomeContent from "@/components/HomeContent";
 
 export const revalidate = 0;
 
 export default async function Home() {
-  const albums = await getAlbums();
+  const products = await getProducts();
   return (
     <div>
         <div className="">
@@ -16,7 +16,7 @@ export default async function Home() {
         <Carousels/>
         <h1 className="text-center color-black mt-5">Lo más reciente </h1>
         <div className="p-3">
-        <AlbumContent albums={albums}></AlbumContent>
+        <HomeContent products={products}></HomeContent>
         </div>
     </div>
   );
