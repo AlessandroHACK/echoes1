@@ -7,7 +7,7 @@ export interface UserDetails {
 
 };
 
-export interface Album{
+export interface Album {
     id_producto: string;
     nombre: string;
     precio: string;
@@ -18,7 +18,18 @@ export interface Album{
     id_artista: string;
 }
 
-export interface Artist{
+export interface Turntable {
+    id_producto: string;
+    nombre: string;
+    precio: string;
+    imagen_path: string;
+    descripcion: string;
+    cantidad: string;
+    id_marca: string;
+}
+
+
+export interface Artist {
     id_artista: string;
     nombre: string;
     descripcion: string;
