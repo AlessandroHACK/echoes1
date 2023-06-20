@@ -1,7 +1,8 @@
+'use client'
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
 
-const Loading = () => {
+const LoadingScreen = () => {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <Spinner animation="border" variant="black" className="h-16 w-16 mb-4" />
@@ -10,4 +11,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default LoadingScreen;

@@ -10,7 +10,8 @@ const getAlbums = async (): Promise<Album[]> => {
     const { data, error } = await supabase.from('productos').select(`
   *, artistas(nombre)
 `)
-.eq('id_tipo','1');
+.eq('id_tipo','1')
+.order('nombre', {ascending: true});
     if (error) {
         console.log(error);
     }

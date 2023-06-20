@@ -5,16 +5,9 @@ import Image from 'next/image';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
-import Loading from '../../components/loading';
+import {toast} from "react-hot-toast"
 
 const Register = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
   const [name, setName] = useState('');
@@ -24,14 +17,22 @@ const Register = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await supabaseClient.auth.signUp({
+    if(password != confirmPassword){
+      toast.error('Las contraseñas no son iguales.')
+      return;
+    }
+    const {error} = await supabaseClient.auth.signUp({
       email,
       password,
       options: {
         emailRedirectTo: `${location.origin}/`,
       },
     })
-    router.refresh()
+    if(error){
+      toast.error('Hubo un error en el registro, inténtalo de nuevo.')
+      return;
+    }
+    router.push('/')
 
     // Aquí puedes realizar la lógica de registro o enviar los datos a un servidor
     console.log('Nombre:', name);
@@ -49,10 +50,6 @@ const Register = () => {
 
   return (
     <div>
-    {isLoading ? (
-      <Loading />
-    ) : (
-
     <div className="min-h-screen flex items-center justify-center bg-gray-100 bg-mainbg bg-cover">
       <title>Echoes - Register</title>
       <div className="bg-white shadow-md rounded-md px-6 py-8 w-80">
@@ -116,7 +113,6 @@ const Register = () => {
         </div>
       </div>
     </div>
-     )}
      </div>
   );
 };

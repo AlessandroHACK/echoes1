@@ -1,8 +1,7 @@
-import getAlbum from "@/actions/getAlbum";
-import Header from "@/components/Header";
+import getTurntable from "@/actions/getTurntable";
 
-export default async function AlbumPage({ params }: any) {
-    const album = await getAlbum(params.id);
+export default async function TurntablePage({ params }: any) {
+    const turntable = await getTurntable(params.id);
 
     return (
         <div className="
@@ -15,7 +14,7 @@ export default async function AlbumPage({ params }: any) {
             <div className="mb-2">
                 <h1 className="text-white
               text-3xl font-semibold">
-                    {album?.nombre}
+                    {turntable.nombre}
                 </h1>
             </div>
             

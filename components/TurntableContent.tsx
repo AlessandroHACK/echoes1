@@ -1,16 +1,16 @@
 "use client"
 
-import { Album } from "@/types";
-import AlbumItem from "./AlbumItem";
+import { Turntable } from "@/types";
+import TurntableItem from "./TurntableItem";
 
-interface AlbumContentProps {
-    albums: Album[];
+interface TurntableContentProps {
+    turntables: Turntable[];
 }
 
-const AlbumContent: React.FC<AlbumContentProps>= ({
-    albums
+const AlbumContent: React.FC<TurntableContentProps>= ({
+    turntables
 }) => {
-    if(albums.length === 0){
+    if(turntables.length === 0){
         return(
             <div className="mt-4 text-neutral-400">No hay empresas o no tienes acceso a verlas.</div>
         )
@@ -27,10 +27,10 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
         gap-4
         mt-4
         ">
-            {albums.map((item) => (
-                <AlbumItem
-                dataAlbum={item}
-                key={item.id_producto}
+            {turntables.map((item) => (
+                <TurntableItem
+                dataTurntable={item}
+                key={item.id_tornamesa}
                 />
             ))}
 

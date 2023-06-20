@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ItemsContainer from './ItemsContainer';
-import SocialIcons from './SocialIcons';
-import { Icons } from './Menus';
+
 
 const Footer1 = () => {
   return (

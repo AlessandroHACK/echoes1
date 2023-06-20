@@ -1,4 +1,4 @@
-import { UserDetails } from "../types";
+import { UserDetails } from "@/types";
 import { User } from "@supabase/supabase-js";
 import { useSessionContext, useUser as useSupaUser } from "@supabase/auth-helpers-react";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -7,6 +7,7 @@ type UserContextType = {
     accessToken: string | null;
     user: User | null;
     isLoading: boolean;
+    userDetails: UserDetails | null;
 }
 
 export const UserContext = createContext<UserContextType | undefined>(

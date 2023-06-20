@@ -6,20 +6,17 @@ export const PRODUCTOS = [
   
   export const RESOURCES = [
     { name: 'Artistas', link: 'Artists' },
-    { name: 'Drag an Drop', link: '#' },
-    { name: 'Drag an Drop', link: '#' },
+
   ];
   
   export const COMPANY = [
     { name: 'Drag an Drop', link: '#' },
-    { name: 'Drag an Drop', link: '#' },
-    { name: 'Drag an Drop', link: '#' },
+
   ];
   
   export const SUPPORT = [
     { name: 'Drag an Drop', link: '#' },
-    { name: 'Drag an Drop', link: '#' },
-    { name: 'Drag an Drop', link: '#' },
+
   ];
   
   export const Icons = [

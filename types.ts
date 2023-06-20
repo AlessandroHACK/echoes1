@@ -1,13 +1,13 @@
 export interface UserDetails {
-    id_usuario: string;
-    nombre: string;
-    direccion: string;
-    correo?: string;
-    usuario_path?: string;
+    id: string;
+    first_name: string;
+    last_name: string;
+    full_name?: string;
+    avatar_url?: string;
 
 };
 
-export interface Album{
+export interface Album {
     id_producto: string;
     nombre: string;
     precio: string;
@@ -18,7 +18,18 @@ export interface Album{
     id_artista: string;
 }
 
-export interface Artist{
+export interface Turntable {
+    id_producto: string;
+    nombre: string;
+    precio: string;
+    imagen_path: string;
+    descripcion: string;
+    cantidad: string;
+    id_marca: string;
+}
+
+
+export interface Artist {
     id_artista: string;
     nombre: string;
     descripcion: string;

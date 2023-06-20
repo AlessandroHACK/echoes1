@@ -1,20 +1,20 @@
 "use client"
 
 import Link from "next/link";
-import useLoadAlbum from "@/hooks/useLoadAlbum";
-import { Album } from "@/types";
+import useLoadTurntable from "@/hooks/useLoadTurntable";
+import { Turntable } from "@/types";
 import Image from "next/image";
 
-interface AlbumItemProps {
-    dataAlbum: Album;
+interface TurntableItemProps {
+    dataTurntable: Turntable;
 };
 
-const AlbumItem: React.FC<AlbumItemProps> = ({
-    dataAlbum,
+const AlbumItem: React.FC<TurntableItemProps> = ({
+    dataTurntable,
 }) => {
-    const logoPath = useLoadAlbum(dataAlbum);
+    const logoPath = useLoadTurntable(dataTurntable);
     return (
-        <Link href={`/Vinilos/${dataAlbum.id_producto}`}
+        <Link href={`/Tornamesas/${dataTurntable.id_producto}`}
             
             className="
         relative
@@ -54,7 +54,7 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
             </div>
             <div className="flex flex-col items-start w-full p-4 gap-y-1">
                 <p className="font-semibold w-full truncate text-red-700">
-                    {dataAlbum.nombre}
+                    {dataTurntable.nombre}
                 </p>
             </div>
         </Link>

@@ -1,20 +1,20 @@
 import { Inter } from "next/font/google";
-import getArtists from "../../actions/getArtists";
-import Carousels from "../../components/Carousels";
-import ArtistContent from "../../components/ArtistContent";
+
+import getTurntables from "@/actions/getTurntables";
+import Carousels from "@/components/Carousels";
+import TurntableContent from "@/components/TurntableContent";
 
 const inter = Inter({ subsets: ["latin"] });
-export const revalidate = 10;
 
 export default async function Home() {
-  const artists = await getArtists();
+  const turntables = await getTurntables();
   return (
     <div>
         
         <Carousels/>
         <h1 className="text-center color-black mt-5">Lo más reciente </h1>
         <div className="p-3">
-        <ArtistContent artists={artists}></ArtistContent>
+        <TurntableContent turntables={turntables}></TurntableContent>
         </div>
     </div>
   );

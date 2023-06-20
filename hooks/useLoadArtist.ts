@@ -1,8 +1,8 @@
-import { Artist } from "../types";
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Artist } from "@/types";
 
 const useLoadArtist = (artist: Artist) => {
-    const supabaseClient = useSupabaseClient();
+    const supabaseClient = createClientComponentClient();
     if(!artist){
         return null;
     }

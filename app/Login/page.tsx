@@ -8,21 +8,15 @@ import { useUser } from "../../hooks/useUser";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from 'react';
 import Loading from '../../components/loading';
+import {toast} from "react-hot-toast"
 
 
 const Login = () => {
   const supabaseClient = useSupabaseClient();
-  const { user } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,10 +29,10 @@ const Login = () => {
         password,
       })
       if (supabaseError) {
-        console.log('PENDEJO');
+        toast.error(supabaseError.message)
         return;
       }
-      console.log('chingon')
+      toast.success('Sesión iniciada.')
       router.push('/');
     }
     catch(error){
@@ -53,9 +47,6 @@ const Login = () => {
 
   return (
     <div>
-    {isLoading ? (
-      <Loading />
-    ) : (
 
     <div className="min-h-screen flex items-center justify-center bg-mainbg bg-cover">
       <title>Echoes - Login</title>
@@ -122,7 +113,6 @@ const Login = () => {
         </div>
       </div>
     </div>
-    )}
     </div>
   );
 };
