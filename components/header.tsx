@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'next/image';
 import Link from 'next/link';
+import {RiLoginBoxLine} from 'react-icons/ri';
 
 const Header = () => {
   return (
@@ -66,7 +67,7 @@ const Header = () => {
             
           </Form>
           <Nav.Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
-              Iniciar sesión
+              <RiLoginBoxLine className="mr-1 h-6 w-6"/>
             </Nav.Link>
         </Navbar.Collapse>
       </Container>
