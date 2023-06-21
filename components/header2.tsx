@@ -1,0 +1,118 @@
+"use client";
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Image from "next/image";
+import Link from "next/link";
+import { Dropdown } from "react-bootstrap";
+import { RiShoppingCartLine } from "react-icons/ri";
+import { RiUserLine } from "react-icons/ri";
+import { RiLogoutBoxRLine } from "react-icons/ri";
+
+const header2 = () => {
+  const [open, setOpen] = useState(false);
+  const Menus = ["Perfil", "logout"];
+  return (
+    <Navbar bg="black" expand="lg" variant="dark">
+      <Container fluid>
+        <Navbar.Brand href="/">
+          <Image
+            alt="Hola"
+            width={200}
+            height={100}
+            src="/img/Echoes-logo-w.png"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
+            <Nav.Link href="/" style={{ color: "white" }}>
+              Inicio
+            </Nav.Link>
+            <Nav.Link href="/Ayuda" style={{ color: "white" }}>
+              Ayuda
+            </Nav.Link>
+            <NavDropdown
+              title="Categorías"
+              id="navbarScrollingDropdown"
+              style={{ color: "white" }}
+            >
+              <NavDropdown.Item href="/Vinilos" style={{ color: "blak" }}>
+                Vinilos
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action4" style={{ color: "black" }}>
+                Tornamesa
+              </NavDropdown.Item>
+              <NavDropdown.Divider style={{ backgroundColor: "black" }} />
+              <NavDropdown.Item href="#action5" style={{ color: "black" }}>
+                Lo más vendido
+              </NavDropdown.Item>
+            </NavDropdown>
+
+            <Nav.Link href="/" className="flex items-center text-white">
+              <RiShoppingCartLine className="mr-1 h-6 w-6" />
+            </Nav.Link>
+          </Nav>
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button
+              variant="outline-light"
+              className="text-white hover:text-black hover:bg-white"
+            >
+              Buscar
+            </Button>
+          </Form>
+          <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 relative mt-6">
+            <div className="relative">
+              <Image
+                onClick={() => setOpen(!open)}
+                width={40}
+                height={40}
+                alt="Foto de perfil"
+                src="/img/erick.jfif"
+                className="foto-perfil border-2 border-white rounded-full cursor-pointer"
+              />
+              {open && (
+                <div className="bg-white p-1 w-auto shadow-lg absolute left-0 lg:-left-14 mt-4 sm:mt-6 md:mt-0 rounded-md items-center z-10">
+                  <ul className="py-2 overflow-y-auto max-h-60 sm:max-h-screen border-black">
+                    <li
+                      onClick={() => setOpen(false)}
+                      className="p-2 text-lg px-4 items-center cursor-pointer rounded hover:bg-gray-100 flex flex-row"
+                    >
+                      <Link href="/Perfil" className="flex items-center">
+                        <RiUserLine className="mr-1 h-4 w-4" />
+                        <span>Perfil</span>
+                      </Link>
+                    </li>
+                    <li
+                      onClick={() => setOpen(false)}
+                      className="p-2 text-lg px-4 items-center cursor-pointer rounded hover:bg-gray-100 flex flex-row gap-x-2"
+                    >
+                      <RiLogoutBoxRLine className="mr-1 h-4 w-4" />
+                      Salir
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default header2;
