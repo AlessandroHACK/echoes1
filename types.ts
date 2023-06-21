@@ -42,4 +42,6 @@ export interface Artist {
     descripcion: string;
     artista_path: string;
     productos: Album[];
+    albums?: number;
+    stock?: string;
 }

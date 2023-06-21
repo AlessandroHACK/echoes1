@@ -23,8 +23,8 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
         md:grid-cols-3
         lg:grid-cols-4
         xl:grid-cols-4
-        2xl:grid-cols-6
-        gap-4
+        2xl:grid-cols-4
+        gap-12
         mt-4
         ">
             {albums.map((item) => (
