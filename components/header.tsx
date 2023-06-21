@@ -14,6 +14,7 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSessionContext, useSupabaseClient } from "@supabase/auth-helpers-react";
+import Search from './Search';
 
 const Header = () => {
   const { session } = useSessionContext();
@@ -87,20 +88,7 @@ const Header = () => {
                   <RiShoppingCartLine className="mr-1 h-6 w-6" />
                 </Link>
               </Nav>
-              <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button
-                  variant="outline-light"
-                  className="text-white hover:text-black hover:bg-white"
-                >
-                  Buscar
-                </Button>
-              </Form>
+              <Search/>
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 relative mt-6">
                 <div className="relative">
                   <Image
@@ -184,21 +172,7 @@ const Header = () => {
 
 
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button
-                    variant="outline-light"
-                    className="text-white hover:text-black hover:bg-white"
-                  >
-                    Buscar
-                  </Button>
-
-                </Form>
+                <Search/>
                 <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
                   Iniciar sesión
                 </Link>

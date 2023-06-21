@@ -22,7 +22,6 @@ export default function RootLayout({
           <SupabaseProvider>
             <UserProvider>
               <Suspense fallback={<LoadingScreen />}>
-                <Header />
                 {children}
                 <Footer />
               </Suspense>
