@@ -8,7 +8,7 @@ import { Product } from "@/types";
 import searchProducts from "@/actions/searchProducts";
 import Search from "@/components/Search";
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 const Home = async ({ searchParams,
 }: {
@@ -20,9 +20,10 @@ const Home = async ({ searchParams,
   const initialProductsData = await getProducts();
   const filteredProductsData = await searchProducts(searchQuery);
 
-  if (searchQuery.length > 0) {
+  if (searchQuery.length > 1) {
     // If there is a result, set products to result
     if (filteredProductsData) {
+      products = []
       products = filteredProductsData
     }
     // If there is no result, set products to empty array

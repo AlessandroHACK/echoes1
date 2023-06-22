@@ -35,7 +35,7 @@ const Search = () => {
 
   // EFFECT: Set Mounted
   useEffect(() => {
-    if (debouncedValue.length > 0 && !mounted) {
+    if (debouncedValue.length > 1 && !mounted) {
       setMounted(true)
     }
   }, [debouncedValue, mounted])
