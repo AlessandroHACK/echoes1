@@ -6,6 +6,7 @@ import HomeContent from "@/components/HomeContent";
 import Header from "@/components/Header";
 import { Product } from "@/types";
 import searchProducts from "@/actions/searchProducts";
+import Search from "@/components/Search";
 
 export const revalidate = 60;
 
@@ -36,9 +37,9 @@ const Home = async ({ searchParams,
 
   return (
     <div >
-      <Header />
       <Carousels />
       <h1 className="text-center color-black mt-5">Lo más reciente </h1>
+      <Search/>
       <div className="px-20 py-10">
         <HomeContent products={products}></HomeContent>
       </div>

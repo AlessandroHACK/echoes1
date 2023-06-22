@@ -25,6 +25,7 @@ export default function RootLayout({
           <SupabaseProvider>
             <UserProvider>
               <Suspense fallback={<LoadingScreen />}>
+                <Header/>
                 <div className="bg-beige-100 dark:bg-zinc-900">
                   {children}
                 </div>

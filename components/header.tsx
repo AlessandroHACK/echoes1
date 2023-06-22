@@ -88,7 +88,7 @@ const Header = () => {
                   <RiShoppingCartLine className="mr-1 h-6 w-6" />
                 </Link>
               </Nav>
-              <Search/>
+              
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 relative mt-6">
                 <div className="relative">
                   <Image
@@ -172,7 +172,6 @@ const Header = () => {
 
 
                 </Nav>
-                <Search/>
                 <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
                   Iniciar sesión
                 </Link>
