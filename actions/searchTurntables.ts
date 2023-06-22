@@ -8,17 +8,25 @@ const searchTurntables = async (searchQuery:string): Promise<Product[]> => {
     });
 
     // const { data, error } = await supabase.rpc('search_product', {query: searchQuery})
-    const {data, error} = await supabase
+    const {data:turntableArtist, error:error1} = await supabase
     .from('productos')
     .select('*, marcas!inner(*)')
     .ilike('marcas.nombre', `%${searchQuery}%`)
-    .or('nombre.ilike.%')
     .eq('id_tipo',2)
-    if (error) {
-        console.log(error);
+    if (error1) {
+        console.log(error1);
     }
-    console.log(data);
-    return (data as any) || [];
+
+    const {data:turntableName, error:error2} = await supabase
+    .from('productos')
+    .select('*, marcas!inner(*)')
+    .ilike('nombre', `%${searchQuery}%`)
+    .eq('id_tipo',2)
+    if (error2) {
+        console.log(error2);
+    }
+    const turntables = [...(turntableArtist || []), ...(turntableName || [])];
+    return turntables as Product[];
 }
 
 export default searchTurntables;
