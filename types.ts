@@ -34,6 +34,8 @@ export interface Product {
     precio: string;
     id_tipo: string;
     imagen_path: string;
+    artistas: Artist;
+    marcas: Brand;
 }
 
 export interface Artist {
@@ -44,4 +46,9 @@ export interface Artist {
     productos: Album[];
     albums?: number;
     stock?: string;
+}
+
+export interface Brand{
+    id_marca?: string;
+    nombre?: string;
 }

@@ -20,7 +20,6 @@ const Home = async ({ searchParams,
   const filteredProductsData = await searchProducts(searchQuery);
 
   if (searchQuery.length > 0) {
-    console.log(searchQuery);
     // If there is a result, set products to result
     if (filteredProductsData) {
       products = filteredProductsData
@@ -36,11 +35,11 @@ const Home = async ({ searchParams,
   }
 
   return (
-    <div>
+    <div >
       <Header />
       <Carousels />
       <h1 className="text-center color-black mt-5">Lo más reciente </h1>
-      <div className="p-3">
+      <div className="px-20 py-10">
         <HomeContent products={products}></HomeContent>
       </div>
     </div>

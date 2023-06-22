@@ -18,7 +18,9 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
 
         <Link href={`/Vinilos/${dataAlbum.id_producto}`}>
             <div>
-                <article className="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 h-auto">
+                <div className="rounded-xl bg-white dark:bg-zinc-900 p-3
+
+                shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 h-auto">
                     <div className="relative overflow-hidden rounded-xl aspect-square">
                         <Image
                             className="object-cover"
@@ -28,12 +30,12 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
                         />
                     </div>
                     <div className="mt-1 p-2">
-                        <h2 className="text-slate-700">
+                        <h2 className="text-bone-700 dark:text-bone-500">
                             {dataAlbum.nombre}
                         </h2>
                     </div>
                     <div className="mt-2 flex items-end justify-between">
-                        <p className="text-lg font-bold text-zinc-700">
+                        <p className="text-lg font-bold dark:text-beige-700">
                             $ {dataAlbum.precio}
                         </p>
                         <div className="flex items-center space-x-1.5 rounded-lg bg-bone px-2 py-1.5 text-white duration-100 hover:bg-indigo-500">
@@ -41,7 +43,7 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
                             <button className="text-sm">Agregar al carrito</button>
                         </div>
                     </div>
-                </article>
+                </div>
             </div>
         </Link>
     );

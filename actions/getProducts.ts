@@ -7,9 +7,8 @@ const getProducts = async (): Promise<Product[]> => {
         cookies: cookies
     });
 
-    const { data, error } = await supabase.from('productos').select(`
-  *
-`)
+    const { data, error } = await supabase.from('productos')
+    .select(`*, artistas(*), marcas(*)`)
 .order('nombre', {ascending: true});
     if (error) {
         console.log(error);
