@@ -96,11 +96,11 @@ const Header = () => {
                   aria-label="Search"
                 />
                 <Button
-                  variant="outline-light"
-                  className="text-white hover:text-black hover:bg-white"
-                >
-                  Buscar
-                </Button>
+                    variant="dark"
+                    className='border-white'
+                  >
+                    Buscar
+                  </Button>
               </Form>
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 relative mt-6">
                 <div className="relative">
@@ -193,15 +193,15 @@ const Header = () => {
                     aria-label="Search"
                   />
                   <Button
-                    variant="outline-light"
-                    className="text-white hover:text-black hover:bg-white"
+                    variant="dark"
+                    className='border-white'
                   >
                     Buscar
                   </Button>
 
                 </Form>
                 <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
-                  Iniciar sesión
+                <RiLoginBoxLine className="mr-1 h-6 w-6" />
                 </Link>
               </Navbar.Collapse>
             </Container>
