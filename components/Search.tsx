@@ -1,10 +1,10 @@
 "use client"
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState, useTransition } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Spinner } from "react-bootstrap";
 
 const Search = () => {
-    const [inputValue, setInputValue] = useState<string>("")
+  const [inputValue, setInputValue] = useState<string>("")
   const [debouncedValue, setDebouncedValue] = useState<string>("")
   const [mounted, setMounted] = useState<boolean>(false)
   const router = useRouter()
@@ -56,28 +56,40 @@ const Search = () => {
     if (mounted) handleSearchParams(debouncedValue)
   }, [debouncedValue, handleSearchParams, mounted])
 
-    return ( 
-        <div>
-            <Form className="d-flex">
-                <Form.Control
-                  type="search"
-                  placeholder="Buscar"
-                  className="me-2"
-                  aria-label="Search"
-                  value={inputValue}
-                  onChange={(e) => {
-                    setInputValue(e.target.value)
-                  }}
-                />
-                <Button
-                  variant="outline-light"
-                  className="text-white hover:text-black hover:bg-white"
-                >
-                  Buscar
-                </Button>
-              </Form>
+  return (
+    <div className="flex flex-col md:flex-row ">
+      <div className="w-full md:w-[50%]">
+        <Form className="">
+          <Form.Control
+            type="search"
+            placeholder="Buscar"
+            className="me-2"
+            aria-label="Search"
+            value={inputValue}
+            onChange={(e) => {
+              setInputValue(e.target.value)
+            }}
+          />
+
+        </Form>
+      </div>
+      {isPending && (
+        <div role="status" className=" items-center w-[10%] flex flex-row  ">
+          <div className="px-2 mt-4 md:mt-0 ">
+            <Spinner animation="border" variant="white" />
+
+          </div>
+          <div className="">
+            <h1 className=" dark:text-beige-100">Cargando...</h1>
+          </div>
         </div>
-     );
+
+      )}
+
+
+
+    </div>
+  );
 }
- 
+
 export default Search;
