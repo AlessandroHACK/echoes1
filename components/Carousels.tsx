@@ -17,8 +17,8 @@ const Carousels = () => {
             </div>
 
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3 className=" text-3xl font-bold">Avenged Sevenfold regresa</h3>
+              <p className="text-lg font-semibold">Después de 7 años, lanzan un nuevo álbum</p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -32,8 +32,8 @@ const Carousels = () => {
             </div>
 
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3 className=" text-3xl font-bold">Watching Movies with the Sound Off</h3>
+              <p className="text-lg font-semibold">Cumple su décimo aniversario</p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -47,8 +47,8 @@ const Carousels = () => {
             </div>
 
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3 className=" text-3xl font-bold">The Dark Side of the Moon</h3>
+              <p className="text-lg font-semibold">Cumple 50 años este 2023</p>
             </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

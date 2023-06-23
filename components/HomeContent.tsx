@@ -12,7 +12,7 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
 }) => {
     if(products.length === 0){
         return(
-            <div className="mt-4 text-neutral-400">No hay artistas o no tienes acceso a verlas.</div>
+            <div className="w-full h-full py-10 text-chocolate-900 dark:text-beige-200 text-neutral-400">Parece que no hay nada aquí.</div>
         )
     }
     return ( 

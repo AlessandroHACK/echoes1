@@ -15,7 +15,7 @@ export interface Album {
     lanzamiento: Date;
     tamano: string;
     cantidad: string;
-    id_artista: string;
+    artistas: Artist;
 }
 
 export interface Turntable {
@@ -25,7 +25,7 @@ export interface Turntable {
     imagen_path: string;
     descripcion: string;
     cantidad: string;
-    id_marca: string;
+    marcas: Brand;
 }
 
 export interface Product {

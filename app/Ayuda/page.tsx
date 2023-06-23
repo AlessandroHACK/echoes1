@@ -11,8 +11,8 @@ const Ayuda = () => {
   return (
     <div>
 
-    <div className="p-4 md:w-1/2 mx-auto mt-5">
-      <h1 className="text-center text-black text-2xl md:text-3xl font-bold mt-5">
+    <div className="md:w-1/2 mx-auto h-full p-5">
+      <h1 className="text-center text-black text-2xl md:text-3xl font-bold ">
         ¿En qué puedo ayudarte?
       </h1>
       <div className="flex justify-center items-center mt-5">

@@ -9,12 +9,12 @@ interface ItemProps {
   
   const Item: React.FC<ItemProps> = ({ Links, title }) => {
     return (
-      <div className="relative group flex flex-col w-full align-center mt-2 mb-2 justify-center items-center">
+      <div className=" relative group flex flex-col w-full align-center mt-2 mb-2 justify-center items-center">
         <h1 className="mb-1 font-semibold">{title}</h1>
         {Links.map((link) => (
           <div key={link.name}>
             <Link
-              className="text-gray-400 hover-text duration-300 text-sm cursor-pointer leading-6"
+              className="text-gray-400 hover:text-bone-100  hover:scale-120 duration-300 text-sm cursor-pointer leading-6"
               href={link.link}
             >
               {link.name}

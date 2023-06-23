@@ -57,7 +57,7 @@ const Search = () => {
   }, [debouncedValue, handleSearchParams, mounted])
 
   return (
-    <div className="flex flex-col md:flex-row ">
+    <div className="flex flex-col">
       <div className="w-full md:w-[50%]">
         <Form className="">
           <Form.Control
@@ -74,9 +74,9 @@ const Search = () => {
         </Form>
       </div>
       {isPending && (
-        <div role="status" className=" items-center w-[10%] flex flex-row  ">
-          <div className="px-2 mt-4 md:mt-0 ">
-            <Spinner animation="border" variant="white" />
+        <div role="status" className="mt-2 items-center flex flex-row  ">
+          <div>
+            <Spinner animation="border" className=" mr-2 text-white" />
 
           </div>
           <div className="">

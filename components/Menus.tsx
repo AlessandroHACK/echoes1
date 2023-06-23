@@ -1,11 +1,12 @@
 export const PRODUCTOS = [
-    { name: 'Vinilos', link: 'Albums' },
-    { name: 'Tornamesas', link: 'Turntables' },
-    { name: 'Accesorios', link: 'Accesories' },
+    { name: 'Vinilos', link: 'Vinilos' },
+    { name: 'Tornamesas', link: 'Tornamesas' },
+    { name: 'Accesorios', link: 'Accesorios' },
   ];
   
   export const RESOURCES = [
-    { name: 'Artistas', link: 'Artists' },
+    { name: 'Artistas', link: 'Artistas' },
+    { name: 'Marcas', link: 'Marcas' },
 
   ];
   
