@@ -26,7 +26,7 @@ export default function RootLayout({
             <UserProvider>
               <Suspense fallback={<LoadingScreen />}>
                 <Header/>
-                <div className="bg-beige-100 dark:bg-zinc-900">
+                <div className=" bg-gray-100 dark:bg-zinc-900">
                   {children}
                 </div>
                 <Footer />

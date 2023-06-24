@@ -40,15 +40,12 @@ const Header = () => {
       {session ? (
         <Navbar expand="lg">
           <Container fluid>
-            <Link href="/">
-              <Image
-                alt="Hola"
-                width={200}
-                height={100}
-                src="/img/Echoes-logo-w.png"
-              />
-            </Link>
-            <Navbar.Toggle aria-controls="navbarScroll" className='bg-chocolate-900 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100'/>
+              <Link href={'/'} >
+            <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover'>
+            </div>
+              </Link>
+
+            <Navbar.Toggle aria-controls="navbarScroll" className='bg-chocolate-900 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100' />
             <Navbar.Collapse id="navbarScroll" className='text-chocolate-900 dark:text-bone-100'>
               <Nav
                 className="me-auto my-2 my-lg-0"
@@ -88,7 +85,7 @@ const Header = () => {
                   <RiShoppingCartLine className="mr-1 h-6 w-6" />
                 </Link>
               </Nav>
-              
+
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 relative mt-6">
                 <div className="relative">
                   <Image
@@ -131,11 +128,13 @@ const Header = () => {
         <>
           <Navbar expand="lg" >
             <Container fluid>
-              <Link href="/">
-                <Image alt="Hola" width={200} height={100} src="/img/Echoes-logo-w.png" />
+              <Link href={'/'}>
+                <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover cursor-pointer'>
+
+                </div>
               </Link>
-              <Navbar.Toggle aria-controls="navbarScroll" className='bg-chocolate-900 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100'/>
-            <Navbar.Collapse id="navbarScroll" className='text-chocolate-900 dark:text-bone-100'>
+              <Navbar.Toggle aria-controls="navbarScroll" className='bg-chocolate-900 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100' />
+              <Navbar.Collapse id="navbarScroll" className='text-chocolate-900 dark:text-bone-100'>
                 <Nav
                   className="me-auto my-2 my-lg-0"
                   style={{ maxHeight: '100px' }}

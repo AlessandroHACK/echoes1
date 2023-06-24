@@ -35,6 +35,9 @@ export interface Product {
     id_tipo: string;
     imagen_path: string;
     artistas: Artist;
+    lanzamiento: Date;
+    tamano: string;
+    cantidad: string;
     marcas: Brand;
 }
 
@@ -51,4 +54,9 @@ export interface Artist {
 export interface Brand{
     id_marca?: string;
     nombre?: string;
+    descripcion: string;
+    logo_path: string;
+    productos: Turntable[];
+    turntables?: number;
+    stock?: string;
 }

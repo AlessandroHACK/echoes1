@@ -1,8 +1,8 @@
-import { Album } from "../types";
+import { Product } from "../types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-const getAlbums = async (): Promise<Album[]> => {
+const getAlbums = async (): Promise<Product[]> => {
     const supabase = createServerComponentClient({
         cookies: cookies
     });

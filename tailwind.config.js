@@ -4,12 +4,14 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   darkMode: 'class',
+  darkMode: 'media',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
@@ -31,6 +33,9 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'image-one': 'url("/img/Echoes-logo-b.png")',
+        'image-two': 'url("/img/Echoes-logo-w.png")',
+
       },
     },
     colors: {
@@ -99,6 +104,11 @@ module.exports = {
       yellow: colors.yellow,
       zinc: colors.zinc,
     }
+  },
+  variants: {
+    extend: {
+      backgroundImage: ['dark'],
+    },
   },
 
 }
