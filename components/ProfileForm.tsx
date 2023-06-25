@@ -18,9 +18,9 @@ const ProfileForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white rounded-lg shadow-md p-4 w-80 flex flex-col items-center">
-        <h1 className="text-3xl font-bold mb-4 text-center">Selecciona tu foto de perfil</h1>
+    <div className="flex items-center justify-center h-screen ">
+      <div className="bg-bone-100 dark:bg-zinc-950 rounded-lg shadow-md p-4 w-80 flex flex-col items-center dark:border">
+        <h1 className="text-3xl font-bold mb-4 text-center dark:text-bone-100">Selecciona tu foto de perfil</h1>
         <div className="mb-4 flex items-center justify-center">
           {profileImage ? (
             <img
@@ -49,7 +49,7 @@ const ProfileForm = () => {
               />
               <button
                 type="button"
-                className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded border border-black focus:outline-none focus:shadow-outline w-full"
+                className="bg-zinc-950   text-bone-100  font-bold py-2 px-4 rounded border  focus:outline-none focus:shadow-outline w-full"
               >
                 Seleccionar foto
               </button>
@@ -59,7 +59,7 @@ const ProfileForm = () => {
           <div className="mb-4 w-full">
             <button
               type="submit"
-              className="bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded border border-black focus:outline-none focus:shadow-outline w-full"
+              className="bg-beige-900 dark:bg-ash-100 text-bone-100 font-bold py-2 px-4 rounded border  focus:outline-none focus:shadow-outline w-full"
             >
               Guardar
             </button>

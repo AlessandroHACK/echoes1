@@ -50,18 +50,19 @@ const Login = () => {
 
     <div className="min-h-screen flex items-center justify-center bg-mainbg bg-cover">
       <title>Echoes - Login</title>
-      <div className="bg-white shadow-md rounded-md px-6 py-8 w-80">
-        <div className="flex items-center justify-center">
-          <Link href="/">
-            <Image width={200} height={100} alt='Logo' src="/img/Echoes-logo-b.png" />
-          </Link>
+      <div className="bg-bone-100 dark:bg-chocolate-900 rounded-xl shadow-md  px-6 py-8 w-80">
+        <div className="flex items-center justify-center ">
+        <Link href={'/'} >
+            <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover'>
+            </div>
+              </Link>
         </div>
-        <h2 className="text-2xl font-bold mb-4 text-center">Iniciar sesión</h2>
+        <h2 className=" dark:text-bone-100 text-2xl font-bold mb-4 text-center">Iniciar sesión</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
               htmlFor="email"
-              className="block mb-2 font-medium text-gray-700"
+              className="block mb-2 font-medium dark:text-bone-100"
             >
               Email
             </label>
@@ -77,7 +78,7 @@ const Login = () => {
           <div className="mb-4">
             <label
               htmlFor="password"
-              className="block mb-2 font-medium text-gray-700"
+              className="block mb-2 font-medium dark:text-bone-100"
             >
               Contraseña
             </label>
@@ -92,21 +93,21 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-black text-white font-semibold rounded hover:bg-white hover:text-black hover:border-black border-2"
+            className="w-full py-2 px-4 bg-zinc-950 dark:bg-chocolate-100 text-bone-100  font-semibold rounded hover:bg-beige-900 hover:text-bone-100 dark:hover:text-chocolate-100  dark:hover:bg-beige-100 "
           >
             Iniciar sesión
           </button>
         </form>
         <div className="mt-4 text-center">
-          <p className="text-gray-700">
+          <p className="dark:text-bone-100">
             ¿No tienes cuenta?{" "}
-            <Link href="/Register" className="text-blue-500">
+            <Link href="/Register" className="dark:text-beige-900 text-chocolate-100">
               Crear cuenta
             </Link>
           </p>
-          <p className="text-gray-700">
+          <p className=" dark:text-bone-100 ">
             ¿Olvidaste tu contraseña?{" "}
-            <Link href="/PasswordRecovery" className="text-blue-500">
+            <Link href="/PasswordRecovery" className="dark:text-beige-900 text-chocolate-100">
               Recuperar contraseña
             </Link>
           </p>
