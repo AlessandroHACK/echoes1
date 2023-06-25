@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Loading from './loading'
 import LoadingScreen from '@/components/loading';
 import { Suspense } from 'react';
+import Providers from '@/components/Providers';
 
 
 export default function RootLayout({
@@ -14,21 +15,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
-    <html lang="en">
+    <html lang="en" className='dark'>
 
       <body>
+        <Providers>
         <ToasterProvider/>
           <SupabaseProvider>
             <UserProvider>
               <Suspense fallback={<LoadingScreen />}>
-                <Header />
-                {children}
+                <Header/>
+                <div className=" bg-gray-100 dark:bg-zinc-900">
+                  {children}
+                </div>
                 <Footer />
               </Suspense>
             </UserProvider>
 
           </SupabaseProvider>
+        </Providers>
 
       </body>
 

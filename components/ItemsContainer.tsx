@@ -12,9 +12,9 @@ const ItemsContainer = () => {
         2xl:grid-cols-4 
        
         '>
-      <Item  Links={PRODUCTOS} title="PRODUCTS" />
-      <Item Links={RESOURCES} title="RESOURCES" />
-      <Item Links={COMPANY} title="COMPANY" />
+      <Item  Links={PRODUCTOS} title="PRODUCTOS" />
+      <Item Links={RESOURCES} title="OTROS" />
+      <Item Links={COMPANY} title="AYUDA" />
       <Item Links={SUPPORT} title="SUPPORT" />
     </div>
   );

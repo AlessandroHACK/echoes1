@@ -3,57 +3,57 @@ import Carousel from "react-bootstrap/Carousel";
 import Image from "next/image";
 
 const Carousels = () => {
-    return ( 
-        <div>
-            <Carousel>
-          <Carousel.Item>
-            <div className="relative rounded-md w-full h-full">
+  return (
+    <div className="w-full mx-auto ">
+      <Carousel>
+        <Carousel.Item>
+            <div className="relative w-full h-[400px] flex-[0_0_100%]">
             <Image
-            className="object-cover"
-              src="/img/sali1.png"
+              className="object-cover backdrop-brightness-50"
+              src="/img/CAROUSEL-US.png"
               alt="First slide"
-              width={1920}
-              height={30}
+              fill
             />
             </div>
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Image
-              
-              src="/img/sali2.jpg"
-              alt="First slide"
-              width={1920}
-              height={30}
-            />
 
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3 className=" text-3xl font-bold">Avenged Sevenfold regresa</h3>
+              <p className="text-lg font-semibold">Después de 7 años, lanzan un nuevo álbum</p>
             </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
+        </Carousel.Item>
+        <Carousel.Item>
+            <div className="relative w-full h-[400px] flex-[0_0_100%]">
             <Image
-              width={1920}
-              height={300}
-              className="d-block w-100"
-              src="/img/sali2.jpg"
+              className="object-cover"
+              src="/img/CAROUSEL2.jpg"
               alt="First slide"
+              fill
             />
+            </div>
 
             <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
+            <h3 className=" text-3xl font-bold">Watching Movies with the Sound Off</h3>
+              <p className="text-lg font-semibold">Cumple su décimo aniversario</p>
             </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-        </div>
-     );
+        </Carousel.Item>
+        <Carousel.Item>
+            <div className="relative w-full h-[400px] flex-[0_0_100%]">
+            <Image
+              className="object-cover"
+              src="/img/CAROUSEL1.jpg"
+              alt="First slide"
+              fill
+            />
+            </div>
+
+            <Carousel.Caption>
+              <h3 className=" text-3xl font-bold">The Dark Side of the Moon</h3>
+              <p className="text-lg font-semibold">Cumple 50 años este 2023</p>
+            </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </div>
+  );
 }
- 
+
 export default Carousels;

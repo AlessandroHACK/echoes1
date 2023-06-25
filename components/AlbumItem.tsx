@@ -4,6 +4,7 @@ import Link from "next/link";
 import useLoadAlbum from "@/hooks/useLoadAlbum";
 import { Album } from "@/types";
 import Image from "next/image";
+import { RiShoppingCartLine } from "react-icons/ri";
 
 interface AlbumItemProps {
     dataAlbum: Album;
@@ -14,50 +15,38 @@ const AlbumItem: React.FC<AlbumItemProps> = ({
 }) => {
     const logoPath = useLoadAlbum(dataAlbum);
     return (
-        <Link href={`/Vinilos/${dataAlbum.id_producto}`}
-            
-            className="
-        relative
-        group
-        flex
-        flex-col
-        items-center
-        justify-center
-        rounded-md
-        overflow-hidden
-        gap-x-4
-        bg-red-800/5
-        text-red
-        cursor-pointer
-        hover:bg-neutral-800/10
-        transition
-        p-4
-        ">
-            <div className="
-            relative
-            aspect-square
-            w-full
-            h-50%
-            rounded-md
-            overflow-hidden
-            hover:scale-110
-            transition
-            ">
-                <Image
-                    priority
-                    className="object-cover"
-                    src={logoPath || '/public/ímg/disco1.jpg'}
-                    fill
-                    alt="Image"
-                />
-                
-            </div>
-            <div className="flex flex-col items-start w-full p-4 gap-y-1">
-                <p className="font-semibold w-full truncate text-red-700">
-                    {dataAlbum.nombre}
-                </p>
-            </div>
-        </Link>
+
+        <Link href={`/Vinilos/${dataAlbum.id_producto}`}>
+                    
+                        <div className="bg-beige-200  dark:bg-chocolate-900 rounded-xl p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 h-auto">
+                            <div className="relative overflow-hidden rounded-xl aspect-square">
+                                <Image
+                                    className="object-cover"
+                                    src={logoPath || '/images/logoblanco.png'}
+                                    fill
+                                    alt="Image"
+                                />
+                            </div>
+                            <div className="mt-1 p-2 h-[60px]">
+                                <h2 className="text-chocolate-700 text-md font-bold dark:text-beige-100">
+                                    {dataAlbum.nombre}
+                                </h2>
+                                <h2 className="text-chocolate-700 text-sm dark:text-beige-100">
+                                   {dataAlbum.artistas.nombre}
+                                </h2>
+                            </div>
+                            <div className="mt-2 flex items-end justify-between">
+                                <p className="text-lg font-bold text-zinc-700 dark:text-beige-700">
+                                    $ {dataAlbum.precio}
+                                </p>
+                                <div className="flex items-center space-x-1.5 rounded-lg dark:bg-chocolate-100 px-2 py-1.5 text-zinc-100 duration-100 dark:hover:bg-beige-100 dark:hover:text-chocolate-800">
+                                    <RiShoppingCartLine className="relative mr-1 h-4 w-4 " />
+                                    <button className="relative text-sm ">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </Link>
     );
 }
 

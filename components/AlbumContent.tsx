@@ -12,7 +12,7 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
 }) => {
     if(albums.length === 0){
         return(
-            <div className="mt-4 text-neutral-400">No hay empresas o no tienes acceso a verlas.</div>
+            <div className="w-full h-full p-10 text-chocolate-900 dark:text-beige-200 text-neutral-400">Parece que no hay nada aquí.</div>
         )
     }
     return ( 
@@ -23,8 +23,8 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
         md:grid-cols-3
         lg:grid-cols-4
         xl:grid-cols-4
-        2xl:grid-cols-6
-        gap-4
+        2xl:grid-cols-4
+        gap-12
         mt-4
         ">
             {albums.map((item) => (

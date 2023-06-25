@@ -23,14 +23,14 @@ const AlbumContent: React.FC<TurntableContentProps>= ({
         md:grid-cols-3
         lg:grid-cols-4
         xl:grid-cols-4
-        2xl:grid-cols-6
+        2xl:grid-cols-4
         gap-4
         mt-4
         ">
             {turntables.map((item) => (
                 <TurntableItem
                 dataTurntable={item}
-                key={item.id_tornamesa}
+                key={item.id_producto}
                 />
             ))}
 

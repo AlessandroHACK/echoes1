@@ -6,7 +6,7 @@ import ItemsContainer from './ItemsContainer';
 const Footer1 = () => {
   return (
 
-    <div className="bg-black justify-center items-center text-white w-full p-5 mt-auto bottom-0">
+    <div className="bg-beige-400 dark:bg-chocolate-800 justify-center items-center text-white w-full p-3 mt-auto bottom-0">
       <footer className=''>
 
         <ItemsContainer />

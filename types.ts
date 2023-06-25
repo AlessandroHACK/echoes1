@@ -15,7 +15,7 @@ export interface Album {
     lanzamiento: Date;
     tamano: string;
     cantidad: string;
-    id_artista: string;
+    artistas: Artist;
 }
 
 export interface Turntable {
@@ -25,9 +25,21 @@ export interface Turntable {
     imagen_path: string;
     descripcion: string;
     cantidad: string;
-    id_marca: string;
+    marcas: Brand;
 }
 
+export interface Product {
+    id_producto: string;
+    nombre: string;
+    precio: string;
+    id_tipo: string;
+    imagen_path: string;
+    artistas: Artist;
+    lanzamiento: Date;
+    tamano: string;
+    cantidad: string;
+    marcas: Brand;
+}
 
 export interface Artist {
     id_artista: string;
@@ -35,4 +47,16 @@ export interface Artist {
     descripcion: string;
     artista_path: string;
     productos: Album[];
+    albums?: number;
+    stock?: string;
+}
+
+export interface Brand{
+    id_marca?: string;
+    nombre?: string;
+    descripcion: string;
+    logo_path: string;
+    productos: Turntable[];
+    turntables?: number;
+    stock?: string;
 }

@@ -8,7 +8,7 @@ const getTurntables = async (): Promise<Turntable[]> => {
     });
 
     const { data, error } = await supabase.from('productos').select(`
-  *, artistas(nombre)
+  *, marcas(nombre)
 `)
 .eq('id_tipo','2')
 .order('nombre', {ascending: true});
