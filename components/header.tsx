@@ -8,6 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'next/image';
 import Link from 'next/link';
+import {RiLoginBoxLine} from 'react-icons/ri';
 import { RiShoppingCartLine } from "react-icons/ri";
 import { RiUserLine } from "react-icons/ri";
 import { RiLogoutBoxRLine } from "react-icons/ri";
@@ -38,7 +39,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   
   return (
-    <div className="bg-bone-100 dark:bg-chocolate-900">
+    <div className="bg-beige-800 dark:bg-chocolate-900">
       {session ? (
         <Navbar expand="lg">
           <Container fluid>
@@ -83,11 +84,10 @@ const Header = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                <Link href="/" className="flex items-center text-white">
-                  <RiShoppingCartLine className="mr-1 h-6 w-6" />
+                <Link href="/" className="flex items-center ">
+                  <RiShoppingCartLine className="mr-1 h-6 w-6 text-zinc-950 dark:text-bone-100" />
                 </Link>
               </Nav>
-
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 relative mt-6">
                 <div className="relative">
                   <Image
@@ -142,10 +142,10 @@ const Header = () => {
                   style={{ maxHeight: '100px' }}
                   navbarScroll
                 >
-                  <Link href="/" className='lg:self-center text-white py-2 lg:p-3'>
+                  <Link href="/" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
                     Inicio
                   </Link>
-                  <Link href="/Ayuda" className='lg:self-center text-white py-2 lg:p-3'>
+                  <Link href="/Ayuda" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
                     Ayuda
                   </Link>
                   <NavDropdown
@@ -174,7 +174,7 @@ const Header = () => {
 
                 </Nav>
                 <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
-                  Iniciar sesión
+                <RiLoginBoxLine className="mr-1 h-6 w-6" />
                 </Link>
               </Navbar.Collapse>
             </Container>

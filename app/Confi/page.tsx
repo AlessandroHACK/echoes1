@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Loading from '../../components/loading';
+import ProfileForm from '../../components/ProfileForm';
 
 const Confi = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,8 +17,8 @@ const Confi = () => {
       <Loading />
     ) : (
       <div>
-        <h1>desde confg</h1>
-        {/* Aquí va el contenido adicional de la página Pedidos */}
+        
+        <ProfileForm></ProfileForm>
       </div>
     )}
   </div>
