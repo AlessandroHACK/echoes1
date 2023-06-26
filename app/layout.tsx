@@ -1,13 +1,16 @@
-import './globals.css'
+import '@/styles/junk.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '@/components/Footer';
 import UserProvider from '@/providers/UserProvider';
 import SupabaseProvider from '@/providers/SupabaseProvider';
 import ToasterProvider from '@/providers/ToasterProvider'
 import Header from '@/components/Header';
-import Loading from './loading'
 import LoadingScreen from '@/components/loading';
 import { Suspense } from 'react';
 import Providers from '@/components/Providers';
+import Head from 'next/head';
+import './globals.css'
+
 
 
 export default function RootLayout({
@@ -18,7 +21,6 @@ export default function RootLayout({
   
   return (
     <html lang="en" className='dark'>
-
       <body>
         <Providers>
         <ToasterProvider/>

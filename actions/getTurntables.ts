@@ -1,8 +1,8 @@
-import { Turntable } from "../types";
+import { Product } from "../types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-const getTurntables = async (): Promise<Turntable[]> => {
+const getAlbums = async (): Promise<Product[]> => {
     const supabase = createServerComponentClient({
         cookies: cookies
     });
@@ -18,4 +18,4 @@ const getTurntables = async (): Promise<Turntable[]> => {
     return (data as any) || [];
 }
 
-export default getTurntables;
+export default getAlbums;

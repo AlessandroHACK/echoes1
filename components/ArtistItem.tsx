@@ -9,7 +9,7 @@ interface ArtistItemProps {
     dataArtist: Artist;
 };
 
-const AlbumItem: React.FC<ArtistItemProps> = ({
+const ArtistItem: React.FC<ArtistItemProps> = ({
     dataArtist,
 }) => {
     const logoPath = useLoadArtist(dataArtist);
@@ -40,4 +40,4 @@ const AlbumItem: React.FC<ArtistItemProps> = ({
     );
 }
 
-export default AlbumItem;
+export default ArtistItem;

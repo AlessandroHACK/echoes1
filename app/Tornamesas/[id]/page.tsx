@@ -1,22 +1,15 @@
 import getTurntable from "@/actions/getTurntable";
+import TurntableInfo from "@/components/TurntableInfo";
 
 export default async function TurntablePage({ params }: any) {
     const turntable = await getTurntable(params.id);
+    console.log(turntable);
 
     return (
         <div className="
-        bg-stone-900
-        rounded-lg
-        h-full
-        w-full
-        overflow-hidden
-        overflow-y-auto">
-            <div className="mb-2">
-                <h1 className="text-white
-              text-3xl font-semibold">
-                    {turntable.nombre}
-                </h1>
-            </div>
+        p-20">
+            
+            <TurntableInfo turntable={turntable}/>
             
         </div>
     );

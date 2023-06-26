@@ -1,11 +1,11 @@
 import { Inter } from "next/font/google";
 
-import getTurntables from "@/actions/getTurntables";
+import getAccesories from "@/actions/getAccesories";
 import Carousels from "@/components/Carousels";
-import TurntableContent from "@/components/TurntableContent";
+import AccesoryContent from "@/components/AccesoryContent";
 import Header from "@/components/Header";
 import { Product } from "@/types";
-import searchTurntables from "@/actions/searchTurntables";
+import searchAccesories from "@/actions/searchAccesories";
 import Search from "@/components/Search";
 
 export const revalidate = 0;
@@ -15,25 +15,25 @@ const Home = async ({ searchParams,
   searchParams: { search?: string }
 }) => {
   const searchQuery = searchParams.search ?? ""
-  let turntables: Product[] = []
+  let accesories: Product[] = []
 
-  const initialProductsData = await getTurntables();
-  const filteredProductsData = await searchTurntables(searchQuery);
+  const initialProductsData = await getAccesories();
+  const filteredProductsData = await searchAccesories(searchQuery);
 
   if (searchQuery.length > 1) {
-    // If there is a result, set turntables to result
+    // If there is a result, set accesories to result
     if (filteredProductsData) {
-      turntables = []
-      turntables = filteredProductsData
+      accesories = []
+      accesories = filteredProductsData
     }
-    // If there is no result, set turntables to empty array
+    // If there is no result, set accesories to empty array
     else {
-      turntables = []
+      accesories = []
     }
   }
-  // If there is no search query, set turntables to initial data
+  // If there is no search query, set accesories to initial data
   else {
-    turntables = initialProductsData ?? []
+    accesories = initialProductsData ?? []
   }
 
   return (
@@ -47,7 +47,7 @@ const Home = async ({ searchParams,
           <p className=" text-left">Busca algún álbum, seguro lo tenemos.</p>
         </div>
       <Search/>
-        <TurntableContent turntables={turntables}></TurntableContent>
+        <AccesoryContent accesories={accesories}></AccesoryContent>
       </div>
     </div>
   );

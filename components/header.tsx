@@ -15,12 +15,14 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSessionContext, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Search from './Search';
+import { useUser } from '@/hooks/useUser';
 
 const Header = () => {
+  const user = useUser();
   const { session } = useSessionContext();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
-
+  console.log(user.userDetails?.id);
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
     setOpen(!open);
@@ -34,7 +36,7 @@ const Header = () => {
   }
 
   const [open, setOpen] = useState(false);
-
+  
   return (
     <div className="bg-bone-100 dark:bg-chocolate-900">
       {session ? (
