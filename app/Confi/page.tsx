@@ -1,14 +1,14 @@
-'use client'
+import getUser from '@/actions/getUser';
 import ProfileForm from '../../components/ProfileForm';
 
-const Confi = () => {
-
-
+const Confi = async() => {
+  const userDetails = await getUser();
+  console.log(userDetails);
   return (
-
+    
       <div>
         
-        <ProfileForm></ProfileForm>
+        <ProfileForm userDetails={userDetails}></ProfileForm>
       </div>
 
   )

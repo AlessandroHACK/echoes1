@@ -1,10 +1,12 @@
 
+import getUser from "@/actions/getUser";
 import PerfilContent from "./components/PerfilContent";
-const Perfil = () => {
 
+
+export default async function Perfil () {
+  const userDetails = await getUser();
   return (
-    <PerfilContent/>
+    <PerfilContent userDetails={userDetails}/>
   );
 };
 
-export default Perfil;

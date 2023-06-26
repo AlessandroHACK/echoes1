@@ -10,15 +10,16 @@ import { Suspense } from 'react';
 import Providers from '@/components/Providers';
 import Head from 'next/head';
 import './globals.css'
+import getUser from '@/actions/getUser';
 
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  
+  const user = await getUser();
   return (
     <html lang="en" className='dark'>
       <body>
@@ -27,7 +28,7 @@ export default function RootLayout({
           <SupabaseProvider>
             <UserProvider>
               <Suspense fallback={<LoadingScreen />}>
-                <Header/>
+                <Header userDetails={user}/>
                 <div className=" bg-gray-100 dark:bg-zinc-900">
                   {children}
                 </div>

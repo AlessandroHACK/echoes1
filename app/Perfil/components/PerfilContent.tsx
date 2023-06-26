@@ -2,16 +2,23 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { RiSettings4Line } from "react-icons/ri";
+import { RiSettings4Line, RiUserLine } from "react-icons/ri";
 import {GoCreditCard} from 'react-icons/go';
 import {BsBoxSeam} from 'react-icons/bs';
-
+import {UserDetails} from '@/types';
 import { useUser } from "@/hooks/useUser";
 
 import Link from "next/link";
 import Image from "next/image";
+import useLoadUser from "@/hooks/useLoadUser";
 
-const PerfilContent = () => {
+interface UserItemProps {
+  userDetails : UserDetails
+};
+
+const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
+
+  const userPath = useLoadUser(userDetails);
   const router = useRouter();
   const { isLoading, user } = useUser();
 
@@ -25,17 +32,24 @@ const PerfilContent = () => {
     <div className="md:min-h-[480px] justify-center items-center">
       <div className="w-full p-5">
         <h1 className="text-4xl text-center font-bold text-chocolate-900 dark:text-beige-200">
-          Mi cuenta
+          {userDetails.full_name}
         </h1>
 
-        <div className="contenedor-foto flex justify-center items-center mt-3">
-          <Image
-            width={100}
-            height={100}
+        <div className=" flex justify-center items-center mt-3">
+          {userDetails.avatar_url !== null ? (
+            <div className="relative overflow-hidden w-[150px] aspect-square">
+              <Image
+            fill
             alt="Foto de perfil"
-            src="/img/erick.jfif"
-            className="foto-perfil rounded-full"
+            src={userPath}
+            className="foto-perfil rounded-full dark:border dark:border-beige-100 border-2"
           />
+            </div>
+          ):(
+            <div className="w-[150px] h-[150px] rounded-full bg-gray-300 flex items-center justify-center">
+              <RiUserLine className="w-[140px] h-[140px] text-gray-400" />
+            </div>
+          )}
         </div>
 
         <div className="opciones-perfil mt-5 flex flex-wrap justify-center mx-4 text-chocolate-900 dark:text-beige-200">

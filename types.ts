@@ -1,9 +1,9 @@
 export interface UserDetails {
     id: string;
-    first_name: string;
-    last_name: string;
+    billing_address: string;
+    payment_method: string;
     full_name?: string;
-    avatar_url?: string;
+    avatar_url: string;
 
 };
 

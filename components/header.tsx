@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'next/image';
 import Link from 'next/link';
-import {RiLoginBoxLine} from 'react-icons/ri';
+import { RiLoginBoxLine } from 'react-icons/ri';
 import { RiShoppingCartLine } from "react-icons/ri";
 import { RiUserLine } from "react-icons/ri";
 import { RiLogoutBoxRLine } from "react-icons/ri";
@@ -17,13 +17,20 @@ import { useRouter } from "next/navigation";
 import { useSessionContext, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Search from './Search';
 import { useUser } from '@/hooks/useUser';
+import { UserDetails } from '@/types';
+import useLoadUser from '@/hooks/useLoadUser';
 
-const Header = () => {
-  const user = useUser();
+interface HeaderProps {
+  userDetails: UserDetails;
+}
+
+const Header: React.FC<HeaderProps> = ({ userDetails }) => {
+  console.log(userDetails);
+  const userPath = useLoadUser(userDetails);
+
   const { session } = useSessionContext();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
-  console.log(user.userDetails?.id);
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
     setOpen(!open);
@@ -36,17 +43,18 @@ const Header = () => {
     }
   }
 
+
   const [open, setOpen] = useState(false);
-  
+
   return (
     <div className="bg-beige-100 dark:bg-chocolate-900">
       {session ? (
         <Navbar expand="lg">
           <Container fluid>
-              <Link href={'/'} >
-            <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover'>
-            </div>
-              </Link>
+            <Link href={'/'} >
+              <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover'>
+              </div>
+            </Link>
 
             <Navbar.Toggle aria-controls="navbarScroll" className=' text-chocolate-900 dark:text-bone-100' />
             <Navbar.Collapse id="navbarScroll" className=' text-bone-900 dark:text-bone-100'>
@@ -61,7 +69,7 @@ const Header = () => {
                 <Link href="/Ayuda" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
                   Ayuda
                 </Link>
-                <NavDropdown 
+                <NavDropdown
                   title={
                     <span className='text-chocolate-900 dark:text-bone-100'>Categorías</span>
                   }
@@ -88,16 +96,23 @@ const Header = () => {
                   <RiShoppingCartLine className="mr-1 h-6 w-6 text-zinc-950 dark:text-bone-100" />
                 </Link>
               </Nav>
-              <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 relative mt-6">
+              <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 w-[40px] relative mt-6">
                 <div className="relative">
-                  <Image
-                    onClick={() => setOpen(!open)}
-                    width={40}
-                    height={40}
-                    alt="Foto de perfil"
-                    src="/img/erick.jfif"
-                    className="foto-perfil border-2 border-white rounded-full cursor-pointer"
-                  />
+                  {userDetails.avatar_url !== null ? (
+                    <div className="w-[40px] h-[40px] aspect-square overflow-hidden">
+                      <Image
+                        onClick={() => setOpen(!open)}
+                        fill
+                        alt="Foto de perfil"
+                        src={userPath}
+                        className="object-cover border-2 border-white rounded-full cursor-pointer"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-[40px] h-[40px] rounded-full bg-gray-300 flex items-center justify-center">
+                      <RiUserLine onClick={() => setOpen(!open)} className="w-[40px] h-[40px] text-gray-400 cursor-pointer" />
+                    </div>
+                  )}
                   {open && (
                     <div className="bg-bone-100 dark:bg-chocolate-500 p-1 w-auto shadow-lg absolute left-0 lg:-left-14 mt-4 sm:mt-6 md:mt-0 rounded-md items-center z-10">
                       <ul className="py-2 overflow-y-auto max-h-60 sm:max-h-screen border-black">
@@ -174,7 +189,7 @@ const Header = () => {
 
                 </Nav>
                 <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 ' href="/Login">
-                <RiLoginBoxLine className="mr-1 h-6 w-6  text-chocolate-900 dark:text-bone-100" />
+                  <RiLoginBoxLine className="mr-1 h-6 w-6  text-chocolate-900 dark:text-bone-100" />
                 </Link>
               </Navbar.Collapse>
             </Container>
