@@ -44,7 +44,7 @@ const Home = async ({ searchParams,
       
       <div className="px-10 lg:px-20 py-10">
         <div className="text-lg my-2 font-medium dark:text-beige-200">
-          <p className=" text-left">Busca algún álbum, seguro lo tenemos.</p>
+        <p className=" text-center">Busca algún vinilo, seguro lo tenemos.</p>
         </div>
       <Search/>
         <AlbumContent albums={albums}></AlbumContent>

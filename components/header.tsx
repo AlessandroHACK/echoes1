@@ -39,7 +39,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   
   return (
-    <div className="bg-beige-800 dark:bg-chocolate-900">
+    <div className="bg-beige-100 dark:bg-chocolate-900">
       {session ? (
         <Navbar expand="lg">
           <Container fluid>
@@ -48,8 +48,8 @@ const Header = () => {
             </div>
               </Link>
 
-            <Navbar.Toggle aria-controls="navbarScroll" className='bg-chocolate-900 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100' />
-            <Navbar.Collapse id="navbarScroll" className='text-chocolate-900 dark:text-bone-100'>
+            <Navbar.Toggle aria-controls="navbarScroll" className=' text-chocolate-900 dark:text-bone-100' />
+            <Navbar.Collapse id="navbarScroll" className=' text-bone-900 dark:text-bone-100'>
               <Nav
                 className="me-auto my-2 my-lg-0"
                 style={{ maxHeight: "100px" }}
@@ -61,7 +61,7 @@ const Header = () => {
                 <Link href="/Ayuda" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
                   Ayuda
                 </Link>
-                <NavDropdown
+                <NavDropdown 
                   title={
                     <span className='text-chocolate-900 dark:text-bone-100'>Categorías</span>
                   }
@@ -105,14 +105,14 @@ const Header = () => {
                           onClick={() => setOpen(false)}
                           className="p-2 text-lg px-4 items-center cursor-pointer rounded hover:bg-magenta-400 flex flex-row"
                         >
-                          <Link href="/Perfil" className="flex items-center">
+                          <Link href="/Perfil" className="flex items-center dark:text-bone-100  text-chocolate-800">
                             <RiUserLine className="mr-1 h-4 w-4" />
-                            <span className='dark:text-bone-100  text-chocolate-800'>Perfil</span>
+                            <span className=''>Perfil</span>
                           </Link>
                         </li>
                         <li
                           onClick={handleLogout}
-                          className="p-2 text-lg px-4 items-center cursor-pointer rounded hover:bg-magenta-400 flex flex-row gap-x-2"
+                          className="dark:text-bone-100  text-chocolate-800 p-2 text-lg px-4 items-center cursor-pointer rounded hover:bg-magenta-400 flex flex-row gap-x-2"
                         >
                           <RiLogoutBoxRLine className="mr-1 h-4 w-4" />
                           Salir
@@ -135,7 +135,7 @@ const Header = () => {
 
                 </div>
               </Link>
-              <Navbar.Toggle aria-controls="navbarScroll" className='bg-chocolate-900 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100' />
+              <Navbar.Toggle aria-controls="navbarScroll" className='bg-bone-200 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100' />
               <Navbar.Collapse id="navbarScroll" className='text-chocolate-900 dark:text-bone-100'>
                 <Nav
                   className="me-auto my-2 my-lg-0"
@@ -173,8 +173,8 @@ const Header = () => {
 
 
                 </Nav>
-                <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 text-white' href="/Login">
-                <RiLoginBoxLine className="mr-1 h-6 w-6" />
+                <Link className='lg:mx-[30px] lg:my-0 sm:mx-0 my-3 ' href="/Login">
+                <RiLoginBoxLine className="mr-1 h-6 w-6  text-chocolate-900 dark:text-bone-100" />
                 </Link>
               </Navbar.Collapse>
             </Container>

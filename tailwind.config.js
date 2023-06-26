@@ -3,7 +3,6 @@ const colors = require('tailwindcss/colors')
 
 
 module.exports = {
-  enabled: process.env.NODE_ENV === "production",
   darkMode: 'class',
   darkMode: 'media',
   content: [
