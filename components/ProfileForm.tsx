@@ -2,19 +2,29 @@ import React, { useState } from 'react';
 import { RiUserLine } from 'react-icons/ri';
 
 const ProfileForm = () => {
-  const [profileImage, setProfileImage] = useState(null);
+  const [profileImage, setProfileImage] = useState<string | null>(null);
   const [fileName, setFileName] = useState('');
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      setProfileImage(reader.result);
-    };
-
-    reader.readAsDataURL(file);
-    setFileName(file.name);
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+  
+      reader.onload = () => {
+        const result = reader.result;
+        if (result instanceof ArrayBuffer) {
+          const uintArray = new Uint8Array(result);
+          const array = Array.from(uintArray);
+          const base64 = btoa(String.fromCharCode(...array));
+          setProfileImage(`data:image/jpeg;base64,${base64}`);
+        } else if (typeof result === 'string') {
+          setProfileImage(result);
+        }
+      };
+  
+      reader.readAsDataURL(file);
+      setFileName(file.name);
+    }
   };
 
   return (
