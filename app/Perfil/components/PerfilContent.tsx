@@ -2,16 +2,23 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { RiSettings4Line } from "react-icons/ri";
+import { RiSettings4Line, RiUserLine } from "react-icons/ri";
 import {GoCreditCard} from 'react-icons/go';
 import {BsBoxSeam} from 'react-icons/bs';
-
+import {UserDetails} from '@/types';
 import { useUser } from "@/hooks/useUser";
 
 import Link from "next/link";
 import Image from "next/image";
+import useLoadUser from "@/hooks/useLoadUser";
 
-const PerfilContent = () => {
+interface UserItemProps {
+  userDetails : UserDetails
+};
+
+const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
+
+  const userPath = useLoadUser(userDetails);
   const router = useRouter();
   const { isLoading, user } = useUser();
 
@@ -22,28 +29,35 @@ const PerfilContent = () => {
   }, [isLoading, user, router]);
 
   return (
-    <div className="md:h-[480px] justify-center items-center">
+    <div className="md:min-h-[480px] justify-center items-center">
       <div className="w-full p-5">
-        <h1 className="text-4xl text-center font-bold text-chocolate-900 dark:text-bone-100">
-          Mi cuenta
+        <h1 className="text-4xl text-center font-bold text-chocolate-900 dark:text-beige-200">
+          {userDetails.full_name}
         </h1>
 
-        <div className="contenedor-foto flex justify-center items-center mt-3">
-          <Image
-            width={100}
-            height={100}
+        <div className=" flex justify-center items-center mt-3">
+          {userDetails.avatar_url !== null ? (
+            <div className="relative overflow-hidden w-[150px] aspect-square">
+              <Image
+            fill
             alt="Foto de perfil"
-            src="/img/erick.jfif"
-            className="foto-perfil rounded-full"
+            src={userPath}
+            className="foto-perfil rounded-full dark:border dark:border-beige-100 border-2"
           />
+            </div>
+          ):(
+            <div className="w-[150px] h-[150px] rounded-full bg-gray-300 flex items-center justify-center">
+              <RiUserLine className="w-[140px] h-[140px] text-gray-400" />
+            </div>
+          )}
         </div>
 
-        <div className="opciones-perfil mt-5 flex flex-wrap justify-center mx-4 text-zinc-950 dark:text-bone-100">
-          <div className="p-4 border dark:bg-zinc-950  dark:border-ash-100 rounded cursor-pointer hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+        <div className="opciones-perfil mt-5 flex flex-wrap justify-center mx-4 text-chocolate-900 dark:text-beige-200">
+          <div className="bg-beige-100 p-4 border dark:bg-chocolate-900  dark:border-ash-100 rounded cursor-pointer hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
             <Link href="/Confi">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
-                  <RiSettings4Line className="w-full h-full dark:text-bone-100 text-zinc-800" />
+                  <RiSettings4Line className="w-full h-full dark:text-beige-200 text-ash-500" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold ">
@@ -55,11 +69,11 @@ const PerfilContent = () => {
             </Link>
           </div>
 
-          <div className="p-4 border dark:bg-zinc-950  dark:border-ash-100 rounded cursor-pointer  hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+          <div className=" bg-beige-100 p-4 border dark:bg-chocolate-900  dark:border-ash-100 rounded cursor-pointer  hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
             <Link href="/Pedidos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
-                  <BsBoxSeam className="w-full h-full dark:text-bone-100 text-zinc-800"/>
+                  <BsBoxSeam className="w-full h-full dark:text-beige-200 text-ash-500"/>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Mis pedidos</h3>
@@ -69,11 +83,11 @@ const PerfilContent = () => {
             </Link>
           </div>
 
-          <div className="p-4 border dark:bg-zinc-950  dark:border-ash-100 rounded cursor-pointer  hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
+          <div className="bg-beige-100 p-4 border dark:bg-chocolate-900  dark:border-ash-100 rounded cursor-pointer  hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
             <Link href="/Pagos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
-                 <GoCreditCard className="w-full h-full dark:text-bone-100 text-zinc-800"/>
+                 <GoCreditCard className="w-full h-full dark:text-beige-200 text-ash-500"/>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Pagos</h3>

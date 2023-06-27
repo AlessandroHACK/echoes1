@@ -9,13 +9,13 @@ interface ArtistItemProps {
     dataArtist: Artist;
 };
 
-const AlbumItem: React.FC<ArtistItemProps> = ({
+const ArtistItem: React.FC<ArtistItemProps> = ({
     dataArtist,
 }) => {
     const logoPath = useLoadArtist(dataArtist);
     return (
         <Link href={`/Vinilos/${dataArtist.id_artista}`}>
-            <div className="my-10 rounded-xl bg-beige-700 dark:bg-chocolate-800 p-3 shadow-gray-900 dark:shadow-chocolate-100 hover:transform hover:scale-105 duration-300 shadow-md h-auto">
+            <div className="my-10 rounded-xl bg-beige-100/60 dark:bg-chocolate-800 p-3 shadow-gray-400 dark:shadow-chocolate-100 hover:transform hover:scale-105 duration-300 shadow-md h-auto">
                 <div className="relative overflow-hidden  -mt-20 rounded-xl aspect-square p-10 m-8 ">
                     <Image
                         className=" rounded-full"
@@ -40,4 +40,4 @@ const AlbumItem: React.FC<ArtistItemProps> = ({
     );
 }
 
-export default AlbumItem;
+export default ArtistItem;

@@ -1,13 +1,13 @@
-import { Turntable } from "../types";
+import { Accesory } from "@/types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-const getTurntable = async (turntableId: string): Promise<Turntable> => {
+const getCompany = async (accesoryId: string): Promise<Accesory> => {
     const supabase = createServerComponentClient({
         cookies: cookies
     });
 
-    const { data, error } = await supabase.from('productos').select('*, marcas(*)').eq('id_producto', turntableId).single();
+    const { data, error } = await supabase.from('productos').select('*').eq('id_producto', accesoryId).single();
     if (error) {
         console.log(error);
     }
@@ -15,4 +15,4 @@ const getTurntable = async (turntableId: string): Promise<Turntable> => {
     return (data as any) || [];
 }
 
-export default getTurntable;
+export default getCompany;

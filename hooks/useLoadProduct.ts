@@ -20,5 +20,13 @@ const useLoadProduct = (product: Product) => {
             return imageData.publicUrl;
     }
 
+    if (product.id_tipo == '3') {
+        const { data: imageData } = supabaseClient
+            .storage
+            .from('productos')
+            .getPublicUrl(product.imagen_path);
+            return imageData.publicUrl;
+    }
+
 };
 export default useLoadProduct;

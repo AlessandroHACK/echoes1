@@ -18,9 +18,9 @@ const Ayuda = () => {
 
       <div className="options mt-5 bg-bone-100 dark:bg-chocolate-900 p-4 rounded-lg shadow-lg dark:shadow-bone-100">
         <Accordion defaultActiveKey="0" flush className="bg-bone-100 dark:bg-chocolate-900">
-          <Accordion.Item eventKey="0" className="bg-bone-100 dark:bg-chocolate-900 text-lg font-semibold">
+          <Accordion.Item eventKey="0" className="bg-bone-100 dark:bg-chocolate-900  ">
             <Accordion.Header className="cursor-pointer text-magenta-900 dark:text-bone-100 rounded-md">
-              <p className=" text-magenta-900 dark:text-beige-900">Cancelar compra</p>
+              <p className=" text-magenta-900 dark:text-beige-900 font-semibold text-lg">Cancelar compra</p>
             </Accordion.Header>
             <Accordion.Body>
               <p className="text-gray-600 dark:text-beige-100 mt-3">
@@ -44,7 +44,7 @@ const Ayuda = () => {
 
           <Accordion.Item eventKey="1" className="bg-bone-100 dark:bg-chocolate-800">
           <Accordion.Header className="cursor-pointer text-magenta-900 dark:text-bone-100 ">
-          <p className=" text-magenta-900 dark:text-beige-900">Devoluciones y rembolsos</p>
+          <p className=" text-magenta-900 dark:text-beige-900 font-semibold text-lg">Devoluciones y rembolsos</p>
           </Accordion.Header>
             <Accordion.Body>
               <p className="text-gray-600 mt-3">
@@ -81,7 +81,7 @@ const Ayuda = () => {
           </Accordion.Item>
           <Accordion.Item eventKey="2" className="bg-bone-100 dark:bg-chocolate-800">
             <Accordion.Header>
-            <p className=" text-magenta-900 dark:text-beige-900">Preguntas frecuentes sobre compras</p>
+            <p className=" text-magenta-900 dark:text-beige-900 font-semibold text-lg">Preguntas frecuentes sobre compras</p>
             </Accordion.Header>
             <Accordion.Body>
               <h4 className="text-lg text-black font-medium">

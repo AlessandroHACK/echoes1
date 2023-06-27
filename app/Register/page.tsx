@@ -34,11 +34,6 @@ const Register = () => {
     }
     router.push('/')
 
-    // Aquí puedes realizar la lógica de registro o enviar los datos a un servidor
-    console.log('Nombre:', name);
-    console.log('Email:', email);
-    console.log('Contraseña:', password);
-    console.log('Confirmar contraseña:', confirmPassword);
     // Reiniciar los campos
     setName('');
     setEmail('');

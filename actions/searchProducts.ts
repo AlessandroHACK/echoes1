@@ -3,6 +3,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import searchAlbums from "./searchAlbums";
 import searchTurntables from "./searchTurntables";
+import searchAccesories from "./searchAccesories";
 
 const searchProducts = async (searchQuery:string): Promise<Product[]> => {
     
@@ -10,7 +11,8 @@ const searchProducts = async (searchQuery:string): Promise<Product[]> => {
     // const { data, error } = await supabase.rpc('search_product', {query: searchQuery})
     const albums = await searchAlbums(searchQuery);
     const turntables  = await searchTurntables(searchQuery);
-    const products = [...(albums || []), ...(turntables || [])];
+    const accesories = await searchAccesories(searchQuery);
+    const products = [...(albums || []), ...(turntables || []), ...(accesories || [])];
     return products;
 }
 

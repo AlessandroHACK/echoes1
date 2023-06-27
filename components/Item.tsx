@@ -14,7 +14,7 @@ interface ItemProps {
         {Links.map((link) => (
           <div key={link.name}>
             <Link
-              className="text-gray-400 hover:text-bone-100  hover:scale-120 duration-300 text-sm cursor-pointer leading-6"
+              className="text-ash-500 dark:text-bone-100 hover:text-bone-100  hover:scale-120 duration-300 text-sm cursor-pointer leading-6"
               href={link.link}
             >
               {link.name}

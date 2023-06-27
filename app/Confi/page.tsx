@@ -1,27 +1,16 @@
-'use client'
-import React, { useState, useEffect } from 'react';
-import Loading from '../../components/loading';
+import getUser from '@/actions/getUser';
 import ProfileForm from '../../components/ProfileForm';
 
-const Confi = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+const Confi = async() => {
+  const userDetails = await getUser();
+  console.log(userDetails);
   return (
-    <div>
-    {isLoading ? (
-      <Loading />
-    ) : (
+    
       <div>
         
-        <ProfileForm></ProfileForm>
+        <ProfileForm userDetails={userDetails}></ProfileForm>
       </div>
-    )}
-  </div>
+
   )
 }
 

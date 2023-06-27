@@ -1,9 +1,9 @@
 export interface UserDetails {
     id: string;
-    first_name: string;
-    last_name: string;
+    billing_address: string;
+    payment_method: string;
     full_name?: string;
-    avatar_url?: string;
+    avatar_url: string;
 
 };
 
@@ -28,6 +28,15 @@ export interface Turntable {
     marcas: Brand;
 }
 
+export interface Accesory {
+    id_producto: string;
+    nombre: string;
+    precio: string;
+    imagen_path: string;
+    descripcion: string;
+    cantidad: string;
+}
+
 export interface Product {
     id_producto: string;
     nombre: string;
@@ -36,9 +45,10 @@ export interface Product {
     imagen_path: string;
     artistas: Artist;
     lanzamiento: Date;
+    marcas: Brand;
     tamano: string;
     cantidad: string;
-    marcas: Brand;
+    descripcion: string;
 }
 
 export interface Artist {

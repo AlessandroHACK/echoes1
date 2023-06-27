@@ -1,11 +1,11 @@
 import { Inter } from "next/font/google";
 
-import getAlbums from "@/actions/getAlbums";
+import getAccesories from "@/actions/getAccesories";
 import Carousels from "@/components/Carousels";
-import AlbumContent from "@/components/AlbumContent";
+import AccesoryContent from "@/components/AccesoryContent";
 import Header from "@/components/Header";
 import { Product } from "@/types";
-import searchAlbums from "@/actions/searchAlbums";
+import searchAccesories from "@/actions/searchAccesories";
 import Search from "@/components/Search";
 
 export const revalidate = 0;
@@ -15,25 +15,25 @@ const Home = async ({ searchParams,
   searchParams: { search?: string }
 }) => {
   const searchQuery = searchParams.search ?? ""
-  let albums: Product[] = []
+  let accesories: Product[] = []
 
-  const initialProductsData = await getAlbums();
-  const filteredProductsData = await searchAlbums(searchQuery);
+  const initialProductsData = await getAccesories();
+  const filteredProductsData = await searchAccesories(searchQuery);
 
   if (searchQuery.length > 1) {
-    // If there is a result, set albums to result
+    // If there is a result, set accesories to result
     if (filteredProductsData) {
-      albums = []
-      albums = filteredProductsData
+      accesories = []
+      accesories = filteredProductsData
     }
-    // If there is no result, set albums to empty array
+    // If there is no result, set accesories to empty array
     else {
-      albums = []
+      accesories = []
     }
   }
-  // If there is no search query, set albums to initial data
+  // If there is no search query, set accesories to initial data
   else {
-    albums = initialProductsData ?? []
+    accesories = initialProductsData ?? []
   }
 
   return (
@@ -44,10 +44,10 @@ const Home = async ({ searchParams,
       
       <div className="px-10 lg:px-20 py-10">
         <div className="text-lg my-2 font-medium dark:text-beige-200">
-        <p className=" text-center">Busca algún vinilo, seguro lo tenemos.</p>
+        <p className=" text-center">Busca algún accesorio, seguro lo tenemos.</p>
         </div>
       <Search/>
-        <AlbumContent albums={albums}></AlbumContent>
+        <AccesoryContent accesories={accesories}></AccesoryContent>
       </div>
     </div>
   );

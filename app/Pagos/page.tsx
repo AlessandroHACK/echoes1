@@ -8,23 +8,16 @@ const Pagos = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
 
   const handleClick = () => {
     setShowForm(true);
   };
 
   const renderContent = () => {
-    if (isLoading) {
-      return <Loading />;
-    } else if (showForm) {
+ if (showForm) {
       return (
         <div className="flex justify-center items-center h-screen ">
-          <form className="bg-bone-100 dark:bg-zinc-950 dark:border shadow-md rounded-lg p-6 max-w-lg w-full">
+          <form className="bg-bone-100 dark:bg-chocolate-900 dark:border shadow-md rounded-lg p-6 max-w-lg w-full">
             <h2 className="text-2xl mb-4 text-center dark:text-bone-100">
               Agrega tu cuenta de PayPal
             </h2>
@@ -35,7 +28,7 @@ const Pagos = () => {
               placeholder="Correo electrónico de PayPal"
             />
             <button
-              className="bg-zinc-950  text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded w-full"
+              className="bg-ash-700  text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded w-full"
               type="submit"
             >
               <RiPaypalLine className="mr-2 h-5 w-5 inline text-bone-100" />
@@ -47,12 +40,12 @@ const Pagos = () => {
     } else {
       return (
         <div className="flex justify-center items-center h-screen">
-          <div className="bg-bone-100 dark:bg-zinc-950 shadow-md rounded-lg p-6 dark:border">
+          <div className="bg-bone-100 dark:bg-chocolate-900 shadow-md rounded-lg p-6 dark:border">
             <h2 className="text-2xl mb-4 text-center dark:text-bone-100">
               No tienes ningún método de pago guardado
             </h2>
             <button
-              className="bg-zinc-950 text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded mx-auto"
+              className="bg-ash-700 text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded mx-auto"
               onClick={handleClick}
             >
               Agregar método de pago
