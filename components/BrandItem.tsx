@@ -14,7 +14,7 @@ const BrandItem: React.FC<ArtistItemProps> = ({
 }) => {
     const logoPath = useLoadBrand(dataBrand);
     return (
-        <Link href={`/Vinilos/${dataBrand.id_marca}`}>
+        <Link href={`/Marcas/${dataBrand.id_marca}`}>
             <div className="my-10 rounded-xl bg-beige-100/60 dark:bg-chocolate-800 p-3 shadow-gray-400 dark:shadow-chocolate-100 hover:transform hover:scale-105 duration-300 shadow-md h-auto">
                 <div className="relative overflow-hidden  -mt-20 rounded-xl aspect-square p-10 m-8 ">
                     <Image
