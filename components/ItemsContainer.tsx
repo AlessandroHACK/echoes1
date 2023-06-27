@@ -1,5 +1,5 @@
 import Item from './Item';
-import { PRODUCTOS, RESOURCES, COMPANY, SUPPORT } from './Menus';
+import { PRODUCTOS, RESOURCES, COMPANY } from './Menus';
 
 const ItemsContainer = () => {
   return (
@@ -12,9 +12,9 @@ const ItemsContainer = () => {
         2xl:grid-cols-3 
        
         '>
-      <Item  Links={PRODUCTOS} title="PRODUCTOS" />
-      <Item Links={RESOURCES} title="OTROS" />
-      <Item Links={COMPANY} title="AYUDA" />
+      <Item  Links={PRODUCTOS} title="Productos" />
+      <Item Links={RESOURCES} title="Otros" />
+      <Item Links={COMPANY} title="Ayuda" />
     </div>
   );
 };

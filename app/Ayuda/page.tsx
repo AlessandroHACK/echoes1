@@ -23,7 +23,7 @@ const Ayuda = () => {
               <p className=" text-magenta-900 dark:text-beige-900 font-semibold text-lg">Cancelar compra</p>
             </Accordion.Header>
             <Accordion.Body>
-              <p className="text-gray-600 dark:text-beige-100 mt-3">
+              <p className="text-gray-600  dark:text-bone-100 mt-3">
                 Si deseas cancelar una compra, por favor sigue los siguientes pasos:
               </p>
               <ol className="list-decimal text-left mt-3 text-chocolate-900 dark:text-bone-300">
@@ -36,7 +36,7 @@ const Ayuda = () => {
                   Sigue las instrucciones adicionales proporcionadas para completar el proceso de cancelación.
                 </li>
               </ol>
-              <p className="text-gray-600 mt-3">
+              <p className="text-gray-600  dark:text-bone-100 mt-3">
                 Si tienes alguna pregunta o necesitas asistencia adicional, no dudes en contactarnos.
               </p>
             </Accordion.Body>
@@ -47,11 +47,11 @@ const Ayuda = () => {
           <p className=" text-magenta-900 dark:text-beige-900 font-semibold text-lg">Devoluciones y rembolsos</p>
           </Accordion.Header>
             <Accordion.Body>
-              <p className="text-gray-600 mt-3">
+              <p className="text-gray-600 dark:text-bone-100 mt-3">
                 Si deseas realizar una devolución y solicitar un reembolso,
                 sigue los pasos a continuación:
               </p>
-              <ol className="list-decimal text-left mt-3">
+              <ol className="list-decimal text-left dark:text-bone-200 mt-3">
                 <li>
                   Comunícate con nuestro servicio de atención al cliente dentro
                   de los 30 días posteriores a la compra.
@@ -73,7 +73,7 @@ const Ayuda = () => {
                   reembolso según nuestra política de devoluciones.
                 </li>
               </ol>
-              <p className="text-gray-600 mt-3">
+              <p className="text-gray-600 dark:text-bone-100 mt-3">
                 Si tienes alguna pregunta o necesitas más información, no dudes
                 en contactarnos.
               </p>
@@ -84,13 +84,13 @@ const Ayuda = () => {
             <p className=" text-magenta-900 dark:text-beige-900 font-semibold text-lg">Preguntas frecuentes sobre compras</p>
             </Accordion.Header>
             <Accordion.Body>
-              <h4 className="text-lg text-black font-medium">
+              <h4 className="text-lg text-zinc-950 dark:text-beige-100 font-medium">
                 1. ¿Cuál es el proceso de compra?
               </h4>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 dark:text-bone-100 mt-2">
                 Para realizar una compra, sigue estos pasos:
               </p>
-              <ol className="list-decimal ml-5 mt-2">
+              <ol className="list-decimal ml-5 mt-2 dark:text-bone-200">
                 <li>
                   Selecciona los productos que deseas comprar y agrégalos al
                   carrito de compras.
@@ -103,26 +103,26 @@ const Ayuda = () => {
                   seguimiento del envío si aplica.
                 </li>
               </ol>
-              <h4 className="text-lg text-black font-medium mt-5">
+              <h4 className="text-lg text-zinc-950 dark:text-beige-100 font-medium mt-5">
                 2. ¿Cuáles son las opciones de pago disponibles?
               </h4>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 dark:text-bone-100 mt-2">
                 Aceptamos varias formas de pago, incluyendo tarjetas de crédito,
                 transferencias bancarias y pagos en línea a través de
                 plataformas seguras.
               </p>
-              <h4 className="text-lg text-black font-medium mt-5">
+              <h4 className="text-lg text-zinc-950 dark:text-beige-100 font-medium mt-5">
                 3. ¿Cuánto tiempo tarda en llegar mi pedido?
               </h4>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 dark:text-bone-100 mt-2">
                 El tiempo de entrega puede variar según tu ubicación y el método
                 de envío seleccionado. Por lo general, los pedidos son
                 procesados y enviados dentro de 1-3 días hábiles.
               </p>
-              <h4 className="text-lg text-black font-medium mt-5">
+              <h4 className="text-lg text-zinc-950 dark:text-beige-100 font-medium mt-5">
                 4. ¿Puedo realizar cambios o devoluciones?
               </h4>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 dark:text-bone-100 mt-2">
                 Sí, ofrecemos opciones de cambios y devoluciones. Consulta
                 nuestra política de cambios y devoluciones para obtener más
                 detalles y seguir el procedimiento adecuado.

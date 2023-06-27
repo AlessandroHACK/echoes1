@@ -17,7 +17,7 @@ const Pagos = () => {
  if (showForm) {
       return (
         <div className="flex justify-center items-center h-screen ">
-          <form className="bg-bone-100 dark:bg-chocolate-900 dark:border shadow-md rounded-lg p-6 max-w-lg w-full">
+          <form className="bg-bone-100 dark:bg-zinc-800 dark:border shadow-md rounded-lg p-6 max-w-lg w-full">
             <h2 className="text-2xl mb-4 text-center dark:text-bone-100">
               Agrega tu cuenta de PayPal
             </h2>
@@ -40,7 +40,7 @@ const Pagos = () => {
     } else {
       return (
         <div className="flex justify-center items-center h-screen">
-          <div className="bg-bone-100 dark:bg-chocolate-900 shadow-md rounded-lg p-6 dark:border">
+          <div className="bg-bone-100 dark:bg-zinc-800 shadow-md rounded-lg p-6 dark:border">
             <h2 className="text-2xl mb-4 text-center dark:text-bone-100">
               No tienes ningún método de pago guardado
             </h2>

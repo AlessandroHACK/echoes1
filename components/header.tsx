@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ userDetails }) => {
               </div>
             </Link>
 
-            <Navbar.Toggle aria-controls="navbarScroll" className=' text-chocolate-900 dark:text-bone-100' />
+            <Navbar.Toggle aria-controls="navbarScroll" className=' text-chocolate-900 dark:bg-magenta-200 dark:text-bone-100' />
             <Navbar.Collapse id="navbarScroll" className=' text-bone-900 dark:text-bone-100'>
               <Nav
                 className="me-auto my-2 my-lg-0"

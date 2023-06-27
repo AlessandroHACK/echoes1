@@ -11,17 +11,7 @@ export const PRODUCTOS = [
   ];
   
   export const COMPANY = [
-    { name: 'Drag an Drop', link: '#' },
+    { name: 'Página de ayuda', link: 'Ayuda' },
 
   ];
   
-  export const SUPPORT = [
-    { name: 'Drag an Drop', link: '#' },
-
-  ];
-  
-  export const Icons = [
-    { name: 'logo-facebook', link: '#' },
-    { name: 'logo-twitter', link: '#' },
-    { name: 'logo-instagram', link: '#' },
-  ];
