@@ -19,13 +19,14 @@ import Search from './Search';
 import { useUser } from '@/hooks/useUser';
 import { UserDetails } from '@/types';
 import useLoadUser from '@/hooks/useLoadUser';
+import {toast} from "react-hot-toast"
 
 interface HeaderProps {
   userDetails: UserDetails;
 }
 
 const Header: React.FC<HeaderProps> = ({ userDetails }) => {
-  console.log(userDetails);
+
   const userPath = useLoadUser(userDetails);
 
   const { session } = useSessionContext();
@@ -37,9 +38,9 @@ const Header: React.FC<HeaderProps> = ({ userDetails }) => {
     router.refresh();
 
     if (error) {
-      console.log(error.message);
+      toast.error(error.message);
     } else {
-      console.log('Sesión cerrada');
+      toast.success('Sesión cerrada');
     }
   }
 

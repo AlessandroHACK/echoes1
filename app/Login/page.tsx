@@ -38,8 +38,7 @@ const Login = () => {
     catch (error) {
       console.log(error);
     }
-    console.log("Email:", email);
-    console.log("Password:", password);
+
     // Reiniciar los campos
     setEmail("");
     setPassword("");
