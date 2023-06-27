@@ -4,13 +4,13 @@ import Footer from '@/components/Footer';
 import UserProvider from '@/providers/UserProvider';
 import SupabaseProvider from '@/providers/SupabaseProvider';
 import ToasterProvider from '@/providers/ToasterProvider'
-import Header from '@/components/Header';
 import LoadingScreen from '@/components/loading';
 import { Suspense } from 'react';
 import Providers from '@/components/Providers';
 import Head from 'next/head';
 import './globals.css'
 import getUser from '@/actions/getUser';
+import HeaderProvider from '@/providers/HeaderProvider';
 
 
 
@@ -28,10 +28,12 @@ export default async function RootLayout({
           <SupabaseProvider>
             <UserProvider>
               <Suspense fallback={<LoadingScreen />}>
-                <Header userDetails={user}/>
+                
+                <HeaderProvider>
                 <div className=" bg-gray-100 dark:bg-zinc-900">
                   {children}
                 </div>
+                </HeaderProvider>
                 <Footer />
               </Suspense>
             </UserProvider>

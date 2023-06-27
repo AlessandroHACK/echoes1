@@ -1,8 +1,6 @@
 'use client'
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -14,22 +12,19 @@ import { RiUserLine } from "react-icons/ri";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useSessionContext, useSupabaseClient } from "@supabase/auth-helpers-react";
-import Search from './Search';
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useUser } from '@/hooks/useUser';
-import { UserDetails } from '@/types';
 import useLoadUser from '@/hooks/useLoadUser';
 import {toast} from "react-hot-toast"
 
 interface HeaderProps {
-  userDetails: UserDetails;
+  children: React.ReactNode;
 }
 
-const Header: React.FC<HeaderProps> = ({ userDetails }) => {
+const Header: React.FC<HeaderProps> = ({ children }) => {
+  const user= useUser();
+  const userPath = useLoadUser(user.userDetails);
 
-  const userPath = useLoadUser(userDetails);
-
-  const { session } = useSessionContext();
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
   const handleLogout = async () => {
@@ -48,8 +43,9 @@ const Header: React.FC<HeaderProps> = ({ userDetails }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-beige-100 dark:bg-chocolate-900">
-      {session ? (
+    <div className="">
+      <div className="bg-beige-100 dark:bg-chocolate-900">
+      {user.userDetails !== null ? (
         <Navbar expand="lg">
           <Container fluid>
             <Link href={'/'} >
@@ -99,13 +95,13 @@ const Header: React.FC<HeaderProps> = ({ userDetails }) => {
               </Nav>
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 w-[40px] relative mt-6">
                 <div className="relative">
-                  {userDetails.avatar_url !== null ? (
+                  {user.userDetails?.avatar_url !== null ? (
                     <div className="w-[40px] h-[40px] aspect-square overflow-hidden">
                       <Image
                         onClick={() => setOpen(!open)}
                         fill
                         alt="Foto de perfil"
-                        src={userPath}
+                        src={userPath || '/public/img/Echoes-logo-b.png'}
                         className="object-cover border-2 border-white rounded-full cursor-pointer"
                       />
                     </div>
@@ -197,6 +193,10 @@ const Header: React.FC<HeaderProps> = ({ userDetails }) => {
           </Navbar>
         </>
       )}
+    </div>
+    <div>
+      {children}
+    </div>
     </div>
   );
 };
