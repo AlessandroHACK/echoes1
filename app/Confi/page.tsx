@@ -3,7 +3,6 @@ import ProfileForm from '../../components/ProfileForm';
 
 const Confi = async() => {
   const userDetails = await getUser();
-  console.log(userDetails);
   return (
     
       <div>
