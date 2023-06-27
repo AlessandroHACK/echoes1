@@ -57,7 +57,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
             <Link href="/Confi">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
-                  <RiSettings4Line className="w-full h-full dark:text-beige-200 text-ash-500" />
+                  <RiSettings4Line className="w-full h-full dark:text-beige-200 text-zinc-950" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold ">
@@ -73,7 +73,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
             <Link href="/Pedidos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
-                  <BsBoxSeam className="w-full h-full dark:text-beige-200 text-ash-500"/>
+                  <BsBoxSeam className="w-full h-full dark:text-beige-200 text-zinc-950"/>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Mis pedidos</h3>
@@ -87,7 +87,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
             <Link href="/Pagos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
-                 <GoCreditCard className="w-full h-full dark:text-beige-200 text-ash-500"/>
+                 <GoCreditCard className="w-full h-full dark:text-beige-200 text-zinc-950"/>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Pagos</h3>

@@ -28,7 +28,7 @@ const Pagos = () => {
               placeholder="Correo electrónico de PayPal"
             />
             <button
-              className="bg-ash-700  text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded w-full"
+              className="bg-zinc-950  text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded w-full"
               type="submit"
             >
               <RiPaypalLine className="mr-2 h-5 w-5 inline text-bone-100" />
@@ -45,7 +45,7 @@ const Pagos = () => {
               No tienes ningún método de pago guardado
             </h2>
             <button
-              className="bg-ash-700 text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded mx-auto"
+              className="bg-zinc-950 text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded mx-auto"
               onClick={handleClick}
             >
               Agregar método de pago

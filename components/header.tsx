@@ -93,7 +93,7 @@ const Header: React.FC<HeaderProps> = ({ userDetails }) => {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                <Link href="/" className="flex items-center ">
+                <Link href="/Carrito" className="flex items-center ">
                   <RiShoppingCartLine className="mr-1 h-6 w-6 text-zinc-950 dark:text-bone-100" />
                 </Link>
               </Nav>
