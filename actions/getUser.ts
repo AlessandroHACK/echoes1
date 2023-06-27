@@ -8,7 +8,7 @@ const getUser = async (): Promise<UserDetails> => {
 
     });
 
-    const { data, error } = await supabase.from('users').select('*').single();
+    const { data, error } = await supabase.from('users').select('*').maybeSingle();
     if (error) {
         console.log(error);
     }

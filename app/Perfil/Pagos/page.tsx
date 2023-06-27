@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Loading from "../../components/loading";
 import { RiPaypalLine } from "react-icons/ri";
 
 const Pagos = () => {

@@ -10,7 +10,6 @@ import {toast} from "react-hot-toast"
 const Register = () => {
   const router = useRouter();
   const supabaseClient = useSupabaseClient();
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -35,7 +34,6 @@ const Register = () => {
     router.push('/')
 
     // Reiniciar los campos
-    setName('');
     setEmail('');
     setPassword('');
     setConfirmPassword('');
@@ -56,17 +54,7 @@ const Register = () => {
         </div>
         <h2 className=" dark:text-bone-100 text-2xl font-bold mb-4 text-center">Crear cuenta</h2>
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="name" className="block mb-2 font-medium dark:text-bone-100">Nombre</label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
+          
           <div className="mb-4">
             <label htmlFor="email" className="block mb-2 font-medium dark:text-bone-100">Email</label>
             <input
@@ -74,7 +62,7 @@ const Register = () => {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border dark:text-zinc-100 border-gray-300 rounded focus:outline-none focus:border-blue-500"
               required
             />
           </div>
@@ -85,7 +73,7 @@ const Register = () => {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border dark:text-zinc-100 border-gray-300 rounded focus:outline-none focus:border-blue-500"
               required
             />
           </div>
@@ -96,7 +84,7 @@ const Register = () => {
               id="confirmPassword"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border dark:text-zinc-100 border-gray-300 rounded focus:outline-none focus:border-blue-500"
               required
             />
           </div>

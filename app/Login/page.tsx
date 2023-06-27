@@ -68,7 +68,7 @@ const Login = () => {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 border dark:text-zinc-100 border-gray-300 rounded focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
@@ -84,7 +84,7 @@ const Login = () => {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                className="w-full px-3 py-2 border dark:text-zinc-100 border-gray-300 rounded focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
@@ -104,7 +104,7 @@ const Login = () => {
             </p>
             <p className=" dark: text-bone-100">
               ¿Olvidaste tu contraseña?{" "}
-              <Link href="/PasswordRecovery" className="dark:text-beige-900 text-chocolate-100">
+              <Link href="/Perfil/PasswordRecovery" className="dark:text-beige-900 text-chocolate-100">
                 Recuperar contraseña
               </Link>
             </p>
