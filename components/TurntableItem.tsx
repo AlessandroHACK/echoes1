@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import useLoadTurntable from "@/hooks/useLoadTurntable";
-import { Turntable } from "@/types";
+import { Product } from "@/types";
 import Image from "next/image";
 import { RiShoppingCartLine } from "react-icons/ri";
 
 interface TurntableItemProps {
-    dataTurntable: Turntable;
+    dataTurntable: Product;
 };
 
 const TurntableItem: React.FC<TurntableItemProps> = ({

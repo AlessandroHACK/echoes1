@@ -1,10 +1,10 @@
 "use client"
 
-import { Accesory } from "@/types";
+import { Product } from "@/types";
 import AccesoryItem from "./AccesoryItem";
 
 interface AlbumContentProps {
-    accesories: Accesory[];
+    accesories: Product[];
 }
 
 const AlbumContent: React.FC<AlbumContentProps>= ({

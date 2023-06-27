@@ -1,10 +1,10 @@
 "use client"
 
-import { Turntable } from "@/types";
+import { Product } from "@/types";
 import TurntableItem from "./TurntableItem";
 
 interface TurntableContentProps {
-    turntables: Turntable[];
+    turntables: Product[];
 }
 
 const AlbumContent: React.FC<TurntableContentProps>= ({

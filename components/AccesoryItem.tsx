@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import useLoadAccesory from "@/hooks/useLoadAccesory";
-import { Accesory } from "@/types";
+import { Product } from "@/types";
 import Image from "next/image";
 import { RiShoppingCartLine } from "react-icons/ri";
 
 interface AlbumItemProps {
-    dataAccesory: Accesory;
+    dataAccesory: Product;
 };
 
 const AccesoryItem: React.FC<AlbumItemProps> = ({

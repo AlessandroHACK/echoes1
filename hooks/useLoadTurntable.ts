@@ -1,8 +1,8 @@
-import { Turntable } from "@/types";
+import { Product } from "@/types";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
-const useLoadAlbum = (turntable: Turntable) => {
+const useLoadAlbum = (turntable: Product) => {
     const supabaseClient = useSupabaseClient();
 
     const{data: imageData} = supabaseClient

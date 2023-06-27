@@ -1,10 +1,10 @@
 "use client"
-import { Turntable } from "@/types";
+import { Product } from "@/types";
 import useLoadTurntable from "@/hooks/useLoadTurntable"
 import Image from "next/image";
 
 interface TurntableItemProps {
-    turntable: Turntable;
+    turntable: Product;
 };
 
 
