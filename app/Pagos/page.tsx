@@ -17,7 +17,7 @@ const Pagos = () => {
  if (showForm) {
       return (
         <div className="flex justify-center items-center h-screen ">
-          <form className="bg-bone-100 dark:bg-chocolate-900 dark:border shadow-md rounded-lg p-6 max-w-lg w-full">
+          <form className="bg-bone-100 dark:border shadow-md rounded-lg p-6 max-w-lg w-full dark:bg-zinc-950">
             <h2 className="text-2xl mb-4 text-center dark:text-bone-100">
               Agrega tu cuenta de PayPal
             </h2>
@@ -28,7 +28,7 @@ const Pagos = () => {
               placeholder="Correo electrónico de PayPal"
             />
             <button
-              className="bg-ash-700  text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded w-full"
+              className="bg-zinc-950  text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded w-full"
               type="submit"
             >
               <RiPaypalLine className="mr-2 h-5 w-5 inline text-bone-100" />
@@ -45,7 +45,7 @@ const Pagos = () => {
               No tienes ningún método de pago guardado
             </h2>
             <button
-              className="bg-ash-700 text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded mx-auto"
+              className="bg-zinc-950 text-bone-100 dark:bg-chocolate-100 font-bold py-2 px-4 rounded mx-auto"
               onClick={handleClick}
             >
               Agregar método de pago
