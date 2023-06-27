@@ -1,7 +1,7 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Accesory } from "@/types";
+import { Product } from "@/types";
 
-const useLoadAccesory = (accesory: Accesory) => {
+const useLoadAccesory = (accesory: Product) => {
     const supabaseClient = createClientComponentClient();
     if(!accesory){
         return null;
