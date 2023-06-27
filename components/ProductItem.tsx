@@ -85,7 +85,7 @@ const ProductItem: React.FC<TurntableItemProps> = ({
             )
         case 3:
             return (
-                <Link href={`/Vinilos/${dataProduct.id_producto}`}>
+                <Link href={`/Accesorios/${dataProduct.id_producto}`}>
 
                     <div className="bg-bone-100  dark:bg-chocolate-900 rounded-xl p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 h-auto">
                         <div className="relative overflow-hidden rounded-xl aspect-square">

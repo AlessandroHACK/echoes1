@@ -3,7 +3,6 @@ import TurntableInfo from "@/components/TurntableInfo";
 
 export default async function TurntablePage({ params }: any) {
     const turntable = await getTurntable(params.id);
-    console.log(turntable);
 
     return (
         <div className="
