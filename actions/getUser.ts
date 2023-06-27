@@ -4,8 +4,7 @@ import { cookies } from "next/headers";
 
 const getUser = async (): Promise<UserDetails> => {
     const supabase = createServerComponentClient({
-      cookies: cookies,
-
+        cookies: cookies,
     });
 
     const { data, error } = await supabase.from('users').select('*').maybeSingle();

@@ -54,7 +54,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
 
         <div className="opciones-perfil mt-5 flex flex-wrap justify-center mx-4 text-chocolate-900 dark:text-beige-200">
           <div className="bg-beige-100 p-4 border dark:bg-zinc-800  dark:border-ash-100 rounded cursor-pointer hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
-            <Link href="/Confi">
+            <Link href="/Perfil/Confi">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
                   <RiSettings4Line className="w-full h-full dark:text-beige-200 text-zinc-950" />
@@ -70,7 +70,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
           </div>
 
           <div className=" bg-beige-100 p-4 border dark:bg-zinc-800  dark:border-ash-100 rounded cursor-pointer  hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
-            <Link href="/Pedidos">
+            <Link href="/Perfil/Pedidos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
                   <BsBoxSeam className="w-full h-full dark:text-beige-200 text-zinc-950"/>
@@ -84,7 +84,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
           </div>
 
           <div className="bg-beige-100 p-4 border dark:bg-zinc-800  dark:border-ash-100 rounded cursor-pointer  hover:shadow-md transform hover:scale-105 transition-all duration-300 mx-2 mb-4 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4">
-            <Link href="/Pagos">
+            <Link href="/Perfil/Pagos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
                  <GoCreditCard className="w-full h-full dark:text-beige-200 text-zinc-950"/>
