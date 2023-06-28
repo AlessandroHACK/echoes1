@@ -41,7 +41,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
               <Image
             fill
             alt="Foto de perfil"
-            src={userPath}
+            src={userPath || '/images/logoblanco.png'}
             className="foto-perfil rounded-full dark:border dark:border-beige-100 border-2"
           />
             </div>
