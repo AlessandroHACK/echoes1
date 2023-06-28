@@ -1,24 +1,12 @@
-import getAlbum from "../../../actions/getAlbum";
-import Header from "../../../components/Header";
+import getAlbum from "@/actions/getAlbum";
+import AlbumInfo from "@/components/AlbumInfo";
 
 export default async function AlbumPage({ params }: any) {
-    const company = await getAlbum(params.id);
+    const album = await getAlbum(params.id);
 
     return (
-        <div className="
-        bg-stone-900
-        rounded-lg
-        h-full
-        w-full
-        overflow-hidden
-        overflow-y-auto">
-            <div className="mb-2">
-                <h1 className="text-white
-              text-3xl font-semibold">
-                    {company?.nombre}
-                </h1>
-            </div>
-            
-        </div>
+        <div className="pl-24 pr-24">
+            <AlbumInfo album={album} />
+        </div>    
     );
 }
