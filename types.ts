@@ -66,7 +66,7 @@ export interface Brand{
     nombre?: string;
     descripcion: string;
     logo_path: string;
-    productos: Turntable[];
+    productos: Product[];
     turntables?: number;
     stock?: string;
 }
