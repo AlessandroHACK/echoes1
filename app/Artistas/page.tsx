@@ -9,13 +9,14 @@ export const revalidate = 10;
 export default async function Home() {
   const artists = await getArtists();
   return (
-    <div>
         
-        <Carousels/>
-        <h1 className="text-center color-black mt-5">Lo más reciente </h1>
-        <div className="p-3">
+        <div className="px-10 lg:px-20 py-10">
+
+        <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100">
+        Encuentra y descubre una gran variedad de artistas.</h1>
+        <div className="mt-5">
         <ArtistContent artists={artists}></ArtistContent>
         </div>
-    </div>
+        </div>
   );
 }

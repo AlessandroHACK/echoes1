@@ -7,7 +7,7 @@ const getCompany = async (albumId: string): Promise<Product> => {
         cookies: cookies
     });
 
-    const { data, error } = await supabase.from('productos').select('*').eq('id_producto', albumId).single();
+    const { data, error } = await supabase.from('productos').select('*, artistas(*)').eq('id_producto', albumId).single();
     if (error) {
         console.log(error);
     }

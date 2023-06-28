@@ -12,7 +12,7 @@ export interface Album {
     nombre: string;
     precio: string;
     imagen_path: string;
-    lanzamiento: Date;
+    lanzamiento: string;
     tamano: string;
     cantidad: string;
     artistas: Artist;
@@ -44,7 +44,7 @@ export interface Product {
     id_tipo: string;
     imagen_path: string;
     artistas: Artist;
-    lanzamiento: Date;
+    lanzamiento: string;
     marcas: Brand;
     tamano: string;
     cantidad: string;
