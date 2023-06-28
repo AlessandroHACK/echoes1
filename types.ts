@@ -56,7 +56,7 @@ export interface Artist {
     nombre: string;
     descripcion: string;
     artista_path: string;
-    productos: Album[];
+    productos: Product[];
     albums?: number;
     stock?: string;
 }

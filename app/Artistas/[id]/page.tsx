@@ -1,24 +1,14 @@
-import getAlbum from "../../../actions/getAlbum";
-import Header from "../../../components/Header";
+import getArtist from "@/actions/getArtist";
+import ArtistInfo from "@/components/ArtistInfo";
 
-export default async function AlbumPage({ params }: any) {
-    const company = await getAlbum(params.id);
+
+export default async function ArtistPage({ params }: any) {
+    const artist = await getArtist(params.id);
 
     return (
-        <div className="
-        bg-stone-900
-        rounded-lg
-        h-full
-        w-full
-        overflow-hidden
-        overflow-y-auto">
-            <div className="mb-2">
-                <h1 className="text-white
-              text-3xl font-semibold">
-                    {company?.nombre}
-                </h1>
-            </div>
-           
+        <div className="px-10 lg:px-20 py-10">
+        <ArtistInfo artist={artist}/>
+
         </div>
     );
 }
