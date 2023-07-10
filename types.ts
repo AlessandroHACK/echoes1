@@ -37,17 +37,20 @@ export interface Accesory {
     cantidad: string;
 }
 
+
+
 export interface Product {
     id_producto: string;
     nombre: string;
-    precio: string;
+    precio: number;
     id_tipo: string;
     imagen_path: string;
     artistas: Artist;
     lanzamiento: string;
     marcas: Brand;
     tamano: string;
-    cantidad: string;
+    cantidad: number;
+    subtotal: number;
     descripcion: string;
 }
 

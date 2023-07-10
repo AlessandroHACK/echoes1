@@ -18,9 +18,7 @@ const PasswordRecovery = () => {
 
     try {
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: `${
-          new URL(location.href).origin
-        }/auth/callback?next=/Perfil/PasswordReset`,
+        redirectTo: `https://echoes-opal.vercel.app/PasswordReset`,
       });
         if(error)
         toast.error(error.message)

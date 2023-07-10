@@ -26,7 +26,7 @@ const TurntableInfo: React.FC<TurntableItemProps> = ({turntable}) => {
         <div className="flex mt-6 items-center pb-5 border-b-2 border-chocolate-200 dark:border-beige-200 mb-5">
           <div className="flex flex-col">
             <h2 className="font-bold dark:text-bone-200">Disponibles: </h2>
-            {turntable.cantidad == '1' ? (
+            {turntable.cantidad == 1 ? (
                 <p className="dark:text-beige-600">{turntable.cantidad} pieza.</p>
             ):(
                 <p className="dark:text-beige-600">{turntable.cantidad} piezas.</p>

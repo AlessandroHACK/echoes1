@@ -16,12 +16,16 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useUser } from '@/hooks/useUser';
 import useLoadUser from '@/hooks/useLoadUser';
 import {toast} from "react-hot-toast"
+import { useContext } from "react"; // Remove duplicate import
+import { CartContext } from "@/state/CartContext";
+
 
 interface HeaderProps {
   children: React.ReactNode;
 }
 
 const Header: React.FC<HeaderProps> = ({ children }) => {
+
   const user= useUser();
   const userPath = useLoadUser(user.userDetails);
 
@@ -89,8 +93,9 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                <Link href="/Carrito" className="flex items-center ">
+                <Link href="/Perfil/Cart" className="flex items-center ">
                   <RiShoppingCartLine className="mr-1 h-6 w-6 text-zinc-950 dark:text-bone-100" />
+                  
                 </Link>
               </Nav>
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 w-[40px] relative mt-6">

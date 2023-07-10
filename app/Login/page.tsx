@@ -96,15 +96,15 @@ const Login = () => {
             </button>
           </form>
           <div className="mt-4 text-center">
-            <p className=" dark:text-bone-100">
+            <p className="text-zinc-900 dark:text-bone-100">
               ¿No tienes cuenta?{" "}
               <Link href="/Register" className="dark:text-beige-900 text-chocolate-100">
                 Crear cuenta
               </Link>
             </p>
-            <p className=" dark: text-bone-100">
+            <p className="text-zinc-900 dark:text-bone-100">
               ¿Olvidaste tu contraseña?{" "}
-              <Link href="/Perfil/PasswordRecovery" className="dark:text-beige-900 text-chocolate-100">
+              <Link href="/PasswordRecovery" className="dark:text-beige-900 text-chocolate-100">
                 Recuperar contraseña
               </Link>
             </p>

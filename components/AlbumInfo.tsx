@@ -1,6 +1,5 @@
 "use client"
 
-import { format } from 'date-fns';
 import useLoadAlbum from "@/hooks/useLoadAlbum";
 import { Product } from "@/types";
 import Image from "next/image";

@@ -25,7 +25,7 @@ const TurntableInfo: React.FC<AccesoryItemProps> = ({accesory}) => {
         <div className="flex mt-6 items-center pb-5 border-b-2 border-chocolate-200 dark:border-beige-200 mb-5">
           <div className="flex flex-col">
             <h2 className="font-bold dark:text-bone-200">Disponibles: </h2>
-            {accesory.cantidad == '1' ? (
+            {accesory.cantidad == 1 ? (
                 <p className="dark:text-beige-600">{accesory.cantidad} pieza.</p>
             ):(
                 <p className="dark:text-beige-600">{accesory.cantidad} piezas.</p>
