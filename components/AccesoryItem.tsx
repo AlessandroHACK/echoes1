@@ -9,6 +9,7 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { CartContext } from "@/state/CartContext";
 import { useUser } from "@/hooks/useUser";
 import { useRouter } from "next/navigation";
+import AddToCartButton from "./AddToCartButton";
 
 interface AlbumItemProps {
     dataAccesory: Product;
@@ -52,15 +53,7 @@ const AccesoryItem: React.FC<AlbumItemProps> = ({
                 <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
                     $ {dataAccesory.precio}
                 </p>
-                <button
-
-                    onClick={() => handleCartOperation(dataAccesory)}
-                    disabled={loading}
-                    className="flex items-center space-x-1.5 rounded-lg bg-beige-100 dark:text-bone-100 dark:bg-chocolate-100 px-2 py-1.5 text-ash-400 duration-100 hover:bg-chocolate-100 hover:text-bone-100 dark:hover:bg-beige-100 dark:hover:text-chocolate-800">
-                    <RiShoppingCartLine className="relative mr-1 h-4 w-4 " />
-                    <div
-                        className="relative text-sm ">Agregar al carrito</div>
-                </button>
+                <AddToCartButton dataProduct={dataAccesory}/>
             </div>
         </div>
 
