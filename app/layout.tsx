@@ -11,7 +11,7 @@ import Head from 'next/head';
 import './globals.css'
 import CartContextProvider from "@/state/CartContext";
 import getUser from '@/actions/getUser';
-import HeaderProvider from '@/providers/HeaderProvider';
+import Header from '@/components/Header';
 
 
 
@@ -31,11 +31,10 @@ export default async function RootLayout({
              <CartContextProvider>
              <Suspense fallback={<LoadingScreen />}>
                 
-                <HeaderProvider>
                 <div className=" bg-gray-100 dark:bg-zinc-900">
+                <Header user={user ?? []}/>
                   {children}
                 </div>
-                </HeaderProvider>
                 <Footer />
               </Suspense>
              </CartContextProvider>

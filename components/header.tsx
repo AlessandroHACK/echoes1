@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -18,18 +18,35 @@ import useLoadUser from '@/hooks/useLoadUser';
 import {toast} from "react-hot-toast"
 import { useContext } from "react"; // Remove duplicate import
 import { CartContext } from "@/state/CartContext";
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { UserDetails } from '@/types';
 
 
 interface HeaderProps {
-  children: React.ReactNode;
+  user: UserDetails;
 }
 
-const Header: React.FC<HeaderProps> = ({ children }) => {
-
-  const user= useUser();
-  const userPath = useLoadUser(user.userDetails);
-
+const Header: React.FC<HeaderProps> = ({ user }) => {
+  const supabase = createClientComponentClient();
+  const userPath = useLoadUser(user);
   const router = useRouter();
+  
+  if(user){
+    useEffect(() => {
+      const channel = supabase
+        .channel('*')
+        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'users' }, () =>
+          {router.refresh()}
+        )
+        .subscribe()
+  
+      return () => {
+        supabase.removeChannel(channel)
+      }
+    }, [supabase, router])
+  }
+  
+  console.log(user);
   const supabaseClient = useSupabaseClient();
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
@@ -47,9 +64,8 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="">
       <div className="bg-beige-100 dark:bg-chocolate-900">
-      {user.userDetails !== null ? (
+      {user.length !== 0 ? (
         <Navbar expand="lg">
           <Container fluid>
             <Link href={'/'} >
@@ -100,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
               </Nav>
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 w-[40px] relative mt-6">
                 <div className="relative">
-                  {user.userDetails?.avatar_url !== null ? (
+                  {user.avatar_url !== null ? (
                     <div className="w-[40px] h-[40px] aspect-square overflow-hidden">
                       <Image
                         onClick={() => setOpen(!open)}
@@ -199,10 +215,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
         </>
       )}
     </div>
-    <div>
-      {children}
-    </div>
-    </div>
+
   );
 };
 

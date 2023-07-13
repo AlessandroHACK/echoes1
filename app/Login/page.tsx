@@ -34,6 +34,7 @@ const Login = () => {
       }
       toast.success('Sesión iniciada.')
       router.push('/');
+      router.refresh();
     }
     catch (error) {
       console.log(error);

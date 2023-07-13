@@ -31,6 +31,7 @@ const Register = () => {
       toast.error('Hubo un error en el registro, inténtalo de nuevo.')
       return;
     }
+    toast.success('¡Verifica tu correo para completar el registro!')
     router.push('/')
 
     // Reiniciar los campos

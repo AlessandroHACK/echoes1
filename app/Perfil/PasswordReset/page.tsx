@@ -56,12 +56,12 @@ const ResetPassword = () => {
                   id="pass"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+                  className="w-full px-3 py-2 border dark:text-zinc-100 border-gray-300 rounded focus:outline-none focus:border-blue-500"
                   required
                 />
               </div>
 
-              <button type="submit" className="w-full py-2 px-4 bg-zinc-950 dark:bg-chocolate-100 text-bone-100 font-semibold rounded hover:bg-beige-900  hover:text-bone-100 dark:hover:text-chocolate-100  dark:hover:bg-beige-100">
+              <button type="submit" className="w-full py-2 px-4 transition bg-zinc-950 dark:bg-chocolate-100 text-bone-100 font-semibold rounded hover:bg-beige-900  hover:text-bone-100 dark:hover:text-chocolate-100  dark:hover:bg-beige-100">
                 Guardar contraseña
               </button>
             </form>

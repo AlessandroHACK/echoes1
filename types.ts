@@ -4,6 +4,7 @@ export interface UserDetails {
     payment_method: string;
     full_name?: string;
     avatar_url: string;
+    length: number;
 
 };
 
