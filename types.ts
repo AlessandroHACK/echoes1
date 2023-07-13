@@ -52,6 +52,13 @@ export interface Product {
     cantidad: number;
     subtotal: number;
     descripcion: string;
+    tracklist: Tracklist[];
+}
+
+export interface Tracklist{
+    id: string;
+    titulo: string;
+    duracion: string;
 }
 
 export interface Artist {

@@ -102,6 +102,7 @@ export interface Database {
           nombre: string | null
           precio: number | null
           tamano: string | null
+          tracklist: Json | null
         }
         Insert: {
           cantidad?: number | null
@@ -116,6 +117,7 @@ export interface Database {
           nombre?: string | null
           precio?: number | null
           tamano?: string | null
+          tracklist?: Json | null
         }
         Update: {
           cantidad?: number | null
@@ -130,6 +132,7 @@ export interface Database {
           nombre?: string | null
           precio?: number | null
           tamano?: string | null
+          tracklist?: Json | null
         }
         Relationships: [
           {
