@@ -21,7 +21,7 @@ const ResetPassword = () => {
 
       
     if(error){
-      toast.error(error.message)
+      toast.error('No se pudo cambiar tu contraseña, inténtalo de nuevo.')
       return;
     }
     toast.success('Has cambiado tu contraseña.');

@@ -26,7 +26,7 @@ const CartInfo = () => {
         customer_id: user.id,
         customer_email: user.email,
       });
-      if (!data) return toast.error("Error creating order");
+      if (!data) return toast.error("Error creando orden.");
       router.push(data.session_url);
     } catch (error) {
       console.error(error);

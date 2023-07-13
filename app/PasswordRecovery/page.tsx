@@ -21,12 +21,12 @@ const PasswordRecovery = () => {
         redirectTo: `https://echoes-opal.vercel.app/Perfil/PasswordReset`,
       });
         if(error)
-        toast.error(error.message)
+        toast.error('Hubo un error en el envío.')
         else
         toast.success('Correo enviado')
       }
     catch(error){
-      toast.error(error.message)
+      toast.error('Hubo un error en el envío.')
     }
       
 

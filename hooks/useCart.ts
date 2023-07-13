@@ -46,10 +46,10 @@ const useCart = () => {
       error = insertError;
     }
     if (error) {
-      toast.error(error.message);
+      toast.error("No se pudo agregar al carrito.");
       return;
     }
-    toast.success('Producto agregado');
+    toast.success('Producto agregado al carrito.');
   };
 
   const removeFromCart = async (product:Product, user:UserDetails) => {

@@ -1,9 +1,7 @@
 "use client"
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import useCart from "@/hooks/useCart";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Product } from "@/types";
-import useLocalStorage from '../hooks/useLocalStorage';
+
 
 interface Props {
   children: React.ReactNode;

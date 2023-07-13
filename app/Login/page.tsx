@@ -29,7 +29,7 @@ const Login = () => {
         password,
       })
       if (supabaseError) {
-        toast.error(supabaseError.message)
+        toast.error('Las credenciales son incorrectas o no se encontró una cuenta.')
         return;
       }
       toast.success('Sesión iniciada.')
