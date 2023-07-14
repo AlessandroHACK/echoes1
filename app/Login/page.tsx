@@ -31,8 +31,10 @@ const Login = () => {
       if (supabaseError) {
         toast.error('Las credenciales son incorrectas o no se encontró una cuenta.')
         return;
+      }else{
+
+        toast.success('Sesión iniciada.')
       }
-      toast.success('Sesión iniciada.')
       router.push('/');
       router.refresh();
     }

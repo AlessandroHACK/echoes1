@@ -2,6 +2,7 @@
 import { Product } from "@/types";
 import useLoadAccesory from "@/hooks/useLoadAccesory"
 import Image from "next/image";
+import AddToCartButton from "./AddToCartButton";
 
 interface AccesoryItemProps {
     accesory: Product;
@@ -33,9 +34,12 @@ const TurntableInfo: React.FC<AccesoryItemProps> = ({accesory}) => {
           </div>
           
         </div>
-        <div className="flex">
-          <span className="title-font font-medium text-2xl text-gray-900 dark:text-zinc-50">${accesory.precio}</span>
-          <button className="flex ml-auto text-zinc-50 dark:text-chocolate-900 hover:dark:text-bone-100 dark:bg-beige-200 hover:dark:bg-ash-300 bg-ash-300 hover:bg-beige-800 border-0 p-2 lg:py-2 lg:px-6 focus:outline-none hover:scale-110 transition hover:bg-red-600 rounded">Agregar al carrito</button>
+          <span className="title-font font-medium text-2xl text-ash-900 dark:text-zinc-50">¿Te interesa este producto?</span>
+        <div className="flex mt-2">
+          <span className="title-font font-medium text-2xl text-ash-900 dark:text-zinc-50">${accesory.precio}</span>
+          <div className="flex ml-auto">
+                <AddToCartButton dataProduct={accesory}/>
+                </div>
           
         </div>
       </div>

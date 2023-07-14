@@ -15,17 +15,6 @@ interface AlbumItemProps {
 
 const AlbumItem: React.FC<AlbumItemProps> = ({ dataAlbum }) => {
   const logoPath = useLoadAlbum(dataAlbum);
-  const router = useRouter();
-  const { addToCart } = useContext(CartContext);
-  const [loading, setLoading] = useState(false);
-  const user = useUser();
-  const handleCartOperation = async (product) => {
-    setLoading(true);
-    await addToCart(product, user.userDetails);
-    setLoading(false);
-    console.log("Producto agregado al carrito:", product);
-    router.refresh();
-  };
     
 
 
@@ -45,9 +34,10 @@ const AlbumItem: React.FC<AlbumItemProps> = ({ dataAlbum }) => {
           <h2 className="text-chocolate-700 text-md font-bold dark:text-beige-100">
             {dataAlbum.nombre}
           </h2>
-          <h2 className="text-chocolate-700 text-sm dark:text-beige-100">
+          <Link href={`/Artistas/${dataAlbum.artistas.id_artista}`} className="group transition text-chocolate-700 text-sm dark:text-beige-100 w-fit">
             {dataAlbum.artistas.nombre}
-          </h2>
+            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-ash-200"></span>
+          </Link>
         </div>
         <div className="mt-2 flex items-end justify-between">
           <p className="text-lg font-bold text-ash-300 dark:text-beige-700">

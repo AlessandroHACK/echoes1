@@ -37,7 +37,7 @@ const AlbumInfo: React.FC<AlbumItemProps> = ({
                     </h1>
                 </div>
                 <div className="text-zinc-800/80 dark:text-bone-100/80 h-auto row-start-3 mt-2 lg:mt-0 flex flex-col relative lg:row-span-1 lg:col-span-1 lg:row-start-3 gap-y-1">
-                        <Link className="hover:dark:text-zinc-100" href={`/Artistas/${album.artistas.id_artista}`}><span className='font-bold text-zinc-950 dark:text-zinc-100'>Artista:</span> {album.artistas.nombre}</Link>
+                        <Link className="hover:dark:text-zinc-100 hover:scale-110 transition" href={`/Artistas/${album.artistas.id_artista}`}><span className='font-bold text-zinc-950 dark:text-zinc-100'>Artista:</span> {album.artistas.nombre}</Link>
                         <h2><span className='font-bold text-zinc-950 dark:text-zinc-100'>Lanzamiento:</span> {album.lanzamiento}</h2>
                         <h2><span className='font-bold text-zinc-950 dark:text-zinc-100'>Tamaño:</span> {album.tamano}</h2>
                         {album.cantidad > 0 ? (

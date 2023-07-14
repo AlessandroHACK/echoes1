@@ -32,7 +32,7 @@ const AddToCartButton:React.FC<ButtonProps> = ({dataProduct}) => {
         className="flex items-center space-x-1.5 rounded-lg bg-zinc-100/70 shadow-md dark:text-bone-100 dark:bg-chocolate-100 px-2 py-1.5 text-ash-400 duration-100 hover:bg-chocolate-100 hover:text-bone-100 dark:hover:bg-beige-100 dark:hover:text-chocolate-800">
         <RiShoppingCartLine className="relative mr-1 h-4 w-4" />
         <div
-            className="relative text-sm "
+            className="relative text-md font-medium"
 
         >
             Agregar al carrito

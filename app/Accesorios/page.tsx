@@ -37,10 +37,9 @@ const Home = async ({ searchParams,
   }
 
   return (
-    <div >
-      <Carousels />
+    <div className="h-auto min-h-[500px]">
       <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100 mt-5">
-        Revive el Sonido Clásico: Tu Destino Musical en Vinilos y Tornamesas</h1>
+        Cuida y disfruta de tu colección con estos productos</h1>
       
       <div className="px-10 lg:px-20 py-10">
         <div className="text-lg my-2 font-medium dark:text-beige-200">
