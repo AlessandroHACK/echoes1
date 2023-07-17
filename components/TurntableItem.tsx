@@ -47,9 +47,10 @@ const TurntableItem: React.FC<TurntableItemProps> = ({
                 <h2 className="text-chocolate-700 text-md font-bold dark:text-beige-100">
                     {dataTurntable.nombre}
                 </h2>
-                <h2 className="text-chocolate-700 text-sm dark:text-beige-100">
-                    {dataTurntable.marcas.nombre}
-                </h2>
+                <Link href={`/Marcas/${dataTurntable.marcas.id_marca}`} className="group transition mt-1 text-chocolate-700 text-sm dark:text-beige-100 w-fit">
+                    <h1 className="group-hover:scale-110 transition group-hover:translate-x-3 duration-500">{dataTurntable.marcas.nombre}</h1>
+                    <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-ash-200"></span>
+                </Link>
             </div>
             <div className="mt-2 flex items-end justify-between">
                 <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
