@@ -23,7 +23,7 @@ const Nosotros = () => {
                 <div className="group-hover:scale-105 relative w-full aspect-square rounded-lg shadow-lg blur-0 hover:blur-sm hover:rotate-1 transition duration-500"><Image alt="vinyl" src={vinyl3} fill className=" object-cover" /></div>
                 <div className="group-hover:scale-105 relative w-full aspect-square rounded-lg shadow-lg blur-0 hover:blur-sm hover:rotate-1 transition duration-500"><Image alt="vinyl" src={vinyl4} fill className=" object-cover" /></div>
             </div>
-            <div className="lg:col-span-1 text-6xl font-bold flex flex-col gap-y-4 mx-auto text-center">
+            <div className="lg:col-span-1 text-4xl font-bold flex flex-col gap-y-4 mx-auto text-center">
                 <h1>Misión</h1>
                 <p className="text-md font-thin text-lg">
                     Nuestra misión en Echoes es ser la principal fuente de discos de vinilo, tornamesas y accesorios en México, Aguascalientes. Nos comprometemos a proporcionar a nuestros clientes una amplia selección de discos de vinilo de diferentes géneros y épocas, asegurando la calidad y autenticidad de cada uno de ellos.
@@ -32,7 +32,7 @@ const Nosotros = () => {
             <div className="lg:col-span-2 lg:mx-6 my-0">
                 <div className="relative w-full aspect-video rounded-lg"><Image alt="vinyl" src={vinyl5} fill className=" object-cover" /></div>
             </div>
-            <div className="lg:col-span-1  text-6xl font-bold flex flex-col gap-y-4  mx-auto text-center">
+            <div className="lg:col-span-1  text-4xl font-bold flex flex-col gap-y-4  mx-auto text-center">
                 <h1 className="">Visión</h1>
                 <p className="text-md font-thin text-lg ">
                     En Echoes, nuestra visión es convertirnos en el referente de excelencia para los amantes de la música en formato de vinilo en México, Aguascalientes y más allá. Buscamos ser reconocidos como la tienda en línea líder en la industria, conocida por nuestra amplia variedad de discos de vinilo, tornamesas de calidad y accesorios especializados.
