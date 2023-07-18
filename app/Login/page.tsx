@@ -50,7 +50,7 @@ const Login = () => {
   return (
     <div>
 
-      <div className="min-h-screen flex items-center justify-center bg-mainbg bg-cover">
+      <div className="min-h-screen flex items-center justify-center">
         <title>Echoes - Login</title>
         <div className="bg-bone-100 dark:bg-chocolate-900 shadow-md rounded-md px-6 py-8 w-80">
         <Link href={'/'} className="flex items-center justify-center">

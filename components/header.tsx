@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                 </Link>
                 <NavDropdown
                   title={
-                    <span className='text-chocolate-900 dark:text-bone-100'>Categorías</span>
+                    <span className='text-chocolate-900 dark:text-bone-100'>Productos</span>
                   }
                 >
                   <NavDropdown.Item className='hover:bg-chocolate-100/30'>
@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                       Tornamesas
                     </Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Divider className='hover:bg-chocolate-100/30' />
+                  
                   <NavDropdown.Item className='hover:bg-chocolate-100/30'>
                     <Link href="/Accesorios">
                       Accesorios
@@ -183,7 +183,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                   </Link>
                   <NavDropdown
                     title={
-                      <span className='text-chocolate-900 dark:text-bone-100'>Categorías</span>
+                      <span className='text-chocolate-900 dark:text-bone-100'>Productos</span>
                     }
                   >
                     <NavDropdown.Item className='hover:bg-chocolate-100/30'>
@@ -196,7 +196,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                         Tornamesas
                       </Link>
                     </NavDropdown.Item>
-                    <NavDropdown.Divider style={{ backgroundColor: "black" }} />
+                    
                     <NavDropdown.Item className='hover:bg-chocolate-100/30'>
                       <Link href="/Accesorios">
                         Accesorios
