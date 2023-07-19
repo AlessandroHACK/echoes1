@@ -69,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
         <Navbar expand="lg">
           <Container fluid>
             <Link href={'/'} >
-              <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover'>
+              <div className='bg-image-one dark:bg-image-two h-[60px] w-[205px] bg-cover'>
               </div>
             </Link>
 
@@ -164,14 +164,14 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
           <Navbar expand="lg" >
             <Container fluid>
               <Link href={'/'}>
-                <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover cursor-pointer'>
+                <div className='bg-image-one dark:bg-image-two h-[60px] w-[205px] bg-cover cursor-pointer'>
 
                 </div>
               </Link>
               <Navbar.Toggle aria-controls="navbarScroll" className='bg-bone-200 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100' />
               <Navbar.Collapse id="navbarScroll" className='text-chocolate-900 dark:text-bone-100'>
                 <Nav
-                  className="me-auto my-2 my-lg-0"
+                  className="mx-auto my-2 my-lg-0"
                   style={{ maxHeight: '100px' }}
                   navbarScroll
                 >
