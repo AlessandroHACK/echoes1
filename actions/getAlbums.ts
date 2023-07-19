@@ -1,8 +1,8 @@
-import { Album } from "../types";
+import { Product } from "../types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-const getAlbums = async (): Promise<Album[]> => {
+const getAlbums = async (): Promise<Product[]> => {
     const supabase = createServerComponentClient({
         cookies: cookies
     });
@@ -10,7 +10,8 @@ const getAlbums = async (): Promise<Album[]> => {
     const { data, error } = await supabase.from('productos').select(`
   *, artistas(nombre)
 `)
-.eq('id_tipo','1');
+.eq('id_tipo','1')
+.order('nombre', {ascending: true});
     if (error) {
         console.log(error);
     }

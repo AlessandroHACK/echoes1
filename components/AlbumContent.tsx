@@ -1,10 +1,10 @@
 "use client"
 
-import { Album } from "../types";
+import { Product } from "@/types";
 import AlbumItem from "./AlbumItem";
 
 interface AlbumContentProps {
-    albums: Album[];
+    albums: Product[];
 }
 
 const AlbumContent: React.FC<AlbumContentProps>= ({
@@ -12,7 +12,7 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
 }) => {
     if(albums.length === 0){
         return(
-            <div className="mt-4 text-neutral-400">No hay empresas o no tienes acceso a verlas.</div>
+            <div className="w-full h-full p-10 text-chocolate-900 dark:text-beige-200 text-neutral-400">Parece que no hay nada aquí.</div>
         )
     }
     return ( 
@@ -31,7 +31,6 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
                 <AlbumItem
                 dataAlbum={item}
                 key={item.id_producto}
-                onClick={() => {}}
                 />
             ))}
 
