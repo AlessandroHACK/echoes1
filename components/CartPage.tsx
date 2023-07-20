@@ -7,12 +7,13 @@ import { CartContext } from "@/state/CartContext";
 import { useUser } from "@/hooks/useUser";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Product } from "@/types";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
-interface CartProps{
-    cartData: Product[],
+interface CartProps {
+  cartData: Product[];
 }
 
-const CartPage:React.FC<CartProps> = ({cartData}) => {
+const CartPage: React.FC<CartProps> = ({ cartData }) => {
   const { clearCart } = useContext(CartContext);
   const searchParams = useSearchParams();
   const { user } = useUser();
@@ -27,11 +28,11 @@ const CartPage:React.FC<CartProps> = ({cartData}) => {
     }
 
     try {
-      const { data } = await axios.post("/api/checkout", {
+      const { data } = await axios.post("/api/payment", {
         customer_id: user.id,
         customer_email: user.email,
       });
-      if (!data) return toast.error("Error creando orden.");
+      if (!data) return toast.error("Error creating order");
       router.push(data.session_url);
     } catch (error) {
       console.error(error);
@@ -88,16 +89,42 @@ const CartPage:React.FC<CartProps> = ({cartData}) => {
               compra. Los productos serán cuidadosamente preparados y enviados
               para que los recibas en un plazo estimado de 5 días hábiles.
               Queremos asegurarnos de que disfrutes de tus productos lo más
-              pronto posible. <span className="font-bold">¡Gracias por tu confianza!</span>
-
+              pronto posible.{" "}
+              <span className="font-bold">¡Gracias por tu confianza!</span>
             </div>
 
             <button
-              className="py-1 px-20 bg-zinc-950 dark:bg-chocolate-100 text-bone-100 rounded text-sm"
+              className="py-1 px-20 bg-zinc-950 dark:bg-chocolate-100 text-bone-100 rounded text-sm mb-4"
               onClick={handleCheckout}
             >
               Checkout
             </button>
+
+            {/* aqui se agra paypal  */}
+
+            <PayPalScriptProvider options={{
+                clientId: "AXjJ2FkFinVU5Kr3vf_uH8ONhMcU0xv4Qlb9h8htXtfcoi7gRPSkFk64q0f2GkK5zP0S4ev53njEvVAq"
+            }}>
+                <PayPalButtons
+                createOrder={(data, actions) => {
+                    return actions?.order.create({
+                        purchase_units: [
+                            {
+                              description: "Hola",
+                                amount: {
+                                    value: "2.00",
+                                }
+                            },
+                            {
+                              description: "Hola",
+                                amount: {
+                                    value: "2.00",
+                                }
+                            }
+                        ]
+                    })
+                }}/>
+            </PayPalScriptProvider>
           </div>
         </div>
       </div>
@@ -105,4 +132,4 @@ const CartPage:React.FC<CartProps> = ({cartData}) => {
   );
 };
 
-export default CartPage;
+export default CartPage;

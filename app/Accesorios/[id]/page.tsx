@@ -6,7 +6,7 @@ export default async function TurntablePage({ params }: any) {
 
     return (
         <div className="
-        p-5 lg:p-20">
+        p-5 lg:p-20 min-h-screen">
             
             <AccesoryInfo accesory={accesory}/>
             

@@ -6,7 +6,7 @@ export default async function TurntablePage({ params }: any) {
 
     return (
         <div className="
-        p-20">
+        p-20 lg:min-h-screen">
             
             <TurntableInfo turntable={turntable}/>
             
