@@ -6,11 +6,11 @@ import axios from "axios";
 import { CartContext } from "@/state/CartContext";
 import { useUser } from "@/hooks/useUser";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Product } from "@/types";
+import { ProductCart } from "@/types";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 interface CartProps {
-  cartData: Product[];
+  cartData: ProductCart[];
 }
 
 const CartPage: React.FC<CartProps> = ({ cartData }) => {
@@ -28,8 +28,22 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
       cartTotal += product.subtotal || 0;
     });
     setTotal(cartTotal);
+    console.log(total);
   }, [cartData]);
 
+  const getPayPalItems = (): any[] => {
+    return cartData.map((product) => {
+      return {
+        name: product.productos.nombre,
+        unit_amount: {
+          currency_code: "MXN",
+          value: product.precio.toFixed(2),
+        },
+        quantity: product.cantidad.toString(),
+      };
+    });
+  };
+  console.log(getPayPalItems());
   const handleCheckout = async () => {
     if (!user) {
       toast.error("No has iniciado sesión");
@@ -73,7 +87,7 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
                     className="flex flex-col gap-y-4 dark:text-bone-100"
                   >
                     <div className="flex items-center justify-between">
-                      <p className="font-semibold">{product.nombre}</p>
+                      <p className="font-semibold">{product.productos.nombre}</p>
                       <p className="dark:text-bone-100">
                         {product.cantidad} x ${product.precio}
                       </p>
@@ -122,40 +136,23 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
                         description: "My Purchases",
                         amount: {
                           currency_code: "MXN",
-                          value: total.toLocaleString(),
+                          value: total.toString(),
                           breakdown: {
                             item_total: {
                               currency_code: "MXN",
-                              value: total.toLocaleString()
+                              value: total.toString()
                             },
                             shipping: {
                               currency_code: "MXN",
-                              value: "0"
+                              value: "0.00"
                             },
                             tax_total: {
                               currency_code: "MXN",
-                              value: "0"
+                              value: "0.00"
                             }
                           }
                         },
-                        items: [
-                          {
-                            name: "Item 1",
-                            unit_amount: {
-                              currency_code: "MXN",
-                              value: "6.00"
-                            },
-                            quantity: "1"
-                          },
-                          {
-                            name: "Item 2",
-                            unit_amount: {
-                              currency_code: "MXN",
-                              value: "6.00"
-                            },
-                            quantity: "1"
-                          }
-                        ]
+                        items: getPayPalItems(),
                       }
                     ]
                   });
