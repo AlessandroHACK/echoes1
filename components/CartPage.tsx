@@ -163,7 +163,7 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
                   const {error} = await supabase
                   .from("ordenes")
                   .insert({id_orden: details?.id, id_usuario: user?.id, status: "Completada.", total: total})
-                  if(error) toast.error(error);
+                  if(error) toast.error(error.message);
                   const name = details?.payer?.name?.given_name;
                 }}
               />
