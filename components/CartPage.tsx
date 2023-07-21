@@ -2,10 +2,8 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import axios from "axios";
 import { CartContext } from "@/state/CartContext";
 import { useUser } from "@/hooks/useUser";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { ProductCart } from "@/types";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
@@ -23,6 +21,36 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
   const success = searchParams.get("success") === "true";
   const cancel = searchParams.get("cancel") === "true";
 
+
+  const handleApprove = async (details) => {
+    const { error } = await supabase
+      .from("ordenes")
+      .insert({ id_orden: details?.id, id_usuario: user?.id, status: "Completada.", total: total })
+    if (error){
+      toast.error("Su pago se ha procesado correctamente. Sin embargo, no pudimos registrar su compra. Póngase en contacto con nosotros en echoes@gmail.com para obtener ayuda");
+      return;
+    }
+
+    for (const product of cartData) {
+      console.log(product);
+      const updatedQuantity = product.productos.cantidad - product.cantidad;
+      console.log(updatedQuantity);
+      // Supabase: Actualizar la cantidad en la tabla de productos
+      const { error } = await supabase
+        .from("productos")
+        .update({ cantidad: updatedQuantity })
+        .eq("id_producto", product.id_producto);
+      
+      if (error) {
+        console.log(error);
+      }
+    }
+
+    await clearCart(user);
+    toast.success('Tu orden se completó perro')
+    
+  };
+
   const [total, setTotal] = useState<number>(0);
   useEffect(() => {
     let cartTotal = 0;
@@ -30,7 +58,6 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
       cartTotal += product.subtotal || 0;
     });
     setTotal(cartTotal);
-    console.log(total);
   }, [cartData]);
 
   const getPayPalItems = (): any[] => {
@@ -45,23 +72,7 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
       };
     });
   };
-  const handleCheckout = async () => {
-    if (!user) {
-      toast.error("No has iniciado sesión");
-      return router.push("/Login");
-    }
-
-    try {
-      const { data } = await axios.post("/api/payment", {
-        customer_id: user.id,
-        customer_email: user.email,
-      });
-      if (!data) return toast.error("Error creating order");
-      router.push(data.session_url);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  
 
   useEffect(() => {
     if (success) {
@@ -117,17 +128,12 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
               <span className="font-bold">¡Gracias por tu confianza!</span>
             </div>
 
-            <button
-              className="py-1 px-20 bg-zinc-950 dark:bg-chocolate-100 text-bone-100 rounded text-sm mb-4"
-              onClick={handleCheckout}
-            >
-              Checkout
-            </button>
+
 
             {/* aqui se agra paypal  */}
 
             <PayPalScriptProvider
-              options={{currency:"MXN", clientId: `${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}` }}
+              options={{ currency: "MXN", clientId: `${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}` }}
             >
               <PayPalButtons
                 createOrder={(data, actions) => {
@@ -160,11 +166,11 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
                 }}
                 onApprove={async (data, actions) => {
                   const details = await actions?.order?.capture();
-                  const {error} = await supabase
-                  .from("ordenes")
-                  .insert({id_orden: details?.id, id_usuario: user?.id, status: "Completada.", total: total})
-                  if(error) toast.error(error.message);
-                  const name = details?.payer?.name?.given_name;
+                  handleApprove(details);
+
+                }}
+                onCancel={() => {
+                  router.push('/Perfil/Cart')
                 }}
               />
             </PayPalScriptProvider>

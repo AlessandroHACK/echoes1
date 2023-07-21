@@ -7,7 +7,7 @@ const getCart = async (): Promise<ProductCart[]> => {
         cookies: cookies
     });
 
-    const { data, error } = await supabase.from('carrito').select('*, productos(nombre)');
+    const { data, error } = await supabase.from('carrito').select('*, productos(*)');
     if (error) {
         console.log(error);
     }

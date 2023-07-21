@@ -22,13 +22,7 @@ const AccesoryItem: React.FC<AlbumItemProps> = ({
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const user = useUser();
-    const handleCartOperation = async (product) => {
-        setLoading(true);
-        await addToCart(product, user.userDetails);
-        setLoading(false);
-        console.log("Producto agregado al carrito:", product);
-        router.refresh();
-    };
+
     const logoPath = useLoadAccesory(dataAccesory);
     return (
 

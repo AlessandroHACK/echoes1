@@ -26,7 +26,6 @@ const TurntableItem: React.FC<TurntableItemProps> = ({
         setLoading(true);
         await addToCart(product, user.userDetails);
         setLoading(false);
-        console.log("Producto agregado al carrito:", product);
         router.refresh();
     };
     const logoPath = useLoadTurntable(dataTurntable);
