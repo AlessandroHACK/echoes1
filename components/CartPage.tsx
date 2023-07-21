@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { CartContext } from "@/state/CartContext";
@@ -20,6 +20,15 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
   const router = useRouter();
   const success = searchParams.get("success") === "true";
   const cancel = searchParams.get("cancel") === "true";
+
+  const [total, setTotal] = useState<number>(0);
+  useEffect(() => {
+    let cartTotal = 0;
+    cartData.forEach((product) => {
+      cartTotal += product.subtotal || 0;
+    });
+    setTotal(cartTotal);
+  }, [cartData]);
 
   const handleCheckout = async () => {
     if (!user) {
@@ -102,28 +111,61 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
 
             {/* aqui se agra paypal  */}
 
-            <PayPalScriptProvider options={{
-                clientId: "AXjJ2FkFinVU5Kr3vf_uH8ONhMcU0xv4Qlb9h8htXtfcoi7gRPSkFk64q0f2GkK5zP0S4ev53njEvVAq"
-            }}>
-                <PayPalButtons
+            <PayPalScriptProvider
+              options={{currency:"MXN", clientId: "test" }}
+            >
+              <PayPalButtons
                 createOrder={(data, actions) => {
-                    return actions?.order.create({
-                        purchase_units: [
-                            {
-                              description: "Hola",
-                                amount: {
-                                    value: "2.00",
-                                }
+                  return actions.order.create({
+                    purchase_units: [
+                      {
+                        description: "My Purchases",
+                        amount: {
+                          currency_code: "MXN",
+                          value: total.toLocaleString(),
+                          breakdown: {
+                            item_total: {
+                              currency_code: "MXN",
+                              value: total.toLocaleString()
                             },
-                            {
-                              description: "Hola",
-                                amount: {
-                                    value: "2.00",
-                                }
+                            shipping: {
+                              currency_code: "MXN",
+                              value: "0"
+                            },
+                            tax_total: {
+                              currency_code: "MXN",
+                              value: "0"
                             }
+                          }
+                        },
+                        items: [
+                          {
+                            name: "Item 1",
+                            unit_amount: {
+                              currency_code: "MXN",
+                              value: "6.00"
+                            },
+                            quantity: "1"
+                          },
+                          {
+                            name: "Item 2",
+                            unit_amount: {
+                              currency_code: "MXN",
+                              value: "6.00"
+                            },
+                            quantity: "1"
+                          }
                         ]
-                    })
-                }}/>
+                      }
+                    ]
+                  });
+                }}
+                onApprove={async (data, actions) => {
+                  const details = await actions?.order?.capture();
+                  const name = details?.payer?.name?.given_name;
+                  alert("Transaction completed by " + name);
+                }}
+              />
             </PayPalScriptProvider>
           </div>
         </div>
