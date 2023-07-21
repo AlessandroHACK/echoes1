@@ -8,6 +8,7 @@ import { useUser } from "@/hooks/useUser";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { ProductCart } from "@/types";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 interface CartProps {
   cartData: ProductCart[];
@@ -16,6 +17,7 @@ interface CartProps {
 const CartPage: React.FC<CartProps> = ({ cartData }) => {
   const { clearCart } = useContext(CartContext);
   const searchParams = useSearchParams();
+  const supabase = useSupabaseClient();
   const { user } = useUser();
   const router = useRouter();
   const success = searchParams.get("success") === "true";
@@ -43,7 +45,6 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
       };
     });
   };
-  console.log(getPayPalItems());
   const handleCheckout = async () => {
     if (!user) {
       toast.error("No has iniciado sesión");
@@ -126,7 +127,7 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
             {/* aqui se agra paypal  */}
 
             <PayPalScriptProvider
-              options={{currency:"MXN", clientId: "test" }}
+              options={{currency:"MXN", clientId: `${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}` }}
             >
               <PayPalButtons
                 createOrder={(data, actions) => {
@@ -159,8 +160,11 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
                 }}
                 onApprove={async (data, actions) => {
                   const details = await actions?.order?.capture();
+                  const {error} = await supabase
+                  .from("ordenes")
+                  .insert({id_orden: details?.id, id_usuario: user?.id, status: "Completada.", total: total})
+                  if(error) toast.error(error);
                   const name = details?.payer?.name?.given_name;
-                  alert("Transaction completed by " + name);
                 }}
               />
             </PayPalScriptProvider>
