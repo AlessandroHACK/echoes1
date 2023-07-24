@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@ionic/react": "^7.0.12",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "@paypal/react-paypal-js": "^8.1.0",
     "@supabase/auth-helpers-nextjs": "^0.7.2",
     "@supabase/auth-helpers-react": "^0.4.0",
     "@supabase/supabase-js": "^2.24.0",
