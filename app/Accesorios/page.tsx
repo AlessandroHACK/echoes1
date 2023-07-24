@@ -37,7 +37,7 @@ const Home = async ({ searchParams,
   }
 
   return (
-    <div className="h-auto min-h-[500px]">
+    <div className="h-auto min-h-full">
       <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100 mt-5">
         Cuida y disfruta de tu colección con estos productos</h1>
       

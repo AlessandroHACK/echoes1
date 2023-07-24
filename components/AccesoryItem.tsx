@@ -22,13 +22,7 @@ const AccesoryItem: React.FC<AlbumItemProps> = ({
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const user = useUser();
-    const handleCartOperation = async (product) => {
-        setLoading(true);
-        await addToCart(product, user.userDetails);
-        setLoading(false);
-        console.log("Producto agregado al carrito:", product);
-        router.refresh();
-    };
+
     const logoPath = useLoadAccesory(dataAccesory);
     return (
 
@@ -50,11 +44,19 @@ const AccesoryItem: React.FC<AlbumItemProps> = ({
                 </h2>
             </div>
             <div className="mt-2 flex items-end justify-between">
-                <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
-                    $ {dataAccesory.precio}
-                </p>
-                <AddToCartButton dataProduct={dataAccesory}/>
-            </div>
+          <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
+            $ {dataAccesory.precio}
+          </p>
+          {dataAccesory.cantidad>0 ? (
+            <>
+            <AddToCartButton dataProduct={dataAccesory}/>
+            </>
+          ):(
+            <>
+            <p className="font-md text-magenta-900 dark:text-beige-100 px-3">No disponible.</p>
+            </>
+          )}
+        </div>
         </div>
 
     );

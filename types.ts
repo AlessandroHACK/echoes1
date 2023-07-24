@@ -55,6 +55,14 @@ export interface Product {
     descripcion: string;
     tracklist: Tracklist[];
 }
+export interface ProductCart {
+    id_producto: string;
+    productos: Product;
+    precio: number;
+    cantidad: number;
+    subtotal: number;
+
+}
 
 export interface Tracklist{
     id: string;

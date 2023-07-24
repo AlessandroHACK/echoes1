@@ -46,7 +46,6 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
     }, [supabase, router])
   }
   
-  console.log(user);
   const supabaseClient = useSupabaseClient();
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
@@ -80,7 +79,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Link href="/" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
+                <Link href="/" className=' text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
                   Inicio
                 </Link>
                 <Link href="/Ayuda" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
@@ -171,7 +170,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
               <Navbar.Toggle aria-controls="navbarScroll" className='bg-bone-200 dark:bg-magenta-100 text-chocolate-900 dark:text-bone-100' />
               <Navbar.Collapse id="navbarScroll" className='text-chocolate-900 dark:text-bone-100'>
                 <Nav
-                  className="mx-auto my-2 my-lg-0"
+                  className="me-auto my-2 my-lg-0"
                   style={{ maxHeight: '100px' }}
                   navbarScroll
                 >

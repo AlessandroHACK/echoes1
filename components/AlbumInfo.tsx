@@ -44,7 +44,7 @@ const AlbumInfo: React.FC<AlbumItemProps> = ({
 
                         <h2><span className='font-bold text-zinc-950 dark:text-zinc-100'>Cantidad:</span> {album.cantidad} disponible(s)</h2>
                     ) : (
-                        <h2><span className='font-bold text-zinc-950 dark:text-zinc-100'>Cantidad:</span>No disponible.</h2>
+                        <h2><span className='font-bold text-zinc-950 dark:text-zinc-100'>Cantidad:</span> No disponible.</h2>
 
                     )}
                 </div>
@@ -62,10 +62,19 @@ const AlbumInfo: React.FC<AlbumItemProps> = ({
 
                 </div>
                 <div className="lg:my-auto lg:m-0 flex flex-row gap-x-4 lg:row-start-5 lg:col-start-2 lg:col-end-4">
-                    <h1 className="font-semibold text-xl text-magenta-900 dark:text-bone-100">¿Te interesa este álbum? </h1>
-                    <div className="my-auto">
-                        <AddToCartButton dataProduct={album} />
-                    </div>
+                    {album.cantidad>0 ? (
+                        <>
+                        <h1 className="font-semibold text-xl text-magenta-900 dark:text-bone-100">¿Te interesa este álbum? </h1>
+                        <div className="my-auto">
+                            <AddToCartButton dataProduct={album} />
+                        </div>
+                        </>
+                    ):(
+                        <>
+                    <h1 className="font-semibold text-xl text-magenta-900 dark:text-bone-100">Lo sentimos, este álbum no está disponible actualmente.</h1>
+
+                    </>
+                    )}
                 </div>
             </div>
         </div>

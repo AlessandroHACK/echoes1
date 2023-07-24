@@ -26,7 +26,6 @@ const TurntableItem: React.FC<TurntableItemProps> = ({
         setLoading(true);
         await addToCart(product, user.userDetails);
         setLoading(false);
-        console.log("Producto agregado al carrito:", product);
         router.refresh();
     };
     const logoPath = useLoadTurntable(dataTurntable);
@@ -53,11 +52,19 @@ const TurntableItem: React.FC<TurntableItemProps> = ({
                 </Link>
             </div>
             <div className="mt-2 flex items-end justify-between">
-                <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
-                    $ {dataTurntable.precio}
-                </p>
-                <AddToCartButton dataProduct={dataTurntable} />
-            </div>
+          <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
+            $ {dataTurntable.precio}
+          </p>
+          {dataTurntable.cantidad>0 ? (
+            <>
+            <AddToCartButton dataProduct={dataTurntable}/>
+            </>
+          ):(
+            <>
+            <p className="font-md text-magenta-900 dark:text-beige-100 px-3">No disponible.</p>
+            </>
+          )}
+        </div>
         </div>
 
     );

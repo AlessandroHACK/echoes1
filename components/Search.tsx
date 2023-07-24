@@ -1,5 +1,5 @@
 "use client"
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState, useTransition } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
 
@@ -10,6 +10,22 @@ const Search = () => {
   const router = useRouter()
   const pathname = usePathname()
   const [isPending, startTransition] = useTransition()
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    // Retrieve scrollY value from localStorage after routing
+    const persistentScroll = localStorage.getItem('persistentScroll')
+    if (persistentScroll === null) return
+
+    // Restore the window's scroll position
+    window.scrollTo({ top: Number(persistentScroll) })
+   
+    // Remove scrollY from localStorage after restoring the scroll position
+    // This hook will run before and after routing happens so this check is
+    // here to make we don't delete scrollY before routing
+    if (Number(persistentScroll) === window.scrollY)
+      localStorage.removeItem('persistentScroll')
+  }, [searchParams])
 
   const handleSearchParams = useCallback(
     (debouncedValue: string) => {
@@ -20,7 +36,8 @@ const Search = () => {
         params.delete("search")
       }
       startTransition(() => {
-        router.replace(`${pathname}?${params.toString()}`)
+        localStorage.setItem('persistentScroll', window.scrollY.toString())
+        router.push(`${pathname}?${params.toString()}`)
       })
     },
     [pathname, router]
@@ -39,6 +56,8 @@ const Search = () => {
       setMounted(true)
     }
   }, [debouncedValue, mounted])
+
+  
 
   // EFFECT: Debounce Input Value
   useEffect(() => {

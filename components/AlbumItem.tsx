@@ -43,7 +43,15 @@ const AlbumItem: React.FC<AlbumItemProps> = ({ dataAlbum }) => {
           <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
             $ {dataAlbum.precio}
           </p>
-          <AddToCartButton dataProduct={dataAlbum}/>
+          {dataAlbum.cantidad>0 ? (
+            <>
+            <AddToCartButton dataProduct={dataAlbum}/>
+            </>
+          ):(
+            <>
+            <p className="font-md text-magenta-900 dark:text-beige-100 px-3">No disponible.</p>
+            </>
+          )}
         </div>
       </div>
   );

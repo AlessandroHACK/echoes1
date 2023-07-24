@@ -1,45 +1,78 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import axios from "axios";
 import { CartContext } from "@/state/CartContext";
 import { useUser } from "@/hooks/useUser";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Product } from "@/types";
-import { PayPalScriptProvider, PayPalButtons,OnApproveBraintreeData,OnApproveBraintreeActions} from "@paypal/react-paypal-js";
-
+import { ProductCart } from "@/types";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 interface CartProps {
-  cartData: Product[];
+  cartData: ProductCart[];
 }
 
 const CartPage: React.FC<CartProps> = ({ cartData }) => {
-  
   const { clearCart } = useContext(CartContext);
   const searchParams = useSearchParams();
+  const supabase = useSupabaseClient();
   const { user } = useUser();
   const router = useRouter();
   const success = searchParams.get("success") === "true";
   const cancel = searchParams.get("cancel") === "true";
 
-  const handleCheckout = async () => {
-    if (!user) {
-      toast.error("No has iniciado sesión");
-      return router.push("/Login");
+
+  const handleApprove = async (details) => {
+    const { error } = await supabase
+      .from("ordenes")
+      .insert({ id_orden: details?.id, id_usuario: user?.id, status: "Completada.", total: total })
+    if (error){
+      toast.error("Su pago se ha procesado correctamente. Sin embargo, no pudimos registrar su compra. Póngase en contacto con nosotros en echoes@gmail.com para obtener ayuda");
+      return;
     }
 
-    try {
-      const { data } = await axios.post("/api/payment", {
-        customer_id: user.id,
-        customer_email: user.email,
-      });
-      if (!data) return toast.error("Error creating order");
-      router.push(data.session_url);
-    } catch (error) {
-      console.error(error);
+    for (const product of cartData) {
+      console.log(product);
+      const updatedQuantity = product.productos.cantidad - product.cantidad;
+      console.log(updatedQuantity);
+      // Supabase: Actualizar la cantidad en la tabla de productos
+      const { error } = await supabase
+        .from("productos")
+        .update({ cantidad: updatedQuantity })
+        .eq("id_producto", product.id_producto);
+      
+      if (error) {
+        console.log(error);
+      }
     }
+
+    await clearCart(user);
+    toast.success('Tu orden se completó perro')
+    
   };
+
+  const [total, setTotal] = useState<number>(0);
+  useEffect(() => {
+    let cartTotal = 0;
+    cartData.forEach((product) => {
+      cartTotal += product.subtotal || 0;
+    });
+    setTotal(cartTotal);
+  }, [cartData]);
+
+  const getPayPalItems = (): any[] => {
+    return cartData.map((product) => {
+      return {
+        name: product.productos.nombre,
+        unit_amount: {
+          currency_code: "MXN",
+          value: product.precio.toFixed(2),
+        },
+        quantity: product.cantidad.toString(),
+      };
+    });
+  };
+  
 
   useEffect(() => {
     if (success) {
@@ -66,7 +99,7 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
                     className="flex flex-col gap-y-4 dark:text-bone-100"
                   >
                     <div className="flex items-center justify-between">
-                      <p className="font-semibold">{product.nombre}</p>
+                      <p className="font-semibold">{product.productos.nombre}</p>
                       <p className="dark:text-bone-100">
                         {product.cantidad} x ${product.precio}
                       </p>
@@ -95,31 +128,52 @@ const CartPage: React.FC<CartProps> = ({ cartData }) => {
               <span className="font-bold">¡Gracias por tu confianza!</span>
             </div>
 
-         
+
 
             {/* aqui se agra paypal  */}
-            <PayPalScriptProvider options={{ clientId: "AVQQgoBQXvLKFwl2iMFtV5hhEd6WFkkLaEi4ttXbRiWdhA53h_G-nqcoeExJXHiW_g5qgQNv43WQW9vC" }}>
-            <PayPalButtons
+
+            <PayPalScriptProvider
+              options={{ currency: "MXN", clientId: `${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}` }}
+            >
+              <PayPalButtons
                 createOrder={(data, actions) => {
-                    return actions.order.create({
-                        purchase_units: [
-                            {
-                                amount: {
-                                    value: "1.99",
-                                },
+                  return actions.order.create({
+                    purchase_units: [
+                      {
+                        description: "My Purchases",
+                        amount: {
+                          currency_code: "MXN",
+                          value: total.toString(),
+                          breakdown: {
+                            item_total: {
+                              currency_code: "MXN",
+                              value: total.toString()
                             },
-                        ],
-                    });
+                            shipping: {
+                              currency_code: "MXN",
+                              value: "0.00"
+                            },
+                            tax_total: {
+                              currency_code: "MXN",
+                              value: "0.00"
+                            }
+                          }
+                        },
+                        items: getPayPalItems(),
+                      }
+                    ]
+                  });
                 }}
-                onApprove={(data, actions) => {
-                    return actions?.order?.capture().then((details) => {
-                        const name = details?.payer?.name?.given_name;
-                        alert(`Transaction completed by ${name}`);
-                    });
+                onApprove={async (data, actions) => {
+                  const details = await actions?.order?.capture();
+                  handleApprove(details);
+
                 }}
-            />
-        </PayPalScriptProvider>
-       
+                onCancel={() => {
+                  router.push('/Perfil/Cart')
+                }}
+              />
+            </PayPalScriptProvider>
           </div>
         </div>
       </div>
