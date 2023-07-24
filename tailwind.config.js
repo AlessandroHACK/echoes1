@@ -33,8 +33,8 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'image-one': 'url("/img/Echoes-logo-b.png")',
-        'image-two': 'url("/img/Echoes-logo-w.png")',
+          'image-one': 'url("/img/echoeslogo.png")',
+          'image-two': 'url("/img/echoeslogo.png")',
 
       },
     },

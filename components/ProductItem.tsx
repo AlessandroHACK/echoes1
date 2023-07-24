@@ -16,8 +16,7 @@ interface TurntableItemProps {
 const ProductItem: React.FC<TurntableItemProps> = ({
     dataProduct,
 }) => {
-    const logoPath = useLoadProduct(dataProduct);
-    
+
     switch (parseInt(dataProduct.id_tipo)) {
         case 1:
             return (

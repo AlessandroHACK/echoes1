@@ -1,53 +1,60 @@
-"use client"
-
+import { CartContext } from "@/state/CartContext";
+import { useContext, useState } from "react";
+import { RiShoppingCartLine } from "react-icons/ri";
+import Image from "next/image";
 import Link from "next/link";
 import useLoadAlbum from "@/hooks/useLoadAlbum";
 import { Product } from "@/types";
-import Image from "next/image";
-import { RiShoppingCartLine } from "react-icons/ri";
+import { useUser } from "@/hooks/useUser";
+import { useRouter } from "next/navigation";
+import AddToCartButton from "./AddToCartButton";
 
 interface AlbumItemProps {
-    dataAlbum: Product;
-};
-
-const AlbumItem: React.FC<AlbumItemProps> = ({
-    dataAlbum,
-}) => {
-    const logoPath = useLoadAlbum(dataAlbum);
-    return (
-
-        <Link href={`/Vinilos/${dataAlbum.id_producto}`}>
-
-                    <div className="bg-bone-100  dark:bg-chocolate-900 rounded-xl p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 h-auto">
-                        <div className="relative overflow-hidden rounded-xl aspect-square">
-                            <Image
-                                className="object-cover"
-                                src={logoPath || '/images/logoblanco.png'}
-                                fill
-                                alt="Image"
-                            />
-                        </div>
-                        <div className="mt-1 p-2 h-[60px]">
-                            <h2 className="text-chocolate-700 text-md font-bold dark:text-beige-100">
-                                {dataAlbum.nombre}
-                            </h2>
-                            <h2 className="text-chocolate-700 text-sm dark:text-beige-100">
-                                {dataAlbum.artistas.nombre}
-                            </h2>
-                        </div>
-                        <div className="mt-2 flex items-end justify-between">
-                            <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
-                                $ {dataAlbum.precio}
-                            </p>
-                            <div className="flex items-center space-x-1.5 rounded-lg bg-beige-100 dark:text-bone-100 dark:bg-chocolate-100 px-2 py-1.5 text-ash-400 duration-100 hover:bg-chocolate-100 hover:text-bone-100 dark:hover:bg-beige-100 dark:hover:text-chocolate-800">
-                                <RiShoppingCartLine className="relative mr-1 h-4 w-4 " />
-                                <button className="relative text-sm ">Agregar al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </Link>
-    );
+  dataAlbum: Product;
 }
 
-export default AlbumItem;
+const AlbumItem: React.FC<AlbumItemProps> = ({ dataAlbum }) => {
+  const logoPath = useLoadAlbum(dataAlbum);
+    
+
+
+  return (
+    <div className="bg-bone-100 dark:bg-chocolate-900 rounded-xl p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 h-auto">
+        <Link href={`/Vinilos/${dataAlbum.id_producto}`}>
+        <div className="relative overflow-hidden rounded-xl aspect-square">
+          <Image
+            className="object-cover"
+            src={logoPath || "/images/logoblanco.png"}
+            fill
+            alt="Image"
+            />
+        </div>
+            </Link>
+        <div className="mt-1 p-2 h-[60px]">
+          <h2 className="text-chocolate-700 text-md font-bold dark:text-beige-100">
+            {dataAlbum.nombre}
+          </h2>
+          <Link href={`/Artistas/${dataAlbum.artistas.id_artista}`} className="group transition mt-1 text-chocolate-700 text-sm dark:text-beige-100 w-fit">
+            <h1 className="group-hover:scale-110 transition group-hover:translate-x-3 duration-500">{dataAlbum.artistas.nombre}</h1>
+            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-ash-200"></span>
+          </Link>
+        </div>
+        <div className="mt-2 flex items-end justify-between">
+          <p className="text-lg font-bold text-ash-300 dark:text-beige-700">
+            $ {dataAlbum.precio}
+          </p>
+          {dataAlbum.cantidad>0 ? (
+            <>
+            <AddToCartButton dataProduct={dataAlbum}/>
+            </>
+          ):(
+            <>
+            <p className="font-md text-magenta-900 dark:text-beige-100 px-3">No disponible.</p>
+            </>
+          )}
+        </div>
+      </div>
+  );
+};
+
+export default AlbumItem;

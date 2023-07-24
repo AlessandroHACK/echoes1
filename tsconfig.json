@@ -32,7 +32,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, ".next/types/app/Confi/page.tsx"  ],
+<<<<<<< HEAD
+, ".next/types/app/Confi/page.tsx", "components/PayPalCheckout.ts"  ],
+=======
+, ".next/types/app/Confi/page.tsx", "components/CartPage.jsx", "app/api/paypal/page.jsx"  ],
+>>>>>>> d6a5e4da3332de0b14d3c47cf912447f60805230
   "exclude": [
     "node_modules"
   ]

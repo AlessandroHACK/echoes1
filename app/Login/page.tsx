@@ -29,11 +29,14 @@ const Login = () => {
         password,
       })
       if (supabaseError) {
-        toast.error(supabaseError.message)
+        toast.error('Las credenciales son incorrectas o no se encontró una cuenta.')
         return;
+      }else{
+
+        toast.success('Sesión iniciada.')
       }
-      toast.success('Sesión iniciada.')
       router.push('/');
+      router.refresh();
     }
     catch (error) {
       console.log(error);
@@ -47,7 +50,7 @@ const Login = () => {
   return (
     <div>
 
-      <div className="min-h-screen flex items-center justify-center bg-mainbg bg-cover">
+      <div className="min-h-screen flex items-center justify-center">
         <title>Echoes - Login</title>
         <div className="bg-bone-100 dark:bg-chocolate-900 shadow-md rounded-md px-6 py-8 w-80">
         <Link href={'/'} className="flex items-center justify-center">
@@ -96,15 +99,15 @@ const Login = () => {
             </button>
           </form>
           <div className="mt-4 text-center">
-            <p className=" dark:text-bone-100">
+            <p className="text-zinc-900 dark:text-bone-100">
               ¿No tienes cuenta?{" "}
               <Link href="/Register" className="dark:text-beige-900 text-chocolate-100">
                 Crear cuenta
               </Link>
             </p>
-            <p className=" dark: text-bone-100">
+            <p className="text-zinc-900 dark:text-bone-100">
               ¿Olvidaste tu contraseña?{" "}
-              <Link href="/Perfil/PasswordRecovery" className="dark:text-beige-900 text-chocolate-100">
+              <Link href="/PasswordRecovery" className="dark:text-beige-900 text-chocolate-100">
                 Recuperar contraseña
               </Link>
             </p>

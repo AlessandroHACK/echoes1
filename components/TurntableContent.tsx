@@ -12,7 +12,7 @@ const AlbumContent: React.FC<TurntableContentProps>= ({
 }) => {
     if(turntables.length === 0){
         return(
-            <div className="mt-4 text-neutral-400">No hay empresas o no tienes acceso a verlas.</div>
+            <div className="mt-4 text-neutral-400 text-magenta-900 dark:text-bone-100">Parece que no hay nada aquí, vuelve más tarde.</div>
         )
     }
     return ( 

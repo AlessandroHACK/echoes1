@@ -21,7 +21,7 @@ const AlbumContent: React.FC<AlbumContentProps>= ({
         grid-cols-1
         sm:grid-cols-3
         md:grid-cols-3
-        lg:grid-cols-4
+        lg:grid-cols-3
         xl:grid-cols-4
         2xl:grid-cols-4
         gap-12

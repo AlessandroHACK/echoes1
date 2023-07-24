@@ -4,6 +4,7 @@ export interface UserDetails {
     payment_method: string;
     full_name?: string;
     avatar_url: string;
+    length: number;
 
 };
 
@@ -12,7 +13,7 @@ export interface Album {
     nombre: string;
     precio: string;
     imagen_path: string;
-    lanzamiento: Date;
+    lanzamiento: string;
     tamano: string;
     cantidad: string;
     artistas: Artist;
@@ -37,18 +38,36 @@ export interface Accesory {
     cantidad: string;
 }
 
+
+
 export interface Product {
     id_producto: string;
     nombre: string;
-    precio: string;
+    precio: number;
     id_tipo: string;
     imagen_path: string;
     artistas: Artist;
-    lanzamiento: Date;
+    lanzamiento: string;
     marcas: Brand;
     tamano: string;
-    cantidad: string;
+    cantidad: number;
+    subtotal: number;
     descripcion: string;
+    tracklist: Tracklist[];
+}
+export interface ProductCart {
+    id_producto: string;
+    productos: Product;
+    precio: number;
+    cantidad: number;
+    subtotal: number;
+
+}
+
+export interface Tracklist{
+    id: string;
+    titulo: string;
+    duracion: string;
 }
 
 export interface Artist {
@@ -56,7 +75,7 @@ export interface Artist {
     nombre: string;
     descripcion: string;
     artista_path: string;
-    productos: Album[];
+    productos: Product[];
     albums?: number;
     stock?: string;
 }
@@ -66,7 +85,7 @@ export interface Brand{
     nombre?: string;
     descripcion: string;
     logo_path: string;
-    productos: Turntable[];
+    productos: Product[];
     turntables?: number;
     stock?: string;
 }

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Tornamesa = () => {
     return (
-        <div className="relative overflow-hidden rounded-xl aspect-auto w-full h-full">
+        <div className="relative overflow-hidden rounded-xl aspect-square lg:aspect-auto w-full h-full">
             <Image
                 className="object-cover"
                 src="/img/Inicio/Tornamesa.jpeg"

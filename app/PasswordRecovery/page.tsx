@@ -18,17 +18,15 @@ const PasswordRecovery = () => {
 
     try {
       const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
-        redirectTo: `${
-          new URL(location.href).origin
-        }/auth/callback?next=/Perfil/PasswordReset`,
+        redirectTo: `https://echoes-opal.vercel.app/Perfil/PasswordReset`,
       });
         if(error)
-        toast.error(error.message)
+        toast.error('Hubo un error en el envío.')
         else
         toast.success('Correo enviado')
       }
     catch(error){
-      toast.error(error.message)
+      toast.error('Hubo un error en el envío.')
     }
       
 

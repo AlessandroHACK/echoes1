@@ -2,6 +2,7 @@
 import { Product } from "@/types";
 import useLoadTurntable from "@/hooks/useLoadTurntable"
 import Image from "next/image";
+import AddToCartButton from "./AddToCartButton";
 
 interface TurntableItemProps {
     turntable: Product;
@@ -26,7 +27,7 @@ const TurntableInfo: React.FC<TurntableItemProps> = ({turntable}) => {
         <div className="flex mt-6 items-center pb-5 border-b-2 border-chocolate-200 dark:border-beige-200 mb-5">
           <div className="flex flex-col">
             <h2 className="font-bold dark:text-bone-200">Disponibles: </h2>
-            {turntable.cantidad == '1' ? (
+            {turntable.cantidad == 1 ? (
                 <p className="dark:text-beige-600">{turntable.cantidad} pieza.</p>
             ):(
                 <p className="dark:text-beige-600">{turntable.cantidad} piezas.</p>
@@ -36,7 +37,9 @@ const TurntableInfo: React.FC<TurntableItemProps> = ({turntable}) => {
         </div>
         <div className="flex">
           <span className="title-font font-medium text-2xl text-gray-900 dark:text-zinc-50">${turntable.precio}</span>
-          <button className="flex ml-auto text-zinc-50 dark:text-chocolate-900 hover:dark:text-bone-100 dark:bg-beige-200 bg-ash-300 hover:bg-beige-800 border-0 py-2 px-6 focus:outline-none hover:scale-110 transition hover:bg-red-600 rounded">Agregar al carrito</button>
+          <div className="flex ml-auto">
+                <AddToCartButton dataProduct={turntable}/>
+                </div>
           
         </div>
       </div>

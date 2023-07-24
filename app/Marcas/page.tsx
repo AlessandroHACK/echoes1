@@ -11,10 +11,15 @@ export default async function Home() {
   return (
     <div>
         
-        <Carousels/>
-        <h1 className="text-center color-black mt-5">Lo más reciente </h1>
-        <div className="p-10">
+
+        <div className="px-10 lg:px-20 py-10">
+
+        <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100">
+        Conoce la calidad de marcas con los que colaboramos.</h1>
+        <div className="mt-5">
+
         <BrandContent brands={brands}></BrandContent>
+        </div>
         </div>
     </div>
   );

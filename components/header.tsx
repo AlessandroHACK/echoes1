@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -16,16 +16,36 @@ import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useUser } from '@/hooks/useUser';
 import useLoadUser from '@/hooks/useLoadUser';
 import {toast} from "react-hot-toast"
+import { useContext } from "react"; // Remove duplicate import
+import { CartContext } from "@/state/CartContext";
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { UserDetails } from '@/types';
+
 
 interface HeaderProps {
-  children: React.ReactNode;
+  user: UserDetails;
 }
 
-const Header: React.FC<HeaderProps> = ({ children }) => {
-  const user= useUser();
-  const userPath = useLoadUser(user.userDetails);
-
+const Header: React.FC<HeaderProps> = ({ user }) => {
+  const supabase = createClientComponentClient();
+  const userPath = useLoadUser(user);
   const router = useRouter();
+  
+  if(user){
+    useEffect(() => {
+      const channel = supabase
+        .channel('*')
+        .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'users' }, () =>
+          {router.refresh()}
+        )
+        .subscribe()
+  
+      return () => {
+        supabase.removeChannel(channel)
+      }
+    }, [supabase, router])
+  }
+  
   const supabaseClient = useSupabaseClient();
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
@@ -43,13 +63,13 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-black">
+
       <div className="bg-beige-100 dark:bg-chocolate-900">
-      {user.userDetails !== null ? (
+      {user.length !== 0 ? (
         <Navbar expand="lg">
           <Container fluid>
             <Link href={'/'} >
-              <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover'>
+              <div className='bg-image-one dark:bg-image-two h-[60px] w-[205px] bg-cover'>
               </div>
             </Link>
 
@@ -60,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Link href="/" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
+                <Link href="/" className=' text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
                   Inicio
                 </Link>
                 <Link href="/Ayuda" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
@@ -68,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
                 </Link>
                 <NavDropdown
                   title={
-                    <span className='text-chocolate-900 dark:text-bone-100'>Categorías</span>
+                    <span className='text-chocolate-900 dark:text-bone-100'>Productos</span>
                   }
                 >
                   <NavDropdown.Item className='hover:bg-chocolate-100/30'>
@@ -81,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
                       Tornamesas
                     </Link>
                   </NavDropdown.Item>
-                  <NavDropdown.Divider className='hover:bg-chocolate-100/30' />
+                  
                   <NavDropdown.Item className='hover:bg-chocolate-100/30'>
                     <Link href="/Accesorios">
                       Accesorios
@@ -89,13 +109,14 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                <Link href="/Carrito" className="flex items-center ">
+                <Link href="/Perfil/Cart" className="flex items-center ">
                   <RiShoppingCartLine className="mr-1 h-6 w-6 text-zinc-950 dark:text-bone-100" />
+                  
                 </Link>
               </Nav>
               <div className="lg:mx-[30px] sm:mx-0 lg:mt-0 sm:mt-3 w-[40px] relative mt-6">
                 <div className="relative">
-                  {user.userDetails?.avatar_url !== null ? (
+                  {user.avatar_url !== null ? (
                     <div className="w-[40px] h-[40px] aspect-square overflow-hidden">
                       <Image
                         onClick={() => setOpen(!open)}
@@ -143,7 +164,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
           <Navbar expand="lg" >
             <Container fluid>
               <Link href={'/'}>
-                <div className='bg-image-one dark:bg-image-two h-[55px] w-[195px] bg-cover cursor-pointer'>
+                <div className='bg-image-one dark:bg-image-two h-[60px] w-[205px] bg-cover cursor-pointer'>
 
                 </div>
               </Link>
@@ -162,7 +183,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
                   </Link>
                   <NavDropdown
                     title={
-                      <span className='text-chocolate-900 dark:text-bone-100'>Categorías</span>
+                      <span className='text-chocolate-900 dark:text-bone-100'>Productos</span>
                     }
                   >
                     <NavDropdown.Item className='hover:bg-chocolate-100/30'>
@@ -175,7 +196,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
                         Tornamesas
                       </Link>
                     </NavDropdown.Item>
-                    <NavDropdown.Divider style={{ backgroundColor: "black" }} />
+                    
                     <NavDropdown.Item className='hover:bg-chocolate-100/30'>
                       <Link href="/Accesorios">
                         Accesorios
@@ -194,10 +215,7 @@ const Header: React.FC<HeaderProps> = ({ children }) => {
         </>
       )}
     </div>
-    <div>
-      {children}
-    </div>
-    </div>
+
   );
 };
 

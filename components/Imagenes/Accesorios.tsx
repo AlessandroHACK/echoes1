@@ -3,7 +3,8 @@ import Image from "next/image";
 
 const Accesorios = () => {
     return (
-        <div className="relative overflow-hidden rounded-xl aspect-auto w-full h-full">
+        <div className="relative overflow-hidden rounded-xl  aspect-square lg:aspect-auto w-full h-full">
+
             <Image
                 className="object-cover"
                 src="/img/Inicio/Accesorios.jpeg"
@@ -15,3 +16,4 @@ const Accesorios = () => {
 }
 
 export default Accesorios;
+
