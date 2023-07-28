@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { RiSettings4Line, RiUserLine } from "react-icons/ri";
-import {GoCreditCard} from 'react-icons/go';
-import {BsBoxSeam} from 'react-icons/bs';
-import {UserDetails} from '@/types';
+import { GoCreditCard } from 'react-icons/go';
+import { BsBoxSeam } from 'react-icons/bs';
+import { UserDetails } from '@/types';
 import { useUser } from "@/hooks/useUser";
 
 import Link from "next/link";
@@ -13,33 +13,43 @@ import Image from "next/image";
 import useLoadUser from "@/hooks/useLoadUser";
 
 interface UserItemProps {
-  userDetails : UserDetails
+  userDetails: UserDetails
 };
 
-const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
+const PerfilContent: React.FC<UserItemProps> = ({ userDetails }) => {
 
   const userPath = useLoadUser(userDetails);
-  
+
 
 
   return (
-    <div className="md:min-h-[480px] justify-center items-center">
-      <div className="w-full p-5">
-        <h1 className="text-4xl text-center font-bold text-chocolate-900 dark:text-beige-200">
-          Mi perfil
-        </h1>
+    <div className="">
+      <div className=" h-full my-auto">
+        {userDetails.full_name != null ? (
+          <>
+            <h1 className="text-4xl text-center font-bold text-chocolate-900 dark:text-beige-200">
+              ¡Hola, {userDetails.full_name}!
+            </h1>
+          </>
+        ) : (
+          <>
+            <h1 className="text-4xl text-center font-bold text-chocolate-900 dark:text-beige-200">
+              ¡Bienvenid@! Completa tu perfil
+            </h1>
+          </>
+        )}
 
         <div className=" flex justify-center items-center mt-3">
           {userDetails.avatar_url !== null ? (
             <div className="relative overflow-hidden w-[150px] aspect-square">
               <Image
-            fill
-            alt="Foto de perfil"
-            src={userPath || '/images/logoblanco.png'}
-            className="foto-perfil rounded-full dark:border dark:border-beige-100 border-2"
-          />
+                fill
+                alt="Foto de perfil"
+                src={userPath || '/images/logoblanco.png'}
+                className="foto-perfil rounded-full dark:border dark:border-beige-100 border-2"
+              />
             </div>
-          ):(
+          ) : (
             <div className="w-[150px] h-[150px] rounded-full bg-gray-300 flex items-center justify-center">
               <RiUserLine className="w-[140px] h-[140px] text-gray-400" />
             </div>
@@ -67,7 +77,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
             <Link href="/Perfil/Pedidos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
-                  <BsBoxSeam className="w-full h-full dark:text-beige-200 text-zinc-950"/>
+                  <BsBoxSeam className="w-full h-full dark:text-beige-200 text-zinc-950" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Mis pedidos</h3>
@@ -81,7 +91,7 @@ const PerfilContent: React.FC<UserItemProps> = ({userDetails}) => {
             <Link href="/Perfil/Pagos">
               <div className="flex items-center">
                 <div className="w-16 h-16 mr-4">
-                 <GoCreditCard className="w-full h-full dark:text-beige-200 text-zinc-950"/>
+                  <GoCreditCard className="w-full h-full dark:text-beige-200 text-zinc-950" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold">Pagos</h3>

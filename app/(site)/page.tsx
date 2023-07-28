@@ -38,13 +38,13 @@ const Home = async ({ searchParams,
   }
 
   return (
-    <div className="">
+    <div className="lg:min-h-screen">
       <Carousels />
 
-      <div className="bg-chocolate-900 p-5 lg:p-10 xl:p-15">
-        <div className="grid grid-cols-6 gap-6 place-items-center">
+      <div className="bg-beige-100/50 dark:bg-chocolate-900 p-5 lg:p-10 xl:p-15">
+        <div className="grid gap-x-3 md:gap-x-4 grid-cols-6 lg:gap-x-6 place-items-center">
           <div className="col-start-1 col-span-2">
-            <h1 className="text-left text-2xl lg:text-5xl font-semi-bold text-chocolate-900 dark:text-bone-100">
+            <h1 className="text-left text-md md:text-lg lg:text-xl xg:text-2xl font-semi-bold text-chocolate-900 dark:text-bone-100">
               Revive el Sonido Clásico: Tu Destino Musical en Vinilos y Tornamesas</h1>
           </div>
           <div className="col-start-3 col-span-7">
@@ -60,7 +60,7 @@ const Home = async ({ searchParams,
 
       <div className="mt-10">
         <h2 className="text-center text-4xl font-semi-bold text-chocolate-900 dark:text-bone-100 ">
-          ¿ Qué productos ofrecemos ?
+          ¿Qué productos ofrecemos?
         </h2>
       </div>
 

@@ -37,12 +37,11 @@ const Home = async ({ searchParams,
   }
 
   return (
-    <div >
-      <Carousels />
-      <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100 mt-5">
-        Revive el Sonido Clásico: Tu Destino Musical en Vinilos y Tornamesas</h1>
+    <div className=" lg:min-h-screen">
+      <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100 mt-5 p-3">
+        Disfruta la mejor calidad análoga con tornamesas de marcas reconocidas en el mundo.</h1>
       
-      <div className="px-10 lg:px-20 py-10">
+      <div className="p-5 lg:p-10 xl:p-15">
         <div className="text-lg my-2 font-medium dark:text-beige-200">
         <p className=" text-center">Busca alguna tornamesa, seguro la tenemos.</p>
         </div>

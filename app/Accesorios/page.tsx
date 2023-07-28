@@ -37,11 +37,11 @@ const Home = async ({ searchParams,
   }
 
   return (
-    <div className="h-auto min-h-full">
-      <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100 mt-5">
+    <div className="lg:min-h-screen ">
+      <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100 mt-5 p-3">
         Cuida y disfruta de tu colección con estos productos</h1>
       
-      <div className="px-10 lg:px-20 py-10">
+      <div className="p-5 lg:p-10 xl:p-15">
         <div className="text-lg my-2 font-medium dark:text-beige-200">
         <p className=" text-center">Busca algún accesorio, seguro lo tenemos.</p>
         </div>

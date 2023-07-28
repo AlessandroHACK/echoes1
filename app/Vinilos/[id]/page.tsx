@@ -6,7 +6,7 @@ export default async function AlbumPage({ params }: any) {
     const album = await getAlbum(params.id);
 
     return (
-        <div className="px-10 lg:px-24 py-10 min-h-screen">
+        <div className="flex items-center p-5 md:p-10 lg:p-5 lg:ml-10 xl:p-20 lg:min-h-screen">
             <AlbumInfo album={album}/>
         </div>
     );

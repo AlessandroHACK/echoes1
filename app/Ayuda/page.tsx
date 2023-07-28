@@ -10,7 +10,7 @@ const Ayuda = () => {
 
   return (
 
-    <div className="md:w-1/2 mx-auto min-h-screen p-5 place-items-center">
+    <div className="md:w-1/2 mx-auto min-h-screen flex flex-col gap-x-3 items-center justify-center p-5">
     <h1 className="text-4xl text-center font-bold text-chocolate-900 dark:text-bone-100">
               ¿En qué puedo ayudarte?
             </h1>

@@ -10,11 +10,11 @@ export default async function Home() {
   const artists = await getArtists();
   return (
         
-        <div className="px-10 lg:px-20 py-10">
+        <div className="lg:min-h-screen">
 
         <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100">
         Encuentra y descubre una gran variedad de artistas.</h1>
-        <div className="mt-5">
+        <div className="p-5 lg:p-10 xl:p-15">
         <ArtistContent artists={artists}></ArtistContent>
         </div>
         </div>

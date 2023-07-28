@@ -22,8 +22,8 @@ export default async function RootLayout({
 }) {
   const user = await getUser();
   return (
-    <html lang="en" className='dark'>
-      <body>
+    <html lang="en" className='dark '>
+      <body className='bg-gray-100 dark:bg-zinc-900'>
         <Providers>
         <ToasterProvider/>
           <SupabaseProvider>
@@ -31,7 +31,7 @@ export default async function RootLayout({
              <CartContextProvider>
              <Suspense fallback={<LoadingScreen />}>
                 
-                <div className=" bg-gray-100 dark:bg-zinc-900">
+                <div className=" ">
                 <Header user={user ?? []}/>
                   {children}
                 </div>

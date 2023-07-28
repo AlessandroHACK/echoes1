@@ -50,13 +50,13 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
     setOpen(!open);
-    router.refresh();
-
+    
     if (error) {
-      toast.error(error.message);
+      toast.error('Hubo un error cerrando sesión.');
     } else {
       toast.success('Sesión cerrada');
     }
+    router.refresh();
   }
 
 
@@ -76,8 +76,8 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
             <Navbar.Collapse id="navbarScroll" className=' text-bone-900 dark:text-bone-100'>
               <Nav
                 className="me-auto my-2 my-lg-0"
-                style={{ maxHeight: "100px" }}
-                navbarScroll
+                style={{ maxHeight: "300px" }}
+                navbar
               >
                 <Link href="/" className=' text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
                   Inicio
@@ -131,7 +131,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                     </div>
                   )}
                   {open && (
-                    <div className="bg-bone-100 dark:bg-chocolate-500 p-1 w-auto shadow-lg absolute left-0 lg:-left-14 mt-4 sm:mt-6 md:mt-0 rounded-md items-center z-10">
+                    <div className="bg-bone-100 dark:bg-chocolate-900 p-1 w-auto shadow-lg absolute left-0 lg:-left-14 mt-4 sm:mt-6 md:mt-0 rounded-md items-center z-10">
                       <ul className="py-2 overflow-y-auto max-h-60 sm:max-h-screen border-black">
                         <li
                           onClick={() => setOpen(false)}
@@ -171,8 +171,8 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
               <Navbar.Collapse id="navbarScroll" className='text-chocolate-900 dark:text-bone-100'>
                 <Nav
                   className="me-auto my-2 my-lg-0"
-                  style={{ maxHeight: '100px' }}
-                  navbarScroll
+                  style={{ maxHeight: '300px' }}
+                  navbar
                 >
                   <Link href="/" className='lg:self-center text-chocolate-900 dark:text-bone-100 py-2 lg:p-3'>
                     Inicio
