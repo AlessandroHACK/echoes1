@@ -1,10 +1,10 @@
 "use client"
 
 import Link from "next/link";
-import useLoadProduct from "@/hooks/useLoadProduct";
-import { Product } from "@/types";
 import Image from "next/image";
+import useLoadProduct from "@/hooks/useLoadProduct";
 import { RiShoppingCartLine } from "react-icons/ri";
+import { Product } from "@/types";
 import AlbumItem from "./AlbumItem";
 import TurntableItem from "./TurntableItem";
 import AccesoryItem from "./AccesoryItem";

@@ -1,3 +1,5 @@
+import Head from 'next/head';
+import './globals.css'
 import '@/styles/junk.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '@/components/Footer';
@@ -7,13 +9,9 @@ import ToasterProvider from '@/providers/ToasterProvider'
 import LoadingScreen from '@/components/loading';
 import { Suspense } from 'react';
 import Providers from '@/components/Providers';
-import Head from 'next/head';
-import './globals.css'
 import CartContextProvider from "@/state/CartContext";
 import getUser from '@/actions/getUser';
 import Header from '@/components/Header';
-
-
 
 export default async function RootLayout({
   children,
