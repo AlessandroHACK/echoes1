@@ -11,7 +11,7 @@ interface Props {
 export const CartContext = createContext<any>(null);
 
 const CartContextProvider = ({ children }: Props) => {
-  const { removeFromCart, addToCart, clearCart } = useCart();
+  const { removeFromCart, addToCart, clearCart, deleteFromCart, addToCartProduct } = useCart();
 
  
 
@@ -21,6 +21,8 @@ const CartContextProvider = ({ children }: Props) => {
     removeFromCart,
     addToCart,
     clearCart,
+    deleteFromCart,
+    addToCartProduct
   };
 
   return (

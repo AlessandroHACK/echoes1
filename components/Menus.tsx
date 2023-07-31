@@ -12,7 +12,7 @@ export const PRODUCTOS = [
   
   export const COMPANY = [
     { name: 'Página de ayuda', link: '/Ayuda' },
-    { name: 'Nosotros', link: '/Nosotros'}
-
+    { name: 'Nosotros', link: '/Nosotros'},
+    { name: 'Privacidad', link: '/Privacidad'}
   ];
   

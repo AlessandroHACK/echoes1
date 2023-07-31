@@ -19,7 +19,6 @@ interface FormProps {
 const ProfileForm: React.FC<FormProps> = ({ userDetails }) => {
   const [isLoading, setIsLoading] = useState(false);
   const supabaseClient = useSupabaseClient();
-  const user = useUser();
   const router = useRouter();
   const userPath = useLoadUser(userDetails);
   const [file, setFile] = useState<File | null>(null);
@@ -54,19 +53,22 @@ const ProfileForm: React.FC<FormProps> = ({ userDetails }) => {
         newname = userDetails.full_name;
       }
       if (file) {
+        console.log(userDetails.avatar_url);
         const { error: imgError } = await supabaseClient
-          .storage.from('usuarios')
-          .remove([`${user.userDetails?.avatar_url}`])
+          .storage
+          .from('usuarios')
+          .remove([`${userDetails?.avatar_url}`,])
         if (imgError) {
           toast.error("Hubo un error cambiando la imagen")
           setIsLoading(false);
           return;
         }
+        
 
         const { data: imageData, error: imageError } = await supabaseClient
           .storage
           .from('usuarios')
-          .upload(`image-${uniqueID}`, file, {
+          .upload(`usuarios/image-${uniqueID}`, file, {
             cacheControl: '3600',
             upsert: false
           });
@@ -90,7 +92,7 @@ const ProfileForm: React.FC<FormProps> = ({ userDetails }) => {
           avatar_url: image,
           full_name: newname,
         })
-        .eq('id', user.userDetails?.id);
+        .eq('id', userDetails?.id);
 
       if (supabaseError) {
         toast.error('Hubo un error actualizando tus datos, por favor vuelve a intentarlo.');

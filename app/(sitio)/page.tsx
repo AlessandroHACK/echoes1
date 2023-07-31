@@ -39,6 +39,7 @@ const Home = async ({ searchParams,
 
   return (
     <div className="lg:min-h-screen">
+      <title>Echoes - Inicio</title>
       <Carousels />
 
       <div className="bg-beige-100/50 dark:bg-chocolate-900 p-5 lg:p-10 xl:p-15">

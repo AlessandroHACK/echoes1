@@ -4,10 +4,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
-import { useUser } from "../../hooks/useUser";
+import { useUser } from "@/hooks/useUser";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from 'react';
-import Loading from '../../components/loading';
+import Loading from '@/components/loading';
 import { toast } from "react-hot-toast"
 
 

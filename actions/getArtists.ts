@@ -1,4 +1,4 @@
-import { Artist } from "../types";
+import { Artist } from "@/types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 

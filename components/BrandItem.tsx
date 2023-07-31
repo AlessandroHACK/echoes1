@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link";
-import useLoadBrand from "../hooks/useLoadBrand";
-import { Brand } from "../types";
+import useLoadBrand from "@/hooks/useLoadBrand";
+import { Brand } from "@/types";
 import Image from "next/image";
 
 interface ArtistItemProps {

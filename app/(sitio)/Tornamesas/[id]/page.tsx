@@ -1,8 +1,12 @@
 import getTurntable from "@/actions/getTurntable";
 import TurntableInfo from "@/components/TurntableInfo";
+import { notFound } from "next/navigation";
 
 export default async function TurntablePage({ params }: any) {
     const turntable = await getTurntable(params.id);
+    if(turntable.nombre==null){
+        notFound();
+    }
 
     return (
         <div className="

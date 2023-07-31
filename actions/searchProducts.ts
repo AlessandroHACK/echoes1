@@ -1,4 +1,4 @@
-import { Product } from "../types";
+import { Product } from "@/types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import searchAlbums from "./searchAlbums";

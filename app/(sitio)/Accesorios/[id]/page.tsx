@@ -1,8 +1,12 @@
 import getAccesory from "@/actions/getAccesory";
 import AccesoryInfo from "@/components/AccesoryInfo";
+import { notFound } from "next/navigation";
 
 export default async function TurntablePage({ params }: any) {
     const accesory = await getAccesory(params.id);
+    if(accesory.nombre==null){
+        notFound();
+    }
 
     return (
         <div className="

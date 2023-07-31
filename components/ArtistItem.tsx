@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link";
-import useLoadArtist from "../hooks/useLoadArtist";
-import { Artist } from "../types";
+import useLoadArtist from "@/hooks/useLoadArtist";
+import { Artist } from "@/types";
 import Image from "next/image";
 
 interface ArtistItemProps {

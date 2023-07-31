@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
-import getBrands from "../../actions/getBrands";
-import Carousels from "../../components/Carousels";
-import BrandContent from "../../components/BrandContent";
+import getBrands from "@/actions/getBrands";
+import Carousels from "@/components/Carousels";
+import BrandContent from "@/components/BrandContent";
 
 const inter = Inter({ subsets: ["latin"] });
 export const revalidate = 10;

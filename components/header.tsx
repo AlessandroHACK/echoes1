@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
   if(user){
     useEffect(() => {
       const channel = supabase
-        .channel('*')
+        .channel('header')
         .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'users' }, () =>
           {router.refresh()}
         )
@@ -72,8 +72,8 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
               </div>
             </Link>
 
-            <Navbar.Toggle aria-controls="navbarScroll" className=' text-chocolate-900 dark:bg-magenta-200 dark:text-bone-100' />
-            <Navbar.Collapse id="navbarScroll" className=' text-bone-900 dark:text-bone-100'>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" className=' text-chocolate-900 dark:bg-magenta-200 dark:text-bone-100' />
+            <Navbar.Collapse id="responsive-navbar-nav" className=' text-bone-900 dark:text-bone-100'>
               <Nav
                 className="me-auto my-2 my-lg-0"
                 style={{ maxHeight: "300px" }}

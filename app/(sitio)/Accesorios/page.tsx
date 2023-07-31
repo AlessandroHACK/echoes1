@@ -38,6 +38,7 @@ const Home = async ({ searchParams,
 
   return (
     <div className="lg:min-h-screen ">
+      <title>Echoes - Accesorios</title>
       <h1 className="text-center text-2xl font-bold text-chocolate-900 dark:text-bone-100 mt-5 p-3">
         Cuida y disfruta de tu colección con estos productos</h1>
       

@@ -2,6 +2,7 @@
 import getUser from "@/actions/getUser";
 import PerfilContent from "./components/PerfilContent";
 
+export const revalidate = 0;
 
 export default async function Perfil () {
   const userDetails = await getUser();
